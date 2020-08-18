@@ -3,8 +3,8 @@
 
 package org.DS.project.EBankGRPC;
 
-public interface valResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:EBankGRPC.valResponse)
+public interface ValResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:EBankGRPC.ValResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

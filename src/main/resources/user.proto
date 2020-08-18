@@ -6,18 +6,18 @@ option java_outer_classname = "UserServiceImpl";
 
 package EBankGRPC;
 
-// Interface exported by the server.
+
 
 service UserService {
-  rpc initialUser(Empty) returns (speakerResp) {}
+  rpc initialUser(Empty) returns (userResp) {}
   
-  rpc changeBalance(valRequest) returns (stream valResponse) {}
+  rpc changeBalance(ValRequest) returns (stream ValResponse) {}
   
-  rpc activeAccount(BooleanReq) returns (valResponse) {}
+  rpc activeAccount(BooleanReq) returns (BooleanRes) {}
   
-  rpc changeAccountType(BooleanReq) returns (BooleanRes) {}
+  rpc changeAccountType(StringRequest) returns (StringResponse) {}
   
-  rpc changeUserName(StringRequest) returns (StringResponse) {}
+  rpc changeAccountName(StringRequest) returns (StringResponse) {}
   
 }
 
@@ -41,16 +41,15 @@ message BooleanRes {
 	bool msg = 2;
 }
 
-message valRequest {
+message ValRequest {
   int32 length = 3;
 }
-message valResponse {
+message ValResponse {
   int32 length = 3;
 }
-message speakerResp{
+message userResp{
 	string aname = 4;
 	string atype = 5;
 	int32 abalance = 6;
-	bool aaccount = 7;
 	
 }

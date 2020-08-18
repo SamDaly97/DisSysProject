@@ -28,21 +28,21 @@ public final class UserServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty,
-      org.DS.project.EBankGRPC.speakerResp> getInitialUserMethod;
+      org.DS.project.EBankGRPC.userResp> getInitialUserMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "initialUser",
       requestType = org.DS.project.EBankGRPC.Empty.class,
-      responseType = org.DS.project.EBankGRPC.speakerResp.class,
+      responseType = org.DS.project.EBankGRPC.userResp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty,
-      org.DS.project.EBankGRPC.speakerResp> getInitialUserMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.speakerResp> getInitialUserMethod;
+      org.DS.project.EBankGRPC.userResp> getInitialUserMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.userResp> getInitialUserMethod;
     if ((getInitialUserMethod = UserServiceGrpc.getInitialUserMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getInitialUserMethod = UserServiceGrpc.getInitialUserMethod) == null) {
           UserServiceGrpc.getInitialUserMethod = getInitialUserMethod = 
-              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.speakerResp>newBuilder()
+              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.userResp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "EBankGRPC.UserService", "initialUser"))
@@ -50,7 +50,7 @@ public final class UserServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.speakerResp.getDefaultInstance()))
+                  org.DS.project.EBankGRPC.userResp.getDefaultInstance()))
                   .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("initialUser"))
                   .build();
           }
@@ -59,30 +59,30 @@ public final class UserServiceGrpc {
      return getInitialUserMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.valRequest,
-      org.DS.project.EBankGRPC.valResponse> getChangeBalanceMethod;
+  private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest,
+      org.DS.project.EBankGRPC.ValResponse> getChangeBalanceMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "changeBalance",
-      requestType = org.DS.project.EBankGRPC.valRequest.class,
-      responseType = org.DS.project.EBankGRPC.valResponse.class,
+      requestType = org.DS.project.EBankGRPC.ValRequest.class,
+      responseType = org.DS.project.EBankGRPC.ValResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.valRequest,
-      org.DS.project.EBankGRPC.valResponse> getChangeBalanceMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.valRequest, org.DS.project.EBankGRPC.valResponse> getChangeBalanceMethod;
+  public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest,
+      org.DS.project.EBankGRPC.ValResponse> getChangeBalanceMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest, org.DS.project.EBankGRPC.ValResponse> getChangeBalanceMethod;
     if ((getChangeBalanceMethod = UserServiceGrpc.getChangeBalanceMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getChangeBalanceMethod = UserServiceGrpc.getChangeBalanceMethod) == null) {
           UserServiceGrpc.getChangeBalanceMethod = getChangeBalanceMethod = 
-              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.valRequest, org.DS.project.EBankGRPC.valResponse>newBuilder()
+              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.ValRequest, org.DS.project.EBankGRPC.ValResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "EBankGRPC.UserService", "changeBalance"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.valRequest.getDefaultInstance()))
+                  org.DS.project.EBankGRPC.ValRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.valResponse.getDefaultInstance()))
+                  org.DS.project.EBankGRPC.ValResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changeBalance"))
                   .build();
           }
@@ -92,21 +92,21 @@ public final class UserServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
-      org.DS.project.EBankGRPC.valResponse> getActiveAccountMethod;
+      org.DS.project.EBankGRPC.BooleanRes> getActiveAccountMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "activeAccount",
       requestType = org.DS.project.EBankGRPC.BooleanReq.class,
-      responseType = org.DS.project.EBankGRPC.valResponse.class,
+      responseType = org.DS.project.EBankGRPC.BooleanRes.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
-      org.DS.project.EBankGRPC.valResponse> getActiveAccountMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.valResponse> getActiveAccountMethod;
+      org.DS.project.EBankGRPC.BooleanRes> getActiveAccountMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes> getActiveAccountMethod;
     if ((getActiveAccountMethod = UserServiceGrpc.getActiveAccountMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getActiveAccountMethod = UserServiceGrpc.getActiveAccountMethod) == null) {
           UserServiceGrpc.getActiveAccountMethod = getActiveAccountMethod = 
-              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.valResponse>newBuilder()
+              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "EBankGRPC.UserService", "activeAccount"))
@@ -114,7 +114,7 @@ public final class UserServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.BooleanReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.valResponse.getDefaultInstance()))
+                  org.DS.project.EBankGRPC.BooleanRes.getDefaultInstance()))
                   .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("activeAccount"))
                   .build();
           }
@@ -123,30 +123,30 @@ public final class UserServiceGrpc {
      return getActiveAccountMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
-      org.DS.project.EBankGRPC.BooleanRes> getChangeAccountTypeMethod;
+  private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
+      org.DS.project.EBankGRPC.StringResponse> getChangeAccountTypeMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "changeAccountType",
-      requestType = org.DS.project.EBankGRPC.BooleanReq.class,
-      responseType = org.DS.project.EBankGRPC.BooleanRes.class,
+      requestType = org.DS.project.EBankGRPC.StringRequest.class,
+      responseType = org.DS.project.EBankGRPC.StringResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
-      org.DS.project.EBankGRPC.BooleanRes> getChangeAccountTypeMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes> getChangeAccountTypeMethod;
+  public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
+      org.DS.project.EBankGRPC.StringResponse> getChangeAccountTypeMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse> getChangeAccountTypeMethod;
     if ((getChangeAccountTypeMethod = UserServiceGrpc.getChangeAccountTypeMethod) == null) {
       synchronized (UserServiceGrpc.class) {
         if ((getChangeAccountTypeMethod = UserServiceGrpc.getChangeAccountTypeMethod) == null) {
           UserServiceGrpc.getChangeAccountTypeMethod = getChangeAccountTypeMethod = 
-              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes>newBuilder()
+              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "EBankGRPC.UserService", "changeAccountType"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.BooleanReq.getDefaultInstance()))
+                  org.DS.project.EBankGRPC.StringRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.BooleanRes.getDefaultInstance()))
+                  org.DS.project.EBankGRPC.StringResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changeAccountType"))
                   .build();
           }
@@ -156,35 +156,35 @@ public final class UserServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
-      org.DS.project.EBankGRPC.StringResponse> getChangeUserNameMethod;
+      org.DS.project.EBankGRPC.StringResponse> getChangeAccountNameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "changeUserName",
+      fullMethodName = SERVICE_NAME + '/' + "changeAccountName",
       requestType = org.DS.project.EBankGRPC.StringRequest.class,
       responseType = org.DS.project.EBankGRPC.StringResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
-      org.DS.project.EBankGRPC.StringResponse> getChangeUserNameMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse> getChangeUserNameMethod;
-    if ((getChangeUserNameMethod = UserServiceGrpc.getChangeUserNameMethod) == null) {
+      org.DS.project.EBankGRPC.StringResponse> getChangeAccountNameMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse> getChangeAccountNameMethod;
+    if ((getChangeAccountNameMethod = UserServiceGrpc.getChangeAccountNameMethod) == null) {
       synchronized (UserServiceGrpc.class) {
-        if ((getChangeUserNameMethod = UserServiceGrpc.getChangeUserNameMethod) == null) {
-          UserServiceGrpc.getChangeUserNameMethod = getChangeUserNameMethod = 
+        if ((getChangeAccountNameMethod = UserServiceGrpc.getChangeAccountNameMethod) == null) {
+          UserServiceGrpc.getChangeAccountNameMethod = getChangeAccountNameMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.UserService", "changeUserName"))
+                  "EBankGRPC.UserService", "changeAccountName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.StringRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.StringResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changeUserName"))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changeAccountName"))
                   .build();
           }
         }
      }
-     return getChangeUserNameMethod;
+     return getChangeAccountNameMethod;
   }
 
   /**
@@ -217,36 +217,36 @@ public final class UserServiceGrpc {
     /**
      */
     public void initialUser(org.DS.project.EBankGRPC.Empty request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.speakerResp> responseObserver) {
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.userResp> responseObserver) {
       asyncUnimplementedUnaryCall(getInitialUserMethod(), responseObserver);
     }
 
     /**
      */
-    public void changeBalance(org.DS.project.EBankGRPC.valRequest request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse> responseObserver) {
+    public void changeBalance(org.DS.project.EBankGRPC.ValRequest request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getChangeBalanceMethod(), responseObserver);
     }
 
     /**
      */
     public void activeAccount(org.DS.project.EBankGRPC.BooleanReq request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes> responseObserver) {
       asyncUnimplementedUnaryCall(getActiveAccountMethod(), responseObserver);
     }
 
     /**
      */
-    public void changeAccountType(org.DS.project.EBankGRPC.BooleanReq request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes> responseObserver) {
+    public void changeAccountType(org.DS.project.EBankGRPC.StringRequest request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getChangeAccountTypeMethod(), responseObserver);
     }
 
     /**
      */
-    public void changeUserName(org.DS.project.EBankGRPC.StringRequest request,
+    public void changeAccountName(org.DS.project.EBankGRPC.StringRequest request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getChangeUserNameMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getChangeAccountNameMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -256,36 +256,36 @@ public final class UserServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 org.DS.project.EBankGRPC.Empty,
-                org.DS.project.EBankGRPC.speakerResp>(
+                org.DS.project.EBankGRPC.userResp>(
                   this, METHODID_INITIAL_USER)))
           .addMethod(
             getChangeBalanceMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                org.DS.project.EBankGRPC.valRequest,
-                org.DS.project.EBankGRPC.valResponse>(
+                org.DS.project.EBankGRPC.ValRequest,
+                org.DS.project.EBankGRPC.ValResponse>(
                   this, METHODID_CHANGE_BALANCE)))
           .addMethod(
             getActiveAccountMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.DS.project.EBankGRPC.BooleanReq,
-                org.DS.project.EBankGRPC.valResponse>(
+                org.DS.project.EBankGRPC.BooleanRes>(
                   this, METHODID_ACTIVE_ACCOUNT)))
           .addMethod(
             getChangeAccountTypeMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.DS.project.EBankGRPC.BooleanReq,
-                org.DS.project.EBankGRPC.BooleanRes>(
+                org.DS.project.EBankGRPC.StringRequest,
+                org.DS.project.EBankGRPC.StringResponse>(
                   this, METHODID_CHANGE_ACCOUNT_TYPE)))
           .addMethod(
-            getChangeUserNameMethod(),
+            getChangeAccountNameMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.DS.project.EBankGRPC.StringRequest,
                 org.DS.project.EBankGRPC.StringResponse>(
-                  this, METHODID_CHANGE_USER_NAME)))
+                  this, METHODID_CHANGE_ACCOUNT_NAME)))
           .build();
     }
   }
@@ -311,15 +311,15 @@ public final class UserServiceGrpc {
     /**
      */
     public void initialUser(org.DS.project.EBankGRPC.Empty request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.speakerResp> responseObserver) {
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.userResp> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getInitialUserMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void changeBalance(org.DS.project.EBankGRPC.valRequest request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse> responseObserver) {
+    public void changeBalance(org.DS.project.EBankGRPC.ValRequest request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getChangeBalanceMethod(), getCallOptions()), request, responseObserver);
     }
@@ -327,25 +327,25 @@ public final class UserServiceGrpc {
     /**
      */
     public void activeAccount(org.DS.project.EBankGRPC.BooleanReq request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getActiveAccountMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void changeAccountType(org.DS.project.EBankGRPC.BooleanReq request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes> responseObserver) {
+    public void changeAccountType(org.DS.project.EBankGRPC.StringRequest request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getChangeAccountTypeMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void changeUserName(org.DS.project.EBankGRPC.StringRequest request,
+    public void changeAccountName(org.DS.project.EBankGRPC.StringRequest request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getChangeUserNameMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getChangeAccountNameMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -369,38 +369,38 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public org.DS.project.EBankGRPC.speakerResp initialUser(org.DS.project.EBankGRPC.Empty request) {
+    public org.DS.project.EBankGRPC.userResp initialUser(org.DS.project.EBankGRPC.Empty request) {
       return blockingUnaryCall(
           getChannel(), getInitialUserMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public java.util.Iterator<org.DS.project.EBankGRPC.valResponse> changeBalance(
-        org.DS.project.EBankGRPC.valRequest request) {
+    public java.util.Iterator<org.DS.project.EBankGRPC.ValResponse> changeBalance(
+        org.DS.project.EBankGRPC.ValRequest request) {
       return blockingServerStreamingCall(
           getChannel(), getChangeBalanceMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.DS.project.EBankGRPC.valResponse activeAccount(org.DS.project.EBankGRPC.BooleanReq request) {
+    public org.DS.project.EBankGRPC.BooleanRes activeAccount(org.DS.project.EBankGRPC.BooleanReq request) {
       return blockingUnaryCall(
           getChannel(), getActiveAccountMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.DS.project.EBankGRPC.BooleanRes changeAccountType(org.DS.project.EBankGRPC.BooleanReq request) {
+    public org.DS.project.EBankGRPC.StringResponse changeAccountType(org.DS.project.EBankGRPC.StringRequest request) {
       return blockingUnaryCall(
           getChannel(), getChangeAccountTypeMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.DS.project.EBankGRPC.StringResponse changeUserName(org.DS.project.EBankGRPC.StringRequest request) {
+    public org.DS.project.EBankGRPC.StringResponse changeAccountName(org.DS.project.EBankGRPC.StringRequest request) {
       return blockingUnaryCall(
-          getChannel(), getChangeUserNameMethod(), getCallOptions(), request);
+          getChannel(), getChangeAccountNameMethod(), getCallOptions(), request);
     }
   }
 
@@ -424,7 +424,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.speakerResp> initialUser(
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.userResp> initialUser(
         org.DS.project.EBankGRPC.Empty request) {
       return futureUnaryCall(
           getChannel().newCall(getInitialUserMethod(), getCallOptions()), request);
@@ -432,7 +432,7 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.valResponse> activeAccount(
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.BooleanRes> activeAccount(
         org.DS.project.EBankGRPC.BooleanReq request) {
       return futureUnaryCall(
           getChannel().newCall(getActiveAccountMethod(), getCallOptions()), request);
@@ -440,18 +440,18 @@ public final class UserServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.BooleanRes> changeAccountType(
-        org.DS.project.EBankGRPC.BooleanReq request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.StringResponse> changeAccountType(
+        org.DS.project.EBankGRPC.StringRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getChangeAccountTypeMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.StringResponse> changeUserName(
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.StringResponse> changeAccountName(
         org.DS.project.EBankGRPC.StringRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getChangeUserNameMethod(), getCallOptions()), request);
+          getChannel().newCall(getChangeAccountNameMethod(), getCallOptions()), request);
     }
   }
 
@@ -459,7 +459,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_CHANGE_BALANCE = 1;
   private static final int METHODID_ACTIVE_ACCOUNT = 2;
   private static final int METHODID_CHANGE_ACCOUNT_TYPE = 3;
-  private static final int METHODID_CHANGE_USER_NAME = 4;
+  private static final int METHODID_CHANGE_ACCOUNT_NAME = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -480,22 +480,22 @@ public final class UserServiceGrpc {
       switch (methodId) {
         case METHODID_INITIAL_USER:
           serviceImpl.initialUser((org.DS.project.EBankGRPC.Empty) request,
-              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.speakerResp>) responseObserver);
+              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.userResp>) responseObserver);
           break;
         case METHODID_CHANGE_BALANCE:
-          serviceImpl.changeBalance((org.DS.project.EBankGRPC.valRequest) request,
-              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse>) responseObserver);
+          serviceImpl.changeBalance((org.DS.project.EBankGRPC.ValRequest) request,
+              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse>) responseObserver);
           break;
         case METHODID_ACTIVE_ACCOUNT:
           serviceImpl.activeAccount((org.DS.project.EBankGRPC.BooleanReq) request,
-              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse>) responseObserver);
-          break;
-        case METHODID_CHANGE_ACCOUNT_TYPE:
-          serviceImpl.changeAccountType((org.DS.project.EBankGRPC.BooleanReq) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes>) responseObserver);
           break;
-        case METHODID_CHANGE_USER_NAME:
-          serviceImpl.changeUserName((org.DS.project.EBankGRPC.StringRequest) request,
+        case METHODID_CHANGE_ACCOUNT_TYPE:
+          serviceImpl.changeAccountType((org.DS.project.EBankGRPC.StringRequest) request,
+              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse>) responseObserver);
+          break;
+        case METHODID_CHANGE_ACCOUNT_NAME:
+          serviceImpl.changeAccountName((org.DS.project.EBankGRPC.StringRequest) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse>) responseObserver);
           break;
         default:
@@ -563,7 +563,7 @@ public final class UserServiceGrpc {
               .addMethod(getChangeBalanceMethod())
               .addMethod(getActiveAccountMethod())
               .addMethod(getChangeAccountTypeMethod())
-              .addMethod(getChangeUserNameMethod())
+              .addMethod(getChangeAccountNameMethod())
               .build();
         }
       }

@@ -4,18 +4,18 @@
 package org.DS.project.EBankGRPC;
 
 /**
- * Protobuf type {@code EBankGRPC.valRequest}
+ * Protobuf type {@code EBankGRPC.ValRequest}
  */
-public  final class valRequest extends
+public  final class ValRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:EBankGRPC.valRequest)
-    valRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:EBankGRPC.ValRequest)
+    ValRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use valRequest.newBuilder() to construct.
-  private valRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ValRequest.newBuilder() to construct.
+  private ValRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private valRequest() {
+  private ValRequest() {
     length_ = 0;
   }
 
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private valRequest(
+  private ValRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -69,15 +69,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_valRequest_descriptor;
+    return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_ValRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_valRequest_fieldAccessorTable
+    return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_ValRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.DS.project.EBankGRPC.valRequest.class, org.DS.project.EBankGRPC.valRequest.Builder.class);
+            org.DS.project.EBankGRPC.ValRequest.class, org.DS.project.EBankGRPC.ValRequest.Builder.class);
   }
 
   public static final int LENGTH_FIELD_NUMBER = 3;
@@ -129,10 +129,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.DS.project.EBankGRPC.valRequest)) {
+    if (!(obj instanceof org.DS.project.EBankGRPC.ValRequest)) {
       return super.equals(obj);
     }
-    org.DS.project.EBankGRPC.valRequest other = (org.DS.project.EBankGRPC.valRequest) obj;
+    org.DS.project.EBankGRPC.ValRequest other = (org.DS.project.EBankGRPC.ValRequest) obj;
 
     boolean result = true;
     result = result && (getLength()
@@ -155,69 +155,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(byte[] data)
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(java.io.InputStream input)
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseDelimitedFrom(java.io.InputStream input)
+  public static org.DS.project.EBankGRPC.ValRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseDelimitedFrom(
+  public static org.DS.project.EBankGRPC.ValRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.DS.project.EBankGRPC.valRequest parseFrom(
+  public static org.DS.project.EBankGRPC.ValRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -230,7 +230,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.DS.project.EBankGRPC.valRequest prototype) {
+  public static Builder newBuilder(org.DS.project.EBankGRPC.ValRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -246,26 +246,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code EBankGRPC.valRequest}
+   * Protobuf type {@code EBankGRPC.ValRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:EBankGRPC.valRequest)
-      org.DS.project.EBankGRPC.valRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:EBankGRPC.ValRequest)
+      org.DS.project.EBankGRPC.ValRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_valRequest_descriptor;
+      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_ValRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_valRequest_fieldAccessorTable
+      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_ValRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.DS.project.EBankGRPC.valRequest.class, org.DS.project.EBankGRPC.valRequest.Builder.class);
+              org.DS.project.EBankGRPC.ValRequest.class, org.DS.project.EBankGRPC.ValRequest.Builder.class);
     }
 
-    // Construct using org.DS.project.EBankGRPC.valRequest.newBuilder()
+    // Construct using org.DS.project.EBankGRPC.ValRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -291,17 +291,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_valRequest_descriptor;
+      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_ValRequest_descriptor;
     }
 
     @java.lang.Override
-    public org.DS.project.EBankGRPC.valRequest getDefaultInstanceForType() {
-      return org.DS.project.EBankGRPC.valRequest.getDefaultInstance();
+    public org.DS.project.EBankGRPC.ValRequest getDefaultInstanceForType() {
+      return org.DS.project.EBankGRPC.ValRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.DS.project.EBankGRPC.valRequest build() {
-      org.DS.project.EBankGRPC.valRequest result = buildPartial();
+    public org.DS.project.EBankGRPC.ValRequest build() {
+      org.DS.project.EBankGRPC.ValRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -309,8 +309,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.DS.project.EBankGRPC.valRequest buildPartial() {
-      org.DS.project.EBankGRPC.valRequest result = new org.DS.project.EBankGRPC.valRequest(this);
+    public org.DS.project.EBankGRPC.ValRequest buildPartial() {
+      org.DS.project.EBankGRPC.ValRequest result = new org.DS.project.EBankGRPC.ValRequest(this);
       result.length_ = length_;
       onBuilt();
       return result;
@@ -350,16 +350,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.DS.project.EBankGRPC.valRequest) {
-        return mergeFrom((org.DS.project.EBankGRPC.valRequest)other);
+      if (other instanceof org.DS.project.EBankGRPC.ValRequest) {
+        return mergeFrom((org.DS.project.EBankGRPC.ValRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.DS.project.EBankGRPC.valRequest other) {
-      if (other == org.DS.project.EBankGRPC.valRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.DS.project.EBankGRPC.ValRequest other) {
+      if (other == org.DS.project.EBankGRPC.ValRequest.getDefaultInstance()) return this;
       if (other.getLength() != 0) {
         setLength(other.getLength());
       }
@@ -378,11 +378,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.DS.project.EBankGRPC.valRequest parsedMessage = null;
+      org.DS.project.EBankGRPC.ValRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.DS.project.EBankGRPC.valRequest) e.getUnfinishedMessage();
+        parsedMessage = (org.DS.project.EBankGRPC.ValRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -430,41 +430,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:EBankGRPC.valRequest)
+    // @@protoc_insertion_point(builder_scope:EBankGRPC.ValRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:EBankGRPC.valRequest)
-  private static final org.DS.project.EBankGRPC.valRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:EBankGRPC.ValRequest)
+  private static final org.DS.project.EBankGRPC.ValRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.DS.project.EBankGRPC.valRequest();
+    DEFAULT_INSTANCE = new org.DS.project.EBankGRPC.ValRequest();
   }
 
-  public static org.DS.project.EBankGRPC.valRequest getDefaultInstance() {
+  public static org.DS.project.EBankGRPC.ValRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<valRequest>
-      PARSER = new com.google.protobuf.AbstractParser<valRequest>() {
+  private static final com.google.protobuf.Parser<ValRequest>
+      PARSER = new com.google.protobuf.AbstractParser<ValRequest>() {
     @java.lang.Override
-    public valRequest parsePartialFrom(
+    public ValRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new valRequest(input, extensionRegistry);
+      return new ValRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<valRequest> parser() {
+  public static com.google.protobuf.Parser<ValRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<valRequest> getParserForType() {
+  public com.google.protobuf.Parser<ValRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.DS.project.EBankGRPC.valRequest getDefaultInstanceForType() {
+  public org.DS.project.EBankGRPC.ValRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -3,8 +3,8 @@
 
 package org.DS.project.EBankGRPC;
 
-public interface speakerRespOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:EBankGRPC.speakerResp)
+public interface userRespOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:EBankGRPC.userResp)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -31,9 +31,4 @@ public interface speakerRespOrBuilder extends
    * <code>int32 abalance = 6;</code>
    */
   int getAbalance();
-
-  /**
-   * <code>bool aaccount = 7;</code>
-   */
-  boolean getAaccount();
 }

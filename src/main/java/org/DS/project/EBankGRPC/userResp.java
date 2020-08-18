@@ -4,22 +4,21 @@
 package org.DS.project.EBankGRPC;
 
 /**
- * Protobuf type {@code EBankGRPC.speakerResp}
+ * Protobuf type {@code EBankGRPC.userResp}
  */
-public  final class speakerResp extends
+public  final class userResp extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:EBankGRPC.speakerResp)
-    speakerRespOrBuilder {
+    // @@protoc_insertion_point(message_implements:EBankGRPC.userResp)
+    userRespOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use speakerResp.newBuilder() to construct.
-  private speakerResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use userResp.newBuilder() to construct.
+  private userResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private speakerResp() {
+  private userResp() {
     aname_ = "";
     atype_ = "";
     abalance_ = 0;
-    aaccount_ = false;
   }
 
   @java.lang.Override
@@ -27,7 +26,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private speakerResp(
+  private userResp(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -63,11 +62,6 @@ private static final long serialVersionUID = 0L;
             abalance_ = input.readInt32();
             break;
           }
-          case 56: {
-
-            aaccount_ = input.readBool();
-            break;
-          }
           default: {
             if (!parseUnknownFieldProto3(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -89,15 +83,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_speakerResp_descriptor;
+    return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_userResp_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_speakerResp_fieldAccessorTable
+    return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_userResp_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.DS.project.EBankGRPC.speakerResp.class, org.DS.project.EBankGRPC.speakerResp.Builder.class);
+            org.DS.project.EBankGRPC.userResp.class, org.DS.project.EBankGRPC.userResp.Builder.class);
   }
 
   public static final int ANAME_FIELD_NUMBER = 4;
@@ -177,15 +171,6 @@ private static final long serialVersionUID = 0L;
     return abalance_;
   }
 
-  public static final int AACCOUNT_FIELD_NUMBER = 7;
-  private boolean aaccount_;
-  /**
-   * <code>bool aaccount = 7;</code>
-   */
-  public boolean getAaccount() {
-    return aaccount_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -209,9 +194,6 @@ private static final long serialVersionUID = 0L;
     if (abalance_ != 0) {
       output.writeInt32(6, abalance_);
     }
-    if (aaccount_ != false) {
-      output.writeBool(7, aaccount_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -231,10 +213,6 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(6, abalance_);
     }
-    if (aaccount_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(7, aaccount_);
-    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -245,10 +223,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.DS.project.EBankGRPC.speakerResp)) {
+    if (!(obj instanceof org.DS.project.EBankGRPC.userResp)) {
       return super.equals(obj);
     }
-    org.DS.project.EBankGRPC.speakerResp other = (org.DS.project.EBankGRPC.speakerResp) obj;
+    org.DS.project.EBankGRPC.userResp other = (org.DS.project.EBankGRPC.userResp) obj;
 
     boolean result = true;
     result = result && getAname()
@@ -257,8 +235,6 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAtype());
     result = result && (getAbalance()
         == other.getAbalance());
-    result = result && (getAaccount()
-        == other.getAaccount());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -276,77 +252,74 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAtype().hashCode();
     hash = (37 * hash) + ABALANCE_FIELD_NUMBER;
     hash = (53 * hash) + getAbalance();
-    hash = (37 * hash) + AACCOUNT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getAaccount());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(
+  public static org.DS.project.EBankGRPC.userResp parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(
+  public static org.DS.project.EBankGRPC.userResp parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(
+  public static org.DS.project.EBankGRPC.userResp parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(
+  public static org.DS.project.EBankGRPC.userResp parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(byte[] data)
+  public static org.DS.project.EBankGRPC.userResp parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(
+  public static org.DS.project.EBankGRPC.userResp parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(java.io.InputStream input)
+  public static org.DS.project.EBankGRPC.userResp parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(
+  public static org.DS.project.EBankGRPC.userResp parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseDelimitedFrom(java.io.InputStream input)
+  public static org.DS.project.EBankGRPC.userResp parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseDelimitedFrom(
+  public static org.DS.project.EBankGRPC.userResp parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(
+  public static org.DS.project.EBankGRPC.userResp parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.DS.project.EBankGRPC.speakerResp parseFrom(
+  public static org.DS.project.EBankGRPC.userResp parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -359,7 +332,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.DS.project.EBankGRPC.speakerResp prototype) {
+  public static Builder newBuilder(org.DS.project.EBankGRPC.userResp prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -375,26 +348,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code EBankGRPC.speakerResp}
+   * Protobuf type {@code EBankGRPC.userResp}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:EBankGRPC.speakerResp)
-      org.DS.project.EBankGRPC.speakerRespOrBuilder {
+      // @@protoc_insertion_point(builder_implements:EBankGRPC.userResp)
+      org.DS.project.EBankGRPC.userRespOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_speakerResp_descriptor;
+      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_userResp_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_speakerResp_fieldAccessorTable
+      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_userResp_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.DS.project.EBankGRPC.speakerResp.class, org.DS.project.EBankGRPC.speakerResp.Builder.class);
+              org.DS.project.EBankGRPC.userResp.class, org.DS.project.EBankGRPC.userResp.Builder.class);
     }
 
-    // Construct using org.DS.project.EBankGRPC.speakerResp.newBuilder()
+    // Construct using org.DS.project.EBankGRPC.userResp.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -418,25 +391,23 @@ private static final long serialVersionUID = 0L;
 
       abalance_ = 0;
 
-      aaccount_ = false;
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_speakerResp_descriptor;
+      return org.DS.project.EBankGRPC.UserServiceImpl.internal_static_EBankGRPC_userResp_descriptor;
     }
 
     @java.lang.Override
-    public org.DS.project.EBankGRPC.speakerResp getDefaultInstanceForType() {
-      return org.DS.project.EBankGRPC.speakerResp.getDefaultInstance();
+    public org.DS.project.EBankGRPC.userResp getDefaultInstanceForType() {
+      return org.DS.project.EBankGRPC.userResp.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.DS.project.EBankGRPC.speakerResp build() {
-      org.DS.project.EBankGRPC.speakerResp result = buildPartial();
+    public org.DS.project.EBankGRPC.userResp build() {
+      org.DS.project.EBankGRPC.userResp result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -444,12 +415,11 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.DS.project.EBankGRPC.speakerResp buildPartial() {
-      org.DS.project.EBankGRPC.speakerResp result = new org.DS.project.EBankGRPC.speakerResp(this);
+    public org.DS.project.EBankGRPC.userResp buildPartial() {
+      org.DS.project.EBankGRPC.userResp result = new org.DS.project.EBankGRPC.userResp(this);
       result.aname_ = aname_;
       result.atype_ = atype_;
       result.abalance_ = abalance_;
-      result.aaccount_ = aaccount_;
       onBuilt();
       return result;
     }
@@ -488,16 +458,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.DS.project.EBankGRPC.speakerResp) {
-        return mergeFrom((org.DS.project.EBankGRPC.speakerResp)other);
+      if (other instanceof org.DS.project.EBankGRPC.userResp) {
+        return mergeFrom((org.DS.project.EBankGRPC.userResp)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.DS.project.EBankGRPC.speakerResp other) {
-      if (other == org.DS.project.EBankGRPC.speakerResp.getDefaultInstance()) return this;
+    public Builder mergeFrom(org.DS.project.EBankGRPC.userResp other) {
+      if (other == org.DS.project.EBankGRPC.userResp.getDefaultInstance()) return this;
       if (!other.getAname().isEmpty()) {
         aname_ = other.aname_;
         onChanged();
@@ -508,9 +478,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getAbalance() != 0) {
         setAbalance(other.getAbalance());
-      }
-      if (other.getAaccount() != false) {
-        setAaccount(other.getAaccount());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -527,11 +494,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.DS.project.EBankGRPC.speakerResp parsedMessage = null;
+      org.DS.project.EBankGRPC.userResp parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.DS.project.EBankGRPC.speakerResp) e.getUnfinishedMessage();
+        parsedMessage = (org.DS.project.EBankGRPC.userResp) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -704,32 +671,6 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
-
-    private boolean aaccount_ ;
-    /**
-     * <code>bool aaccount = 7;</code>
-     */
-    public boolean getAaccount() {
-      return aaccount_;
-    }
-    /**
-     * <code>bool aaccount = 7;</code>
-     */
-    public Builder setAaccount(boolean value) {
-      
-      aaccount_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool aaccount = 7;</code>
-     */
-    public Builder clearAaccount() {
-      
-      aaccount_ = false;
-      onChanged();
-      return this;
-    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -743,41 +684,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:EBankGRPC.speakerResp)
+    // @@protoc_insertion_point(builder_scope:EBankGRPC.userResp)
   }
 
-  // @@protoc_insertion_point(class_scope:EBankGRPC.speakerResp)
-  private static final org.DS.project.EBankGRPC.speakerResp DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:EBankGRPC.userResp)
+  private static final org.DS.project.EBankGRPC.userResp DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.DS.project.EBankGRPC.speakerResp();
+    DEFAULT_INSTANCE = new org.DS.project.EBankGRPC.userResp();
   }
 
-  public static org.DS.project.EBankGRPC.speakerResp getDefaultInstance() {
+  public static org.DS.project.EBankGRPC.userResp getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<speakerResp>
-      PARSER = new com.google.protobuf.AbstractParser<speakerResp>() {
+  private static final com.google.protobuf.Parser<userResp>
+      PARSER = new com.google.protobuf.AbstractParser<userResp>() {
     @java.lang.Override
-    public speakerResp parsePartialFrom(
+    public userResp parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new speakerResp(input, extensionRegistry);
+      return new userResp(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<speakerResp> parser() {
+  public static com.google.protobuf.Parser<userResp> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<speakerResp> getParserForType() {
+  public com.google.protobuf.Parser<userResp> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.DS.project.EBankGRPC.speakerResp getDefaultInstanceForType() {
+  public org.DS.project.EBankGRPC.userResp getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
