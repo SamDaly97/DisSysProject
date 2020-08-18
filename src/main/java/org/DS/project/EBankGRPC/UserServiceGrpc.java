@@ -20,11 +20,11 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
     comments = "Source: user.proto")
-public final class SpeakerServiceGrpc {
+public final class UserServiceGrpc {
 
-  private SpeakerServiceGrpc() {}
+  private UserServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "EBankGRPC.SpeakerService";
+  public static final String SERVICE_NAME = "EBankGRPC.UserService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty,
@@ -38,20 +38,20 @@ public final class SpeakerServiceGrpc {
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty,
       org.DS.project.EBankGRPC.speakerResp> getInitialUserMethod() {
     io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.speakerResp> getInitialUserMethod;
-    if ((getInitialUserMethod = SpeakerServiceGrpc.getInitialUserMethod) == null) {
-      synchronized (SpeakerServiceGrpc.class) {
-        if ((getInitialUserMethod = SpeakerServiceGrpc.getInitialUserMethod) == null) {
-          SpeakerServiceGrpc.getInitialUserMethod = getInitialUserMethod = 
+    if ((getInitialUserMethod = UserServiceGrpc.getInitialUserMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getInitialUserMethod = UserServiceGrpc.getInitialUserMethod) == null) {
+          UserServiceGrpc.getInitialUserMethod = getInitialUserMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.speakerResp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.SpeakerService", "initialUser"))
+                  "EBankGRPC.UserService", "initialUser"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.speakerResp.getDefaultInstance()))
-                  .setSchemaDescriptor(new SpeakerServiceMethodDescriptorSupplier("initialUser"))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("initialUser"))
                   .build();
           }
         }
@@ -70,20 +70,20 @@ public final class SpeakerServiceGrpc {
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.valRequest,
       org.DS.project.EBankGRPC.valResponse> getChangeBalanceMethod() {
     io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.valRequest, org.DS.project.EBankGRPC.valResponse> getChangeBalanceMethod;
-    if ((getChangeBalanceMethod = SpeakerServiceGrpc.getChangeBalanceMethod) == null) {
-      synchronized (SpeakerServiceGrpc.class) {
-        if ((getChangeBalanceMethod = SpeakerServiceGrpc.getChangeBalanceMethod) == null) {
-          SpeakerServiceGrpc.getChangeBalanceMethod = getChangeBalanceMethod = 
+    if ((getChangeBalanceMethod = UserServiceGrpc.getChangeBalanceMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getChangeBalanceMethod = UserServiceGrpc.getChangeBalanceMethod) == null) {
+          UserServiceGrpc.getChangeBalanceMethod = getChangeBalanceMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.valRequest, org.DS.project.EBankGRPC.valResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.SpeakerService", "changeBalance"))
+                  "EBankGRPC.UserService", "changeBalance"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.valRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.valResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new SpeakerServiceMethodDescriptorSupplier("changeBalance"))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changeBalance"))
                   .build();
           }
         }
@@ -92,35 +92,35 @@ public final class SpeakerServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
-      org.DS.project.EBankGRPC.valResponse> getActiveAccontMethod;
+      org.DS.project.EBankGRPC.valResponse> getActiveAccountMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "activeAccont",
+      fullMethodName = SERVICE_NAME + '/' + "activeAccount",
       requestType = org.DS.project.EBankGRPC.BooleanReq.class,
       responseType = org.DS.project.EBankGRPC.valResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
-      org.DS.project.EBankGRPC.valResponse> getActiveAccontMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.valResponse> getActiveAccontMethod;
-    if ((getActiveAccontMethod = SpeakerServiceGrpc.getActiveAccontMethod) == null) {
-      synchronized (SpeakerServiceGrpc.class) {
-        if ((getActiveAccontMethod = SpeakerServiceGrpc.getActiveAccontMethod) == null) {
-          SpeakerServiceGrpc.getActiveAccontMethod = getActiveAccontMethod = 
+      org.DS.project.EBankGRPC.valResponse> getActiveAccountMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.valResponse> getActiveAccountMethod;
+    if ((getActiveAccountMethod = UserServiceGrpc.getActiveAccountMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getActiveAccountMethod = UserServiceGrpc.getActiveAccountMethod) == null) {
+          UserServiceGrpc.getActiveAccountMethod = getActiveAccountMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.valResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.SpeakerService", "activeAccont"))
+                  "EBankGRPC.UserService", "activeAccount"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.BooleanReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.valResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new SpeakerServiceMethodDescriptorSupplier("activeAccont"))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("activeAccount"))
                   .build();
           }
         }
      }
-     return getActiveAccontMethod;
+     return getActiveAccountMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
@@ -134,20 +134,20 @@ public final class SpeakerServiceGrpc {
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
       org.DS.project.EBankGRPC.BooleanRes> getChangeAccountTypeMethod() {
     io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes> getChangeAccountTypeMethod;
-    if ((getChangeAccountTypeMethod = SpeakerServiceGrpc.getChangeAccountTypeMethod) == null) {
-      synchronized (SpeakerServiceGrpc.class) {
-        if ((getChangeAccountTypeMethod = SpeakerServiceGrpc.getChangeAccountTypeMethod) == null) {
-          SpeakerServiceGrpc.getChangeAccountTypeMethod = getChangeAccountTypeMethod = 
+    if ((getChangeAccountTypeMethod = UserServiceGrpc.getChangeAccountTypeMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getChangeAccountTypeMethod = UserServiceGrpc.getChangeAccountTypeMethod) == null) {
+          UserServiceGrpc.getChangeAccountTypeMethod = getChangeAccountTypeMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.SpeakerService", "changeAccountType"))
+                  "EBankGRPC.UserService", "changeAccountType"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.BooleanReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.BooleanRes.getDefaultInstance()))
-                  .setSchemaDescriptor(new SpeakerServiceMethodDescriptorSupplier("changeAccountType"))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changeAccountType"))
                   .build();
           }
         }
@@ -166,20 +166,20 @@ public final class SpeakerServiceGrpc {
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
       org.DS.project.EBankGRPC.StringResponse> getChangeUserNameMethod() {
     io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse> getChangeUserNameMethod;
-    if ((getChangeUserNameMethod = SpeakerServiceGrpc.getChangeUserNameMethod) == null) {
-      synchronized (SpeakerServiceGrpc.class) {
-        if ((getChangeUserNameMethod = SpeakerServiceGrpc.getChangeUserNameMethod) == null) {
-          SpeakerServiceGrpc.getChangeUserNameMethod = getChangeUserNameMethod = 
+    if ((getChangeUserNameMethod = UserServiceGrpc.getChangeUserNameMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getChangeUserNameMethod = UserServiceGrpc.getChangeUserNameMethod) == null) {
+          UserServiceGrpc.getChangeUserNameMethod = getChangeUserNameMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.SpeakerService", "changeUserName"))
+                  "EBankGRPC.UserService", "changeUserName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.StringRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.StringResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new SpeakerServiceMethodDescriptorSupplier("changeUserName"))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("changeUserName"))
                   .build();
           }
         }
@@ -190,29 +190,29 @@ public final class SpeakerServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static SpeakerServiceStub newStub(io.grpc.Channel channel) {
-    return new SpeakerServiceStub(channel);
+  public static UserServiceStub newStub(io.grpc.Channel channel) {
+    return new UserServiceStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static SpeakerServiceBlockingStub newBlockingStub(
+  public static UserServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new SpeakerServiceBlockingStub(channel);
+    return new UserServiceBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static SpeakerServiceFutureStub newFutureStub(
+  public static UserServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new SpeakerServiceFutureStub(channel);
+    return new UserServiceFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class SpeakerServiceImplBase implements io.grpc.BindableService {
+  public static abstract class UserServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -230,9 +230,9 @@ public final class SpeakerServiceGrpc {
 
     /**
      */
-    public void activeAccont(org.DS.project.EBankGRPC.BooleanReq request,
+    public void activeAccount(org.DS.project.EBankGRPC.BooleanReq request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getActiveAccontMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getActiveAccountMethod(), responseObserver);
     }
 
     /**
@@ -266,12 +266,12 @@ public final class SpeakerServiceGrpc {
                 org.DS.project.EBankGRPC.valResponse>(
                   this, METHODID_CHANGE_BALANCE)))
           .addMethod(
-            getActiveAccontMethod(),
+            getActiveAccountMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.DS.project.EBankGRPC.BooleanReq,
                 org.DS.project.EBankGRPC.valResponse>(
-                  this, METHODID_ACTIVE_ACCONT)))
+                  this, METHODID_ACTIVE_ACCOUNT)))
           .addMethod(
             getChangeAccountTypeMethod(),
             asyncUnaryCall(
@@ -292,20 +292,20 @@ public final class SpeakerServiceGrpc {
 
   /**
    */
-  public static final class SpeakerServiceStub extends io.grpc.stub.AbstractStub<SpeakerServiceStub> {
-    private SpeakerServiceStub(io.grpc.Channel channel) {
+  public static final class UserServiceStub extends io.grpc.stub.AbstractStub<UserServiceStub> {
+    private UserServiceStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private SpeakerServiceStub(io.grpc.Channel channel,
+    private UserServiceStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected SpeakerServiceStub build(io.grpc.Channel channel,
+    protected UserServiceStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new SpeakerServiceStub(channel, callOptions);
+      return new UserServiceStub(channel, callOptions);
     }
 
     /**
@@ -326,10 +326,10 @@ public final class SpeakerServiceGrpc {
 
     /**
      */
-    public void activeAccont(org.DS.project.EBankGRPC.BooleanReq request,
+    public void activeAccount(org.DS.project.EBankGRPC.BooleanReq request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getActiveAccontMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getActiveAccountMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -351,20 +351,20 @@ public final class SpeakerServiceGrpc {
 
   /**
    */
-  public static final class SpeakerServiceBlockingStub extends io.grpc.stub.AbstractStub<SpeakerServiceBlockingStub> {
-    private SpeakerServiceBlockingStub(io.grpc.Channel channel) {
+  public static final class UserServiceBlockingStub extends io.grpc.stub.AbstractStub<UserServiceBlockingStub> {
+    private UserServiceBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private SpeakerServiceBlockingStub(io.grpc.Channel channel,
+    private UserServiceBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected SpeakerServiceBlockingStub build(io.grpc.Channel channel,
+    protected UserServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new SpeakerServiceBlockingStub(channel, callOptions);
+      return new UserServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -384,9 +384,9 @@ public final class SpeakerServiceGrpc {
 
     /**
      */
-    public org.DS.project.EBankGRPC.valResponse activeAccont(org.DS.project.EBankGRPC.BooleanReq request) {
+    public org.DS.project.EBankGRPC.valResponse activeAccount(org.DS.project.EBankGRPC.BooleanReq request) {
       return blockingUnaryCall(
-          getChannel(), getActiveAccontMethod(), getCallOptions(), request);
+          getChannel(), getActiveAccountMethod(), getCallOptions(), request);
     }
 
     /**
@@ -406,20 +406,20 @@ public final class SpeakerServiceGrpc {
 
   /**
    */
-  public static final class SpeakerServiceFutureStub extends io.grpc.stub.AbstractStub<SpeakerServiceFutureStub> {
-    private SpeakerServiceFutureStub(io.grpc.Channel channel) {
+  public static final class UserServiceFutureStub extends io.grpc.stub.AbstractStub<UserServiceFutureStub> {
+    private UserServiceFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private SpeakerServiceFutureStub(io.grpc.Channel channel,
+    private UserServiceFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected SpeakerServiceFutureStub build(io.grpc.Channel channel,
+    protected UserServiceFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new SpeakerServiceFutureStub(channel, callOptions);
+      return new UserServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -432,10 +432,10 @@ public final class SpeakerServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.valResponse> activeAccont(
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.valResponse> activeAccount(
         org.DS.project.EBankGRPC.BooleanReq request) {
       return futureUnaryCall(
-          getChannel().newCall(getActiveAccontMethod(), getCallOptions()), request);
+          getChannel().newCall(getActiveAccountMethod(), getCallOptions()), request);
     }
 
     /**
@@ -457,7 +457,7 @@ public final class SpeakerServiceGrpc {
 
   private static final int METHODID_INITIAL_USER = 0;
   private static final int METHODID_CHANGE_BALANCE = 1;
-  private static final int METHODID_ACTIVE_ACCONT = 2;
+  private static final int METHODID_ACTIVE_ACCOUNT = 2;
   private static final int METHODID_CHANGE_ACCOUNT_TYPE = 3;
   private static final int METHODID_CHANGE_USER_NAME = 4;
 
@@ -466,10 +466,10 @@ public final class SpeakerServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final SpeakerServiceImplBase serviceImpl;
+    private final UserServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(SpeakerServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(UserServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -486,8 +486,8 @@ public final class SpeakerServiceGrpc {
           serviceImpl.changeBalance((org.DS.project.EBankGRPC.valRequest) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse>) responseObserver);
           break;
-        case METHODID_ACTIVE_ACCONT:
-          serviceImpl.activeAccont((org.DS.project.EBankGRPC.BooleanReq) request,
+        case METHODID_ACTIVE_ACCOUNT:
+          serviceImpl.activeAccount((org.DS.project.EBankGRPC.BooleanReq) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.valResponse>) responseObserver);
           break;
         case METHODID_CHANGE_ACCOUNT_TYPE:
@@ -514,9 +514,9 @@ public final class SpeakerServiceGrpc {
     }
   }
 
-  private static abstract class SpeakerServiceBaseDescriptorSupplier
+  private static abstract class UserServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    SpeakerServiceBaseDescriptorSupplier() {}
+    UserServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -525,21 +525,21 @@ public final class SpeakerServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("SpeakerService");
+      return getFileDescriptor().findServiceByName("UserService");
     }
   }
 
-  private static final class SpeakerServiceFileDescriptorSupplier
-      extends SpeakerServiceBaseDescriptorSupplier {
-    SpeakerServiceFileDescriptorSupplier() {}
+  private static final class UserServiceFileDescriptorSupplier
+      extends UserServiceBaseDescriptorSupplier {
+    UserServiceFileDescriptorSupplier() {}
   }
 
-  private static final class SpeakerServiceMethodDescriptorSupplier
-      extends SpeakerServiceBaseDescriptorSupplier
+  private static final class UserServiceMethodDescriptorSupplier
+      extends UserServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    SpeakerServiceMethodDescriptorSupplier(String methodName) {
+    UserServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -554,14 +554,14 @@ public final class SpeakerServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (SpeakerServiceGrpc.class) {
+      synchronized (UserServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new SpeakerServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new UserServiceFileDescriptorSupplier())
               .addMethod(getInitialUserMethod())
               .addMethod(getChangeBalanceMethod())
-              .addMethod(getActiveAccontMethod())
+              .addMethod(getActiveAccountMethod())
               .addMethod(getChangeAccountTypeMethod())
               .addMethod(getChangeUserNameMethod())
               .build();

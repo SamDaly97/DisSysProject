@@ -8,12 +8,12 @@ package EBankGRPC;
 
 // Interface exported by the server.
 
-service SpeakerService {
+service UserService {
   rpc initialUser(Empty) returns (speakerResp) {}
   
   rpc changeBalance(valRequest) returns (stream valResponse) {}
   
-  rpc activeAccont(BooleanReq) returns (valResponse) {}
+  rpc activeAccount(BooleanReq) returns (valResponse) {}
   
   rpc changeAccountType(BooleanReq) returns (BooleanRes) {}
   
