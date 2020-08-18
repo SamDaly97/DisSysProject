@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.DS.project.EBankGRPC";
+option java_outer_classname = "StatementServiceImpl";
+
+package EBankGRPC;
+
+
+
+service StatementService {
+  rpc initialStatement(Empty) returns (statementResp) {}
+  
+  rpc optOut(BooleanReq) returns (stream BooleanRes) {}
+  
+  rpc onOff(BooleanReq) returns (BooleanRes) {}
+  
+  rpc changeStatementType(StringRequest) returns (StringResponse) {}
+  
+  rpc changeStatementName(StringRequest) returns (StringResponse) {}
+  
+}
+
+message Empty {
+
+}
+
+message StringRequest {
+	string text = 1;
+}
+
+message StringResponse {
+	string text = 1;
+}
+
+message BooleanReq {
+	bool msg = 2;
+}
+
+message BooleanRes {
+	bool msg = 2;
+}
+
+message ValRequest {
+  int32 length = 3;
+}
+message ValResponse {
+  int32 length = 3;
+}
+message statementResp{
+	string sname = 4;
+	bool status = 5;
+	string stype = 6;
+	bool sendOptOut = 7;
+	
+}

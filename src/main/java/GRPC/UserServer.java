@@ -28,48 +28,75 @@ public class UserServer extends UserServiceImplBase{
 	private static final Logger logger = Logger.getLogger(UserServer.class.getName());
 	public User myUser = new User();
 	public static int userPort;
+	private static int userServer;
 	
-	 private static class SampleListener implements ServiceListener {
+	private static class SampleListener implements ServiceListener {
 		 
-	        public void serviceAdded(ServiceEvent event) {
-	            System.out.println("Service added: " + event.getInfo());
+        public void serviceAdded(ServiceEvent event) {
+            System.out.println("Service added: " + event.getInfo());
 
-	        }
+        }
 
-	        
-	        public void serviceRemoved(ServiceEvent event) {
-	            System.out.println("Service removed: " + event.getInfo());
-	        }
+        
+        public void serviceRemoved(ServiceEvent event) {
+            System.out.println("Service removed: " + event.getInfo());
+        }
 
-	        
-	        public void serviceResolved(ServiceEvent event) {
-	            System.out.println("Service resolved: " + event.getInfo());
-	            System.out.println("Get Name: " + event.getName()+" PORT: "+event.getInfo().getPort());
-	            
-	            //Start GRPC server with discovered device
-	            if(event.getName().equals("User")) {
-	            	System.out.println("Found User port: " + event.getInfo().getPort());
-	       		 try {
-	       			 userPort = event.getInfo().getPort();
-					startGRPC(event.getInfo().getPort());
-					
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+        
+        public void serviceResolved(ServiceEvent event) {
+            System.out.println("Service resolved: " + event.getInfo());
+            System.out.println("Get Name: " + event.getName()+" PORT: "+event.getInfo().getPort());
+            
+            //Start GRPC server with discovered device
+            if(event.getName().equals("User")) {
+            	System.out.println("Found user port: " + event.getInfo().getPort());
+       		 try {
+       			 userPort = event.getInfo().getPort();
+				startGRPC(event.getInfo().getPort());
+				
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-	            }
-	          
+            }
+          
 
-	        }
-	    }
+        }
+    }
+	
+	 public int getUserServer() {
+			return userServer;
+		}
+
+		public void setUserServer(int userServer) {
+			UserServer.userServer = userServer;
+		}
+
+	 
+	 public static void startGRPC(int portNumber) throws IOException, InterruptedException {
+		 
+		 UserServer userServer = new UserServer();
+		 
+		    
+		    Server server = ServerBuilder.forPort(portNumber)
+		        .addService(userServer)
+		        .build()
+		        .start();
+		    
+		    logger.info("userServer started, listening on " + portNumber);
+		    		    
+			 
+		    server.awaitTermination();
+	 }
+	
 	
 	@Override
 	public void initialUser(Empty request, StreamObserver<userResp> responseObserver) {
-		System.out.println("receiving initialDevice request for Lamp ");
+		System.out.println("receiving initialDevice request for User ");
 		 String atype;
 
 		 if(myUser.isActiveAccount()) {
