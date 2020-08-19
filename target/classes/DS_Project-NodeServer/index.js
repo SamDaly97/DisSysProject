@@ -1,9 +1,11 @@
 /**
  * http://usejsdoc.org/
  */
+
+// javascript for implementing phone to the EBank
 var grpc = require("grpc");
 var events = require("events");
-// add the bookStream global variable
+
 var phoneStream = new events.EventEmitter();
 var phoneProto = grpc.load("Phone.proto");
 var phoneDevice = {
@@ -17,18 +19,18 @@ server.bind("0.0.0.0:1237", grpc.ServerCredentials.createInsecure());
 console.log("Server running at http://0.0.0.0:1237");
 
 server.addService(phoneProto.EBankGRPC.PhoneService.service, {
-  initialDevice: function (call, callback) {
+  initialPhone: function (call, callback) {
     callback(null, phoneDevice);
   },
   changeApplication: function (call, callback) {
-    // console.log(call)
+
     var appName = call.request.text;
     if (appName == "Select an Application") {
     	phoneDevice.app = "No Apps On";
     } else {
     	phoneDevice.app = appName
     }
-    //console.log(appName)
+
 
     return callback(null, phoneDevice.app);
   },
@@ -58,8 +60,9 @@ server.addService(phoneProto.EBankGRPC.PhoneService.service, {
     }
     callback(null, resp);
   },
-  changeDevicePhoneName = call.request.text
-    PhoneDevice.pname = reqName
+  changePhoneName: function (call, callback) {
+    var reqName = call.request.text
+    phoneDevice.pname = reqName
     console.log("Name" + phoneDevice.pname);
 
     callback(null, phoneDevice.pname);
@@ -67,4 +70,3 @@ server.addService(phoneProto.EBankGRPC.PhoneService.service, {
 });
 
 server.start();
-// In-memory array of book objects
