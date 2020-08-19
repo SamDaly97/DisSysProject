@@ -1,6 +1,8 @@
 package GRPC;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.rmi.UnknownHostException;
 import java.util.logging.Logger;
 
 import javax.jmdns.JmDNS;
@@ -28,7 +30,6 @@ public class UserServer extends UserServiceImplBase{
 	private static final Logger logger = Logger.getLogger(UserServer.class.getName());
 	public User myUser = new User();
 	public static int userPort;
-	private static int userServer;
 	
 	private static class SampleListener implements ServiceListener {
 		 
@@ -66,15 +67,31 @@ public class UserServer extends UserServiceImplBase{
           
 
         }
+        
+	}
+   	 public static void main(String[] args) throws IOException, InterruptedException  {
+   		 
+   		 startDiscovery();
     }
-	
-	 public int getUserServer() {
-			return userServer;
-		}
+   	 
+   	 public static void startDiscovery() throws IOException, InterruptedException {
+		 try {
+	            // Create a JmDNS instance
+	            JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
+	           
 
-		public void setUserServer(int userServer) {
-			UserServer.userServer = userServer;
-		}
+	            // Add a service listener
+	            jmdns.addServiceListener("_http._tcp.local.", new SampleListener());
+	            System.out.println("Listening");
+	            // Wait a bit
+	            Thread.sleep(30000);
+	        } catch (UnknownHostException e) {
+	            System.out.println(e.getMessage());
+	        } catch (IOException e) {
+	            System.out.println(e.getMessage());
+	        }
+	 }
+		
 
 	 
 	 public static void startGRPC(int portNumber) throws IOException, InterruptedException {
@@ -92,6 +109,14 @@ public class UserServer extends UserServiceImplBase{
 			 
 		    server.awaitTermination();
 	 }
+	 
+	 public int getUserPort() {
+			return userPort;
+		}
+
+		public void setUserPort(int userPort) {
+			UserServer.userPort = userPort;
+		}
 	
 	
 	@Override

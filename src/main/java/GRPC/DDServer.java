@@ -1,8 +1,11 @@
 package GRPC;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.rmi.UnknownHostException;
 import java.util.logging.Logger;
 
+import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceListener;
 
@@ -26,7 +29,7 @@ public class DDServer extends DDServiceImplBase {
 	public DD myDD = new DD();
 	public static int ddPort;
 
-	private static class SampleListener implements ServiceListener {
+	public static class SampleListener implements ServiceListener {
 
 		public void serviceAdded(ServiceEvent event) {
 			System.out.println("Service added: " + event.getInfo());
@@ -59,6 +62,37 @@ public class DDServer extends DDServiceImplBase {
 			}
 
 		}
+
+		public static void main(String[] args) throws IOException, InterruptedException {
+
+			startDiscovery();
+
+		}
+	}
+
+	public static void startDiscovery() throws IOException, InterruptedException {
+		try {
+			// Create a JmDNS instance
+			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
+
+			// Add a service listener
+			jmdns.addServiceListener("_http._tcp.local.", new SampleListener());
+			System.out.println("Listening");
+			// Wait a bit
+			Thread.sleep(30000);
+		} catch (UnknownHostException e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public int getDDPort() {
+		return ddPort;
+	}
+
+	public void setDDPort(int ddPort) {
+		DDServer.ddPort = ddPort;
 	}
 
 	public static void startGRPC(int portNumber) throws IOException, InterruptedException {
