@@ -44,8 +44,8 @@ public class StatementServer extends StatementServiceImplBase{
             System.out.println("Get Name: " + event.getName()+" PORT: "+event.getInfo().getPort());
             
             //Start GRPC server with discovered device
-            if(event.getName().equals("Lamp")) {
-            	System.out.println("Found Lamp port: " + event.getInfo().getPort());
+            if(event.getName().equals("Statement")) {
+            	System.out.println("Found Statement port: " + event.getInfo().getPort());
        		 try {
        			 statementPort = event.getInfo().getPort();
 				startGRPC(event.getInfo().getPort());
@@ -74,7 +74,7 @@ public class StatementServer extends StatementServiceImplBase{
    		        .build()
    		        .start();
    		    
-   		    logger.info("LampServer started, listening on " + portNumber);
+   		    logger.info("StatementServer started, listening on " + portNumber);
    		    		    
    			 
    		    server.awaitTermination();
@@ -84,30 +84,23 @@ public class StatementServer extends StatementServiceImplBase{
 	@Override
 	public void initialStatement(Empty request, StreamObserver<statementResp> responseObserver) {
 		System.out.println("receiving initialStatement for Statement ");
-		String status;
+		boolean status;
 
 		if(myStatement.isOn()) {
-			 status ="On";
+			 status =true;
 		}else {
-			 status ="Off";
+			 status =false;
 
 		}
 		 
-		String opt;
 
-		if(myStatement.isOptOut()) {
-			opt ="In";
-		}else {
-			opt ="Out";
-
-		}
-		 
 		String sName=myStatement.getName();
-		String sStatus = status;
-		String sOpt = opt;
+		boolean sStatus = status;
+
+		String sType = myStatement.getType();
 			
 		statementResp response = statementResp.newBuilder()
-				 .setSname(sName).setStatus(sStatus).setOpt(sOpt)
+				 .setSname(sName).setStatus(sStatus).setStype(sType)
 				 .build();
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();

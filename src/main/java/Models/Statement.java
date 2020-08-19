@@ -2,13 +2,13 @@ package Models;
 
 public class Statement {
 	private String name, type;
-	private boolean on, optOut;
+	private boolean on;
 	
 	public Statement() {
 		this.name = "Statement";
 		this.on = true;
 		this.type = "Debit";
-		this.optOut = false;
+
 	}
 
 	public String getName() {
@@ -35,13 +35,6 @@ public class Statement {
 		this.on = on;
 	}
 
-	public boolean isOptOut() {
-		return optOut;
-	}
-
-	public void setOptOut(boolean optOut) {
-		this.optOut = optOut;
-	}
 	
 	
 }

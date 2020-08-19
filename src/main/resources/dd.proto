@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.DS.project.EBankGRPC";
+option java_outer_classname = "DDServiceImpl";
+
+package EBankGRPC;
+
+
+
+service DDService {
+  rpc initialDD(Empty) returns (ddResp) {}
+  
+  rpc changeAmount(ValRequest) returns (ValResponse) {}
+  
+  rpc onOff(BooleanReq) returns (BooleanRes) {}
+  
+  rpc changeDirectDebitName(StringRequest) returns (StringResponse) {}
+  
+}
+
+message Empty {
+
+}
+
+message StringRequest {
+	string text = 1;
+}
+
+message StringResponse {
+	string text = 1;
+}
+
+message BooleanReq {
+	bool msg = 2;
+}
+
+message BooleanRes {
+	bool msg = 2;
+}
+
+message ValRequest {
+  int32 length = 3;
+}
+message ValResponse {
+  int32 length = 3;
+}
+message ddResp{
+	string dname = 4;
+	bool status = 5;
+	int32 amount = 6;
+}
