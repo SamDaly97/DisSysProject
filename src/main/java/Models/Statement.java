@@ -1,40 +1,58 @@
 package Models;
 
 public class Statement {
-	private String name, type;
-	private boolean on;
-	
+	private String system, systemName;
+	private boolean On, stop;
+	private int helpful;
+
 	public Statement() {
-		this.name = "Statement";
-		this.on = true;
-		this.type = "Debit";
-
+		this.system = "Statement";
+		this.On = true;
+		this.systemName = "Custom Statement";
+		this.helpful = 7;
+		this.stop = false;
 	}
 
-	public String getName() {
-		return name;
+	public String getSystem() {
+		return system;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSystem(String system) {
+		this.system = system;
 	}
 
-	public String getType() {
-		return type;
+	public String getSystemName() {
+		return systemName;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setSystemName(String systemName) {
+		this.systemName = systemName;
 	}
 
 	public boolean isOn() {
-		return on;
+		return On;
 	}
 
 	public void setOn(boolean on) {
-		this.on = on;
+		On = on;
 	}
 
+	public boolean isStop() {
+		return stop;
+	}
+
+	public void setStop(boolean stop) {
+		this.stop = stop;
+	}
+
+	public int getHelpful() {
+		return helpful;
+	}
+
+	public void setHelpful(int helpful) {
+		this.helpful = helpful;
+	}
+	
 	
 	
 }

@@ -9,13 +9,15 @@ package EBankGRPC;
 
 
 service DDService {
-  rpc initialDD(Empty) returns (ddResp) {}
+  rpc initialSystem(Empty) returns (ddResp) {}
   
-  rpc changeAmount(ValRequest) returns (ValResponse) {}
+  rpc changeHelpful(ValRequest) returns (ValResponse) {}
+  
+  rpc changeFrequency(ValRequest) returns (ValResponse) {}
   
   rpc onOff(BooleanReq) returns (BooleanRes) {}
   
-  rpc changeDirectDebitName(StringRequest) returns (StringResponse) {}
+  rpc changeSystemName(StringRequest) returns (StringResponse) {}
   
 }
 
@@ -46,7 +48,8 @@ message ValResponse {
   int32 length = 3;
 }
 message ddResp{
-	string dname = 4;
-	bool status = 5;
-	int32 amount = 6;
+	string sname = 4;
+	string status = 5;
+	int32 helpful = 6;
+	int32 frequency =7;
 }

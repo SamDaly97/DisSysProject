@@ -8,22 +8,32 @@ public interface ddRespOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string dname = 4;</code>
+   * <code>string sname = 4;</code>
    */
-  java.lang.String getDname();
+  java.lang.String getSname();
   /**
-   * <code>string dname = 4;</code>
+   * <code>string sname = 4;</code>
    */
   com.google.protobuf.ByteString
-      getDnameBytes();
+      getSnameBytes();
 
   /**
-   * <code>bool status = 5;</code>
+   * <code>string status = 5;</code>
    */
-  boolean getStatus();
+  java.lang.String getStatus();
+  /**
+   * <code>string status = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getStatusBytes();
 
   /**
-   * <code>int32 amount = 6;</code>
+   * <code>int32 helpful = 6;</code>
    */
-  int getAmount();
+  int getHelpful();
+
+  /**
+   * <code>int32 frequency = 7;</code>
+   */
+  int getFrequency();
 }

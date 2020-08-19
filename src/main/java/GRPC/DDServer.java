@@ -2,7 +2,7 @@ package GRPC;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.rmi.UnknownHostException;
+import java.net.UnknownHostException;
 import java.util.logging.Logger;
 
 import javax.jmdns.JmDNS;
@@ -25,11 +25,8 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
 public class DDServer extends DDServiceImplBase {
-	private static final Logger logger = Logger.getLogger(DDServer.class.getName());
-	public DD myDD = new DD();
-	public static int ddPort;
 
-	public static class SampleListener implements ServiceListener {
+	private static class SampleListener implements ServiceListener {
 
 		public void serviceAdded(ServiceEvent event) {
 			System.out.println("Service added: " + event.getInfo());
@@ -48,9 +45,8 @@ public class DDServer extends DDServiceImplBase {
 			if (event.getName().equals("DD")) {
 				System.out.println("Found DD port: " + event.getInfo().getPort());
 				try {
-					ddPort = event.getInfo().getPort();
+					System.out.println("STARTING DD GRPC SERVER");
 					startGRPC(event.getInfo().getPort());
-
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -62,12 +58,13 @@ public class DDServer extends DDServiceImplBase {
 			}
 
 		}
+	}
 
-		public static void main(String[] args) throws IOException, InterruptedException {
+	private static final Logger logger = Logger.getLogger(DDServer.class.getName());
+	public DD myDD = new DD();
 
-			startDiscovery();
-
-		}
+	public static void main(String[] args) throws IOException, InterruptedException {
+		startDiscovery();
 	}
 
 	public static void startDiscovery() throws IOException, InterruptedException {
@@ -87,18 +84,8 @@ public class DDServer extends DDServiceImplBase {
 		}
 	}
 
-	public int getDDPort() {
-		return ddPort;
-	}
-
-	public void setDDPort(int ddPort) {
-		DDServer.ddPort = ddPort;
-	}
-
 	public static void startGRPC(int portNumber) throws IOException, InterruptedException {
-
 		DDServer ddServer = new DDServer();
-
 		Server server = ServerBuilder.forPort(portNumber).addService(ddServer).build().start();
 
 		logger.info("DDServer started, listening on " + portNumber);
@@ -107,69 +94,93 @@ public class DDServer extends DDServiceImplBase {
 	}
 
 	@Override
-	public void initialDD(Empty request, StreamObserver<ddResp> responseObserver) {
-		System.out.println("receiving initialDD  for Direct Debits ");
-		boolean status;
+	public void initialSystem(Empty request, StreamObserver<ddResp> responseObserver) {
+		 System.out.println("receiving initialSystem request for DD ");
+		 String status;
 
-		if (myDD.isOn()) {
-			status = true;
-		} else {
-			status = false;
+		 if(myDD.isOn()) {
+			  status ="On";
+		 }else {
+			  status ="Off";
 
-		}
-		String dName = myDD.getName();
-		boolean dStatus = status;
-		Integer dAmount = myDD.getAmount();
+		 }
+		 String sName=myDD.getSystemName();
+		 String sStatus = status;
+		 Integer sHelpful = myDD.getHelpful();
+		 Integer sFrequency=myDD.getFrequency();
 
-		ddResp response = ddResp.newBuilder().setDname(dName).setStatus(dStatus).setAmount(dAmount).build();
+			
+		 ddResp response = ddResp.newBuilder()
+				 .setSname(sName).setStatus(sStatus).setHelpful(sHelpful).setFrequency(sFrequency)
+				 .build();
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
 
 	@Override
-	public void changeAmount(ValRequest request, StreamObserver<ValResponse> responseObserver) {
-		int currentAmount = myDD.getAmount();
-		int changeAmount = request.getLength();
+	public void changeHelpful(ValRequest request, StreamObserver<ValResponse> responseObserver) {
+		int currentHelpful= myDD.getHelpful();
+		int changeHelpful = request.getLength();
+		 System.out.println("receiving Helpful for DD");
+		 int newHelpful = currentHelpful+changeHelpful;
+		 if(newHelpful>10 || newHelpful<0) {
+			 System.out.println("Helpful request is over 10 or less than 0:" +newHelpful);
+			 System.out.println("Returning current Helpful:" +myDD.getHelpful());
+			 ValResponse response = ValResponse.newBuilder().setLength(myDD.getHelpful()).build();
+				responseObserver.onNext(response);
+				responseObserver.onCompleted();
+		 }else {
+			 System.out.println("New Helpful is set :" +newHelpful);
+			 myDD.setHelpful(newHelpful);
+			 ValResponse response = ValResponse.newBuilder().setLength(newHelpful).build();
+				responseObserver.onNext(response);
+				responseObserver.onCompleted();
+		 }
+	}
 
-		System.out.println("receiving balance for user");
-		int newAmount = currentAmount + changeAmount;
-
-		if (newAmount <= 0) {
-			System.out.println("Cannot add value less than 0");
-			System.out.println("Returning current amount:" + myDD.getAmount());
-			ValResponse response = ValResponse.newBuilder().setLength(myDD.getAmount()).build();
-			responseObserver.onNext(response);
-			responseObserver.onCompleted();
-		} else {
-			System.out.println("New Amount being paid is :" + newAmount);
-			myDD.setAmount(newAmount);
-			ValResponse response = ValResponse.newBuilder().setLength(newAmount).build();
-			responseObserver.onNext(response);
-			responseObserver.onCompleted();
-		}
+	@Override
+	public void changeFrequency(ValRequest request, StreamObserver<ValResponse> responseObserver) {
+		int currentFrequency= myDD.getFrequency();
+		int changeFrequency = request.getLength();
+		 System.out.println("receiving Frequency for DD");
+		 int newFrequency = currentFrequency+changeFrequency;
+		 if(newFrequency>10 || newFrequency<0) {
+			 System.out.println("Frequency request is over 10 or less than 0:" +newFrequency);
+			 System.out.println("Returning current Frequency:" +myDD.getFrequency());
+			 ValResponse response = ValResponse.newBuilder().setLength(myDD.getFrequency()).build();
+				responseObserver.onNext(response);
+				responseObserver.onCompleted();
+		 }else {
+			 System.out.println("New Frequency is set :" +newFrequency);
+			 myDD.setFrequency(newFrequency);
+			 ValResponse response = ValResponse.newBuilder().setLength(newFrequency).build();
+				responseObserver.onNext(response);
+				responseObserver.onCompleted();
+		 }
 	}
 
 	@Override
 	public void onOff(BooleanReq request, StreamObserver<BooleanRes> responseObserver) {
-		System.out.println("receiving onOFF for DirectDebits ");
-		Boolean onOff = request.getMsg();
-		myDD.setOn(onOff);
-
-		BooleanRes response = BooleanRes.newBuilder().setMsg(onOff).build();
+		 System.out.println("receiving onOFF for DD ");
+		 Boolean onOff = request.getMsg();
+		 myDD.setOn(onOff);
+		 
+			
+		 BooleanRes response = BooleanRes.newBuilder().setMsg(onOff).build();
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
 
 	@Override
-	public void changeDirectDebitName(StringRequest request, StreamObserver<StringResponse> responseObserver) {
-		String name = request.getText();
-		System.out.println("Changing Direct Debit name to " + name);
+	public void changeSystemName(StringRequest request, StreamObserver<StringResponse> responseObserver) {
+		 String name = request.getText();
+		 System.out.println("Changing DD name to "+name);
 
-		myDD.setName(name);
-
-		StringResponse response = StringResponse.newBuilder().setText(name).build();
-		System.out.println("Response " + response.getText());
-		responseObserver.onNext(response);
+			 myDD.setSystemName(name);
+		 
+		 StringResponse response = StringResponse.newBuilder().setText(name).build();
+		 System.out.println("Response "+response.getText());
+		 responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
 

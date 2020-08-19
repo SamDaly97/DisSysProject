@@ -18,22 +18,22 @@ public interface statementRespOrBuilder extends
       getSnameBytes();
 
   /**
-   * <code>bool status = 5;</code>
+   * <code>string status = 5;</code>
    */
-  boolean getStatus();
-
+  java.lang.String getStatus();
   /**
-   * <code>string stype = 6;</code>
-   */
-  java.lang.String getStype();
-  /**
-   * <code>string stype = 6;</code>
+   * <code>string status = 5;</code>
    */
   com.google.protobuf.ByteString
-      getStypeBytes();
+      getStatusBytes();
 
   /**
-   * <code>bool sendOptOut = 7;</code>
+   * <code>int32 helpful = 6;</code>
    */
-  boolean getSendOptOut();
+  int getHelpful();
+
+  /**
+   * <code>bool stop = 7;</code>
+   */
+  boolean getStop();
 }

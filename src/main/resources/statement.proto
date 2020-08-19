@@ -9,15 +9,15 @@ package EBankGRPC;
 
 
 service StatementService {
-  rpc initialStatement(Empty) returns (statementResp) {}
+  rpc initialSystem(Empty) returns (statementResp) {}
   
-  rpc optOut(BooleanReq) returns (stream BooleanRes) {}
+  rpc changeHelpful(ValRequest) returns (stream ValResponse) {}
   
   rpc onOff(BooleanReq) returns (BooleanRes) {}
   
-  rpc changeStatementType(StringRequest) returns (StringResponse) {}
+  rpc stop(BooleanReq) returns (BooleanRes) {}
   
-  rpc changeStatementName(StringRequest) returns (StringResponse) {}
+  rpc changeSystemName(StringRequest) returns (StringResponse) {}
   
 }
 
@@ -49,8 +49,8 @@ message ValResponse {
 }
 message statementResp{
 	string sname = 4;
-	bool status = 5;
-	string stype = 6;
-	bool sendOptOut = 7;
+	string	 status = 5;
+	int32 helpful = 6;
+	bool stop = 7;
 	
 }

@@ -68,16 +68,18 @@ public final class DDServiceImpl {
       "\014\n\004text\030\001 \001(\t\"\031\n\nBooleanReq\022\013\n\003msg\030\002 \001(\010" +
       "\"\031\n\nBooleanRes\022\013\n\003msg\030\002 \001(\010\"\034\n\nValReques" +
       "t\022\016\n\006length\030\003 \001(\005\"\035\n\013ValResponse\022\016\n\006leng" +
-      "th\030\003 \001(\005\"7\n\006ddResp\022\r\n\005dname\030\004 \001(\t\022\016\n\006sta" +
-      "tus\030\005 \001(\010\022\016\n\006amount\030\006 \001(\0052\211\002\n\tDDService\022" +
-      "2\n\tinitialDD\022\020.EBankGRPC.Empty\032\021.EBankGR" +
-      "PC.ddResp\"\000\022?\n\014changeAmount\022\025.EBankGRPC." +
-      "ValRequest\032\026.EBankGRPC.ValResponse\"\000\0227\n\005" +
-      "onOff\022\025.EBankGRPC.BooleanReq\032\025.EBankGRPC" +
-      ".BooleanRes\"\000\022N\n\025changeDirectDebitName\022\030" +
-      ".EBankGRPC.StringRequest\032\031.EBankGRPC.Str" +
-      "ingResponse\"\000B+\n\030org.DS.project.EBankGRP" +
-      "CB\rDDServiceImplP\001b\006proto3"
+      "th\030\003 \001(\005\"K\n\006ddResp\022\r\n\005sname\030\004 \001(\t\022\016\n\006sta" +
+      "tus\030\005 \001(\t\022\017\n\007helpful\030\006 \001(\005\022\021\n\tfrequency\030" +
+      "\007 \001(\0052\315\002\n\tDDService\0226\n\rinitialSystem\022\020.E" +
+      "BankGRPC.Empty\032\021.EBankGRPC.ddResp\"\000\022@\n\rc" +
+      "hangeHelpful\022\025.EBankGRPC.ValRequest\032\026.EB" +
+      "ankGRPC.ValResponse\"\000\022B\n\017changeFrequency" +
+      "\022\025.EBankGRPC.ValRequest\032\026.EBankGRPC.ValR" +
+      "esponse\"\000\0227\n\005onOff\022\025.EBankGRPC.BooleanRe" +
+      "q\032\025.EBankGRPC.BooleanRes\"\000\022I\n\020changeSyst" +
+      "emName\022\030.EBankGRPC.StringRequest\032\031.EBank" +
+      "GRPC.StringResponse\"\000B+\n\030org.DS.project." +
+      "EBankGRPCB\rDDServiceImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -138,7 +140,7 @@ public final class DDServiceImpl {
     internal_static_EBankGRPC_ddResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EBankGRPC_ddResp_descriptor,
-        new java.lang.String[] { "Dname", "Status", "Amount", });
+        new java.lang.String[] { "Sname", "Status", "Helpful", "Frequency", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -2,7 +2,7 @@ package GRPC;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.rmi.UnknownHostException;
+import java.net.UnknownHostException;
 import java.util.logging.Logger;
 
 import javax.jmdns.JmDNS;
@@ -13,9 +13,10 @@ import org.DS.project.EBankGRPC.BooleanReq;
 import org.DS.project.EBankGRPC.BooleanRes;
 import org.DS.project.EBankGRPC.Empty;
 import org.DS.project.EBankGRPC.StatementServiceGrpc.StatementServiceImplBase;
-
 import org.DS.project.EBankGRPC.StringRequest;
 import org.DS.project.EBankGRPC.StringResponse;
+import org.DS.project.EBankGRPC.ValRequest;
+import org.DS.project.EBankGRPC.ValResponse;
 import org.DS.project.EBankGRPC.statementResp;
 
 import Models.Statement;
@@ -24,9 +25,6 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
 public class StatementServer extends StatementServiceImplBase {
-	private static final Logger logger = Logger.getLogger(StatementServer.class.getName());
-	public Statement myStatement = new Statement();
-	public static int statementPort;
 
 	private static class SampleListener implements ServiceListener {
 
@@ -44,12 +42,11 @@ public class StatementServer extends StatementServiceImplBase {
 			System.out.println("Get Name: " + event.getName() + " PORT: " + event.getInfo().getPort());
 
 			// Start GRPC server with discovered device
-			if (event.getName().equals("Lamp")) {
-				System.out.println("Found statemnent port: " + event.getInfo().getPort());
+			if (event.getName().equals("Statement")) {
+				System.out.println("Found Statement port: " + event.getInfo().getPort());
 				try {
-					statementPort = event.getInfo().getPort();
+					System.out.println("STARTING Statement GRPC SERVER");
 					startGRPC(event.getInfo().getPort());
-
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -63,10 +60,11 @@ public class StatementServer extends StatementServiceImplBase {
 		}
 	}
 
+	private static final Logger logger = Logger.getLogger(StatementServer.class.getName());
+	public Statement myStatement = new Statement();
+
 	public static void main(String[] args) throws IOException, InterruptedException {
-
 		startDiscovery();
-
 	}
 
 	public static void startDiscovery() throws IOException, InterruptedException {
@@ -86,18 +84,8 @@ public class StatementServer extends StatementServiceImplBase {
 		}
 	}
 
-	public int getStatementPort() {
-		return statementPort;
-	}
-
-	public void setStatementPort(int statementPort) {
-		StatementServer.statementPort = statementPort;
-	}
-
 	public static void startGRPC(int portNumber) throws IOException, InterruptedException {
-
 		StatementServer statementServer = new StatementServer();
-
 		Server server = ServerBuilder.forPort(portNumber).addService(statementServer).build().start();
 
 		logger.info("StatementServer started, listening on " + portNumber);
@@ -106,36 +94,46 @@ public class StatementServer extends StatementServiceImplBase {
 	}
 
 	@Override
-	public void initialStatement(Empty request, StreamObserver<statementResp> responseObserver) {
-		System.out.println("receiving initialStatement for Statement ");
-		boolean status;
+	public void initialSystem(Empty request, StreamObserver<statementResp> responseObserver) {
+		System.out.println("receiving initialDevice request for S ");
+		String status;
 
 		if (myStatement.isOn()) {
-			status = true;
+			status = "On";
 		} else {
-			status = false;
+			status = "Off";
 
 		}
+		String sName = myStatement.getSystemName();
+		String sStatus = status;
+		Boolean sStop = myStatement.isStop();
+		Integer sHelpful = myStatement.getHelpful();
 
-		String sName = myStatement.getName();
-		boolean sStatus = status;
-
-		String sType = myStatement.getType();
-
-		statementResp response = statementResp.newBuilder().setSname(sName).setStatus(sStatus).setStype(sType).build();
+		statementResp response = statementResp.newBuilder().setSname(sName).setStatus(sStatus).setStop(sStop)
+				.setHelpful(sHelpful).build();
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
 
 	@Override
-	public void optOut(BooleanReq request, StreamObserver<BooleanRes> responseObserver) {
-		System.out.println("receiving optOut for Statement ");
-		Boolean optOut = request.getMsg();
-		myStatement.setOn(optOut);
-
-		BooleanRes response = BooleanRes.newBuilder().setMsg(optOut).build();
-		responseObserver.onNext(response);
-		responseObserver.onCompleted();
+	public void changeHelpful(ValRequest request, StreamObserver<ValResponse> responseObserver) {
+		int currentHelpful = myStatement.getHelpful();
+		int changeHelpful = request.getLength();
+		System.out.println("receiving Helpful for Statement");
+		int newHelpful = currentHelpful + changeHelpful;
+		if (newHelpful > 10 || newHelpful < 0) {
+			System.out.println("Helpful request is over 10 or less than 0:" + newHelpful);
+			System.out.println("Returning current Helpful:" + myStatement.getHelpful());
+			ValResponse response = ValResponse.newBuilder().setLength(myStatement.getHelpful()).build();
+			responseObserver.onNext(response);
+			responseObserver.onCompleted();
+		} else {
+			System.out.println("New Helpful is set :" + newHelpful);
+			myStatement.setHelpful(newHelpful);
+			ValResponse response = ValResponse.newBuilder().setLength(newHelpful).build();
+			responseObserver.onNext(response);
+			responseObserver.onCompleted();
+		}
 	}
 
 	@Override
@@ -150,25 +148,22 @@ public class StatementServer extends StatementServiceImplBase {
 	}
 
 	@Override
-	public void changeStatementType(StringRequest request, StreamObserver<StringResponse> responseObserver) {
-		System.out.println("Type whether your statement is a Debit or Credit account.");
-		String statementType = request.getText();
-		System.out.println("Changing account type to " + statementType);
+	public void stop(BooleanReq request, StreamObserver<BooleanRes> responseObserver) {
+		System.out.println("receiving stop for Statement ");
+		Boolean stop = request.getMsg();
+		myStatement.setStop(stop);
 
-		myStatement.setType(statementType);
-
-		StringResponse response = StringResponse.newBuilder().setText(statementType).build();
-		System.out.println("Response " + response.getText());
+		BooleanRes response = BooleanRes.newBuilder().setMsg(stop).build();
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
 
 	@Override
-	public void changeStatementName(StringRequest request, StreamObserver<StringResponse> responseObserver) {
+	public void changeSystemName(StringRequest request, StreamObserver<StringResponse> responseObserver) {
 		String name = request.getText();
-		System.out.println("Changing Statement name to " + name);
+		System.out.println("Changing statement name to " + name);
 
-		myStatement.setName(name);
+		myStatement.setSystemName(name);
 
 		StringResponse response = StringResponse.newBuilder().setText(name).build();
 		System.out.println("Response " + response.getText());

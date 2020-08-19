@@ -68,19 +68,19 @@ public final class StatementServiceImpl {
       "sponse\022\014\n\004text\030\001 \001(\t\"\031\n\nBooleanReq\022\013\n\003ms" +
       "g\030\002 \001(\010\"\031\n\nBooleanRes\022\013\n\003msg\030\002 \001(\010\"\034\n\nVa" +
       "lRequest\022\016\n\006length\030\003 \001(\005\"\035\n\013ValResponse\022" +
-      "\016\n\006length\030\003 \001(\005\"Q\n\rstatementResp\022\r\n\005snam" +
-      "e\030\004 \001(\t\022\016\n\006status\030\005 \001(\010\022\r\n\005stype\030\006 \001(\t\022\022" +
-      "\n\nsendOptOut\030\007 \001(\0102\345\002\n\020StatementService\022" +
-      "@\n\020initialStatement\022\020.EBankGRPC.Empty\032\030." +
-      "EBankGRPC.statementResp\"\000\022:\n\006optOut\022\025.EB" +
-      "ankGRPC.BooleanReq\032\025.EBankGRPC.BooleanRe" +
-      "s\"\0000\001\0227\n\005onOff\022\025.EBankGRPC.BooleanReq\032\025." +
-      "EBankGRPC.BooleanRes\"\000\022L\n\023changeStatemen" +
-      "tType\022\030.EBankGRPC.StringRequest\032\031.EBankG" +
-      "RPC.StringResponse\"\000\022L\n\023changeStatementN" +
-      "ame\022\030.EBankGRPC.StringRequest\032\031.EBankGRP" +
-      "C.StringResponse\"\000B2\n\030org.DS.project.EBa" +
-      "nkGRPCB\024StatementServiceImplP\001b\006proto3"
+      "\016\n\006length\030\003 \001(\005\"M\n\rstatementResp\022\r\n\005snam" +
+      "e\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\017\n\007helpful\030\006 \001(\005" +
+      "\022\014\n\004stop\030\007 \001(\0102\321\002\n\020StatementService\022=\n\ri" +
+      "nitialSystem\022\020.EBankGRPC.Empty\032\030.EBankGR" +
+      "PC.statementResp\"\000\022B\n\rchangeHelpful\022\025.EB" +
+      "ankGRPC.ValRequest\032\026.EBankGRPC.ValRespon" +
+      "se\"\0000\001\0227\n\005onOff\022\025.EBankGRPC.BooleanReq\032\025" +
+      ".EBankGRPC.BooleanRes\"\000\0226\n\004stop\022\025.EBankG" +
+      "RPC.BooleanReq\032\025.EBankGRPC.BooleanRes\"\000\022" +
+      "I\n\020changeSystemName\022\030.EBankGRPC.StringRe" +
+      "quest\032\031.EBankGRPC.StringResponse\"\000B2\n\030or" +
+      "g.DS.project.EBankGRPCB\024StatementService" +
+      "ImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -141,7 +141,7 @@ public final class StatementServiceImpl {
     internal_static_EBankGRPC_statementResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EBankGRPC_statementResp_descriptor,
-        new java.lang.String[] { "Sname", "Status", "Stype", "SendOptOut", });
+        new java.lang.String[] { "Sname", "Status", "Helpful", "Stop", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

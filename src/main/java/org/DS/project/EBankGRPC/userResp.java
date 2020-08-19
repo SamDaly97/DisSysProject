@@ -16,9 +16,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private userResp() {
-    aname_ = "";
-    atype_ = "";
-    abalance_ = 0;
+    sname_ = "";
+    status_ = "";
+    activity_ = 0;
   }
 
   @java.lang.Override
@@ -48,18 +48,18 @@ private static final long serialVersionUID = 0L;
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            aname_ = s;
+            sname_ = s;
             break;
           }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            atype_ = s;
+            status_ = s;
             break;
           }
           case 48: {
 
-            abalance_ = input.readInt32();
+            activity_ = input.readInt32();
             break;
           }
           default: {
@@ -94,81 +94,81 @@ private static final long serialVersionUID = 0L;
             org.DS.project.EBankGRPC.userResp.class, org.DS.project.EBankGRPC.userResp.Builder.class);
   }
 
-  public static final int ANAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object aname_;
+  public static final int SNAME_FIELD_NUMBER = 4;
+  private volatile java.lang.Object sname_;
   /**
-   * <code>string aname = 4;</code>
+   * <code>string sname = 4;</code>
    */
-  public java.lang.String getAname() {
-    java.lang.Object ref = aname_;
+  public java.lang.String getSname() {
+    java.lang.Object ref = sname_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      aname_ = s;
+      sname_ = s;
       return s;
     }
   }
   /**
-   * <code>string aname = 4;</code>
+   * <code>string sname = 4;</code>
    */
   public com.google.protobuf.ByteString
-      getAnameBytes() {
-    java.lang.Object ref = aname_;
+      getSnameBytes() {
+    java.lang.Object ref = sname_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      aname_ = b;
+      sname_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int ATYPE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object atype_;
+  public static final int STATUS_FIELD_NUMBER = 5;
+  private volatile java.lang.Object status_;
   /**
-   * <code>string atype = 5;</code>
+   * <code>string status = 5;</code>
    */
-  public java.lang.String getAtype() {
-    java.lang.Object ref = atype_;
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      atype_ = s;
+      status_ = s;
       return s;
     }
   }
   /**
-   * <code>string atype = 5;</code>
+   * <code>string status = 5;</code>
    */
   public com.google.protobuf.ByteString
-      getAtypeBytes() {
-    java.lang.Object ref = atype_;
+      getStatusBytes() {
+    java.lang.Object ref = status_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      atype_ = b;
+      status_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int ABALANCE_FIELD_NUMBER = 6;
-  private int abalance_;
+  public static final int ACTIVITY_FIELD_NUMBER = 6;
+  private int activity_;
   /**
-   * <code>int32 abalance = 6;</code>
+   * <code>int32 activity = 6;</code>
    */
-  public int getAbalance() {
-    return abalance_;
+  public int getActivity() {
+    return activity_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -185,14 +185,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getAnameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, aname_);
+    if (!getSnameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, sname_);
     }
-    if (!getAtypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, atype_);
+    if (!getStatusBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
     }
-    if (abalance_ != 0) {
-      output.writeInt32(6, abalance_);
+    if (activity_ != 0) {
+      output.writeInt32(6, activity_);
     }
     unknownFields.writeTo(output);
   }
@@ -203,15 +203,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getAnameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, aname_);
+    if (!getSnameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, sname_);
     }
-    if (!getAtypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, atype_);
+    if (!getStatusBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
     }
-    if (abalance_ != 0) {
+    if (activity_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, abalance_);
+        .computeInt32Size(6, activity_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -229,12 +229,12 @@ private static final long serialVersionUID = 0L;
     org.DS.project.EBankGRPC.userResp other = (org.DS.project.EBankGRPC.userResp) obj;
 
     boolean result = true;
-    result = result && getAname()
-        .equals(other.getAname());
-    result = result && getAtype()
-        .equals(other.getAtype());
-    result = result && (getAbalance()
-        == other.getAbalance());
+    result = result && getSname()
+        .equals(other.getSname());
+    result = result && getStatus()
+        .equals(other.getStatus());
+    result = result && (getActivity()
+        == other.getActivity());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -246,12 +246,12 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ANAME_FIELD_NUMBER;
-    hash = (53 * hash) + getAname().hashCode();
-    hash = (37 * hash) + ATYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getAtype().hashCode();
-    hash = (37 * hash) + ABALANCE_FIELD_NUMBER;
-    hash = (53 * hash) + getAbalance();
+    hash = (37 * hash) + SNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getSname().hashCode();
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
+    hash = (37 * hash) + ACTIVITY_FIELD_NUMBER;
+    hash = (53 * hash) + getActivity();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -385,11 +385,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      aname_ = "";
+      sname_ = "";
 
-      atype_ = "";
+      status_ = "";
 
-      abalance_ = 0;
+      activity_ = 0;
 
       return this;
     }
@@ -417,9 +417,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.DS.project.EBankGRPC.userResp buildPartial() {
       org.DS.project.EBankGRPC.userResp result = new org.DS.project.EBankGRPC.userResp(this);
-      result.aname_ = aname_;
-      result.atype_ = atype_;
-      result.abalance_ = abalance_;
+      result.sname_ = sname_;
+      result.status_ = status_;
+      result.activity_ = activity_;
       onBuilt();
       return result;
     }
@@ -468,16 +468,16 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.DS.project.EBankGRPC.userResp other) {
       if (other == org.DS.project.EBankGRPC.userResp.getDefaultInstance()) return this;
-      if (!other.getAname().isEmpty()) {
-        aname_ = other.aname_;
+      if (!other.getSname().isEmpty()) {
+        sname_ = other.sname_;
         onChanged();
       }
-      if (!other.getAtype().isEmpty()) {
-        atype_ = other.atype_;
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
         onChanged();
       }
-      if (other.getAbalance() != 0) {
-        setAbalance(other.getAbalance());
+      if (other.getActivity() != 0) {
+        setActivity(other.getActivity());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -508,166 +508,166 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object aname_ = "";
+    private java.lang.Object sname_ = "";
     /**
-     * <code>string aname = 4;</code>
+     * <code>string sname = 4;</code>
      */
-    public java.lang.String getAname() {
-      java.lang.Object ref = aname_;
+    public java.lang.String getSname() {
+      java.lang.Object ref = sname_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        aname_ = s;
+        sname_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string aname = 4;</code>
+     * <code>string sname = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getAnameBytes() {
-      java.lang.Object ref = aname_;
+        getSnameBytes() {
+      java.lang.Object ref = sname_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        aname_ = b;
+        sname_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string aname = 4;</code>
+     * <code>string sname = 4;</code>
      */
-    public Builder setAname(
+    public Builder setSname(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      aname_ = value;
+      sname_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string aname = 4;</code>
+     * <code>string sname = 4;</code>
      */
-    public Builder clearAname() {
+    public Builder clearSname() {
       
-      aname_ = getDefaultInstance().getAname();
+      sname_ = getDefaultInstance().getSname();
       onChanged();
       return this;
     }
     /**
-     * <code>string aname = 4;</code>
+     * <code>string sname = 4;</code>
      */
-    public Builder setAnameBytes(
+    public Builder setSnameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      aname_ = value;
+      sname_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object atype_ = "";
+    private java.lang.Object status_ = "";
     /**
-     * <code>string atype = 5;</code>
+     * <code>string status = 5;</code>
      */
-    public java.lang.String getAtype() {
-      java.lang.Object ref = atype_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        atype_ = s;
+        status_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string atype = 5;</code>
+     * <code>string status = 5;</code>
      */
     public com.google.protobuf.ByteString
-        getAtypeBytes() {
-      java.lang.Object ref = atype_;
+        getStatusBytes() {
+      java.lang.Object ref = status_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        atype_ = b;
+        status_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string atype = 5;</code>
+     * <code>string status = 5;</code>
      */
-    public Builder setAtype(
+    public Builder setStatus(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      atype_ = value;
+      status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string atype = 5;</code>
+     * <code>string status = 5;</code>
      */
-    public Builder clearAtype() {
+    public Builder clearStatus() {
       
-      atype_ = getDefaultInstance().getAtype();
+      status_ = getDefaultInstance().getStatus();
       onChanged();
       return this;
     }
     /**
-     * <code>string atype = 5;</code>
+     * <code>string status = 5;</code>
      */
-    public Builder setAtypeBytes(
+    public Builder setStatusBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      atype_ = value;
+      status_ = value;
       onChanged();
       return this;
     }
 
-    private int abalance_ ;
+    private int activity_ ;
     /**
-     * <code>int32 abalance = 6;</code>
+     * <code>int32 activity = 6;</code>
      */
-    public int getAbalance() {
-      return abalance_;
+    public int getActivity() {
+      return activity_;
     }
     /**
-     * <code>int32 abalance = 6;</code>
+     * <code>int32 activity = 6;</code>
      */
-    public Builder setAbalance(int value) {
+    public Builder setActivity(int value) {
       
-      abalance_ = value;
+      activity_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 abalance = 6;</code>
+     * <code>int32 activity = 6;</code>
      */
-    public Builder clearAbalance() {
+    public Builder clearActivity() {
       
-      abalance_ = 0;
+      activity_ = 0;
       onChanged();
       return this;
     }

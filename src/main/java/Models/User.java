@@ -1,58 +1,50 @@
 package Models;
 
 public class User {
-
-	private String user, userName,accountType;
-	private boolean activeAccount;
-	private int balance;
+	private String system, systemName;
+	private boolean on;
+	private int activity;	
 	
-	public User() {
-		this.user = "BankUser";
-		this.userName = "Sam";
-		this.activeAccount=true;
-		this.balance = 500;
-		this.accountType = "Debit";
+	public User(){
+		this.system="User";
+		this.on=true;
+		this.systemName="Custom User Name";
+		this.activity=6;
 	}
 
-	public String getUser() {
-		return user;
+	public String getSystem() {
+		return system;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setSystem(String system) {
+		this.system = system;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getSystemName() {
+		return systemName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setSystemName(String systemName) {
+		this.systemName = systemName;
 	}
 
-	public String getAccountType() {
-		return accountType;
+	public boolean isOn() {
+		return on;
 	}
 
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
+	public void setOn(boolean on) {
+		this.on = on;
 	}
 
-	public boolean isActiveAccount() {
-		return activeAccount;
+	public int getActivity() {
+		return activity;
 	}
 
-	public void setActiveAccount(boolean activeAccount) {
-		this.activeAccount = activeAccount;
+	public void setActivity(int activity) {
+		this.activity = activity;
 	}
-
-	public int getBalance() {
-		return balance;
-	}
-
-	public void setBalance(int balance) {
-		this.balance = balance;
-	}
-
+	
+	
+	
 	
 }

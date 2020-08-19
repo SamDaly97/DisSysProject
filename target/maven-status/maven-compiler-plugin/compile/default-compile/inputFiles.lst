@@ -7,9 +7,9 @@ C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\jmDNS\Registering.jav
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\Models\DD.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\ValRequestOrBuilder.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\StatementServiceImpl.java
-C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\EBankGRPC\PhoneServiceGrpc.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\GRPC\StatementServer.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\BooleanRes.java
+C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\PhoneServiceGrpc.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\ValRequest.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\ddRespOrBuilder.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\DDServiceImpl.java
@@ -19,10 +19,10 @@ C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\com\google\protobuf\D
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\Models\Statement.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\StringRequestOrBuilder.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\DDServiceGrpc.java
+C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\Phone.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\StringResponse.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\userResp.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\BooleanReqOrBuilder.java
-C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\EBankGRPC\Phone.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\Empty.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\statementResp.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\ValResponseOrBuilder.java
@@ -30,9 +30,12 @@ C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankG
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\GRPC\UserServer.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\BooleanResOrBuilder.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\MainGUI\main.java
+C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\phoneRespOrBuilder.java
+C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\PhoneServiceImpl.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\jmDNS\Discovering.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\js\Json.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\userRespOrBuilder.java
+C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\phoneResp.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\statementRespOrBuilder.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\GRPC\DDServer.java
 C:\Users\PC\eclipse-workspace\org.DS.project\src\main\java\org\DS\project\EBankGRPC\StringResponseOrBuilder.java

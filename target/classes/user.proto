@@ -9,15 +9,13 @@ package EBankGRPC;
 
 
 service UserService {
-  rpc initialUser(Empty) returns (userResp) {}
+  rpc initialSystem(Empty) returns (userResp) {}
   
-  rpc changeBalance(ValRequest) returns (stream ValResponse) {}
+  rpc changeActivity(ValRequest) returns (stream ValResponse) {}
   
-  rpc activeAccount(BooleanReq) returns (BooleanRes) {}
+  rpc onOff(BooleanReq) returns (BooleanRes) {}
   
-  rpc changeAccountType(StringRequest) returns (StringResponse) {}
-  
-  rpc changeAccountName(StringRequest) returns (StringResponse) {}
+  rpc changeSystemName(StringRequest) returns (StringResponse) {}
   
 }
 
@@ -48,8 +46,8 @@ message ValResponse {
   int32 length = 3;
 }
 message userResp{
-	string aname = 4;
-	string atype = 5;
-	int32 abalance = 6;
+	string sname = 4;
+	string status = 5;
+	int32 activity = 6;
 	
 }

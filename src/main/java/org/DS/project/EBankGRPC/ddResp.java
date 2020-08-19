@@ -16,9 +16,10 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ddResp() {
-    dname_ = "";
-    status_ = false;
-    amount_ = 0;
+    sname_ = "";
+    status_ = "";
+    helpful_ = 0;
+    frequency_ = 0;
   }
 
   @java.lang.Override
@@ -48,17 +49,23 @@ private static final long serialVersionUID = 0L;
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            dname_ = s;
+            sname_ = s;
             break;
           }
-          case 40: {
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            status_ = input.readBool();
+            status_ = s;
             break;
           }
           case 48: {
 
-            amount_ = input.readInt32();
+            helpful_ = input.readInt32();
+            break;
+          }
+          case 56: {
+
+            frequency_ = input.readInt32();
             break;
           }
           default: {
@@ -93,34 +100,34 @@ private static final long serialVersionUID = 0L;
             org.DS.project.EBankGRPC.ddResp.class, org.DS.project.EBankGRPC.ddResp.Builder.class);
   }
 
-  public static final int DNAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object dname_;
+  public static final int SNAME_FIELD_NUMBER = 4;
+  private volatile java.lang.Object sname_;
   /**
-   * <code>string dname = 4;</code>
+   * <code>string sname = 4;</code>
    */
-  public java.lang.String getDname() {
-    java.lang.Object ref = dname_;
+  public java.lang.String getSname() {
+    java.lang.Object ref = sname_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      dname_ = s;
+      sname_ = s;
       return s;
     }
   }
   /**
-   * <code>string dname = 4;</code>
+   * <code>string sname = 4;</code>
    */
   public com.google.protobuf.ByteString
-      getDnameBytes() {
-    java.lang.Object ref = dname_;
+      getSnameBytes() {
+    java.lang.Object ref = sname_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      dname_ = b;
+      sname_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -128,21 +135,55 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 5;
-  private boolean status_;
+  private volatile java.lang.Object status_;
   /**
-   * <code>bool status = 5;</code>
+   * <code>string status = 5;</code>
    */
-  public boolean getStatus() {
-    return status_;
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      status_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string status = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getStatusBytes() {
+    java.lang.Object ref = status_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      status_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
-  public static final int AMOUNT_FIELD_NUMBER = 6;
-  private int amount_;
+  public static final int HELPFUL_FIELD_NUMBER = 6;
+  private int helpful_;
   /**
-   * <code>int32 amount = 6;</code>
+   * <code>int32 helpful = 6;</code>
    */
-  public int getAmount() {
-    return amount_;
+  public int getHelpful() {
+    return helpful_;
+  }
+
+  public static final int FREQUENCY_FIELD_NUMBER = 7;
+  private int frequency_;
+  /**
+   * <code>int32 frequency = 7;</code>
+   */
+  public int getFrequency() {
+    return frequency_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -159,14 +200,17 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getDnameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, dname_);
+    if (!getSnameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, sname_);
     }
-    if (status_ != false) {
-      output.writeBool(5, status_);
+    if (!getStatusBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
     }
-    if (amount_ != 0) {
-      output.writeInt32(6, amount_);
+    if (helpful_ != 0) {
+      output.writeInt32(6, helpful_);
+    }
+    if (frequency_ != 0) {
+      output.writeInt32(7, frequency_);
     }
     unknownFields.writeTo(output);
   }
@@ -177,16 +221,19 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getDnameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, dname_);
+    if (!getSnameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, sname_);
     }
-    if (status_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(5, status_);
+    if (!getStatusBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
     }
-    if (amount_ != 0) {
+    if (helpful_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(6, amount_);
+        .computeInt32Size(6, helpful_);
+    }
+    if (frequency_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(7, frequency_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -204,12 +251,14 @@ private static final long serialVersionUID = 0L;
     org.DS.project.EBankGRPC.ddResp other = (org.DS.project.EBankGRPC.ddResp) obj;
 
     boolean result = true;
-    result = result && getDname()
-        .equals(other.getDname());
-    result = result && (getStatus()
-        == other.getStatus());
-    result = result && (getAmount()
-        == other.getAmount());
+    result = result && getSname()
+        .equals(other.getSname());
+    result = result && getStatus()
+        .equals(other.getStatus());
+    result = result && (getHelpful()
+        == other.getHelpful());
+    result = result && (getFrequency()
+        == other.getFrequency());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -221,13 +270,14 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + DNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getDname().hashCode();
+    hash = (37 * hash) + SNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getSname().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getStatus());
-    hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
-    hash = (53 * hash) + getAmount();
+    hash = (53 * hash) + getStatus().hashCode();
+    hash = (37 * hash) + HELPFUL_FIELD_NUMBER;
+    hash = (53 * hash) + getHelpful();
+    hash = (37 * hash) + FREQUENCY_FIELD_NUMBER;
+    hash = (53 * hash) + getFrequency();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -361,11 +411,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      dname_ = "";
+      sname_ = "";
 
-      status_ = false;
+      status_ = "";
 
-      amount_ = 0;
+      helpful_ = 0;
+
+      frequency_ = 0;
 
       return this;
     }
@@ -393,9 +445,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.DS.project.EBankGRPC.ddResp buildPartial() {
       org.DS.project.EBankGRPC.ddResp result = new org.DS.project.EBankGRPC.ddResp(this);
-      result.dname_ = dname_;
+      result.sname_ = sname_;
       result.status_ = status_;
-      result.amount_ = amount_;
+      result.helpful_ = helpful_;
+      result.frequency_ = frequency_;
       onBuilt();
       return result;
     }
@@ -444,15 +497,19 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.DS.project.EBankGRPC.ddResp other) {
       if (other == org.DS.project.EBankGRPC.ddResp.getDefaultInstance()) return this;
-      if (!other.getDname().isEmpty()) {
-        dname_ = other.dname_;
+      if (!other.getSname().isEmpty()) {
+        sname_ = other.sname_;
         onChanged();
       }
-      if (other.getStatus() != false) {
-        setStatus(other.getStatus());
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
+        onChanged();
       }
-      if (other.getAmount() != 0) {
-        setAmount(other.getAmount());
+      if (other.getHelpful() != 0) {
+        setHelpful(other.getHelpful());
+      }
+      if (other.getFrequency() != 0) {
+        setFrequency(other.getFrequency());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -483,123 +540,192 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object dname_ = "";
+    private java.lang.Object sname_ = "";
     /**
-     * <code>string dname = 4;</code>
+     * <code>string sname = 4;</code>
      */
-    public java.lang.String getDname() {
-      java.lang.Object ref = dname_;
+    public java.lang.String getSname() {
+      java.lang.Object ref = sname_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        dname_ = s;
+        sname_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string dname = 4;</code>
+     * <code>string sname = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getDnameBytes() {
-      java.lang.Object ref = dname_;
+        getSnameBytes() {
+      java.lang.Object ref = sname_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        dname_ = b;
+        sname_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string dname = 4;</code>
+     * <code>string sname = 4;</code>
      */
-    public Builder setDname(
+    public Builder setSname(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      dname_ = value;
+      sname_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string dname = 4;</code>
+     * <code>string sname = 4;</code>
      */
-    public Builder clearDname() {
+    public Builder clearSname() {
       
-      dname_ = getDefaultInstance().getDname();
+      sname_ = getDefaultInstance().getSname();
       onChanged();
       return this;
     }
     /**
-     * <code>string dname = 4;</code>
+     * <code>string sname = 4;</code>
      */
-    public Builder setDnameBytes(
+    public Builder setSnameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      dname_ = value;
+      sname_ = value;
       onChanged();
       return this;
     }
 
-    private boolean status_ ;
+    private java.lang.Object status_ = "";
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      */
-    public boolean getStatus() {
-      return status_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      */
-    public Builder setStatus(boolean value) {
-      
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string status = 5;</code>
+     */
+    public Builder setStatus(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      */
     public Builder clearStatus() {
       
-      status_ = false;
+      status_ = getDefaultInstance().getStatus();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string status = 5;</code>
+     */
+    public Builder setStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      status_ = value;
       onChanged();
       return this;
     }
 
-    private int amount_ ;
+    private int helpful_ ;
     /**
-     * <code>int32 amount = 6;</code>
+     * <code>int32 helpful = 6;</code>
      */
-    public int getAmount() {
-      return amount_;
+    public int getHelpful() {
+      return helpful_;
     }
     /**
-     * <code>int32 amount = 6;</code>
+     * <code>int32 helpful = 6;</code>
      */
-    public Builder setAmount(int value) {
+    public Builder setHelpful(int value) {
       
-      amount_ = value;
+      helpful_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 amount = 6;</code>
+     * <code>int32 helpful = 6;</code>
      */
-    public Builder clearAmount() {
+    public Builder clearHelpful() {
       
-      amount_ = 0;
+      helpful_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int frequency_ ;
+    /**
+     * <code>int32 frequency = 7;</code>
+     */
+    public int getFrequency() {
+      return frequency_;
+    }
+    /**
+     * <code>int32 frequency = 7;</code>
+     */
+    public Builder setFrequency(int value) {
+      
+      frequency_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 frequency = 7;</code>
+     */
+    public Builder clearFrequency() {
+      
+      frequency_ = 0;
       onChanged();
       return this;
     }

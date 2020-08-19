@@ -18,7 +18,7 @@ var server = new grpc.Server();
 server.bind("0.0.0.0:1237", grpc.ServerCredentials.createInsecure());
 console.log("Server running at http://0.0.0.0:1237");
 
-server.addService(phoneProto.EBankGRPC.PhoneService.service, {
+server.addService(phoneProto.org.DS.project.EBankGRPC.PhoneService.service, {
   initialPhone: function (call, callback) {
     callback(null, phoneDevice);
   },

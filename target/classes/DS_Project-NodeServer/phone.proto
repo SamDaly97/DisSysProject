@@ -1,5 +1,5 @@
 syntax = "proto3";
-package EBankGRPC;
+package org.DS.project.EBankGRPC;
 // Interface exported by the server.
 
 
@@ -9,7 +9,7 @@ service PhoneService {
   
   rpc changeApplication(StringRequest) returns (StringResponse) {}
 
-  rpc changeBattery(valRequest) returns (valResponse) {}
+  rpc changeBattery(ValRequest) returns (ValResponse) {}
 
   rpc onOff(BooleanReq) returns (BooleanRes) {}
   
@@ -38,10 +38,10 @@ message BooleanRes {
 	bool msg = 2;
 }
 
-message valRequest {
+message ValRequest {
   	int32 length = 3;
 }
-message valResponse {
+message ValResponse {
   	int32 length = 3;
 }
 message phoneResp{

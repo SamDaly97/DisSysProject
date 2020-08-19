@@ -68,19 +68,17 @@ public final class UserServiceImpl {
       "e\022\014\n\004text\030\001 \001(\t\"\031\n\nBooleanReq\022\013\n\003msg\030\002 \001" +
       "(\010\"\031\n\nBooleanRes\022\013\n\003msg\030\002 \001(\010\"\034\n\nValRequ" +
       "est\022\016\n\006length\030\003 \001(\005\"\035\n\013ValResponse\022\016\n\006le" +
-      "ngth\030\003 \001(\005\":\n\010userResp\022\r\n\005aname\030\004 \001(\t\022\r\n" +
-      "\005atype\030\005 \001(\t\022\020\n\010abalance\030\006 \001(\0052\342\002\n\013UserS" +
-      "ervice\0226\n\013initialUser\022\020.EBankGRPC.Empty\032" +
-      "\023.EBankGRPC.userResp\"\000\022B\n\rchangeBalance\022" +
-      "\025.EBankGRPC.ValRequest\032\026.EBankGRPC.ValRe" +
-      "sponse\"\0000\001\022?\n\ractiveAccount\022\025.EBankGRPC." +
-      "BooleanReq\032\025.EBankGRPC.BooleanRes\"\000\022J\n\021c" +
-      "hangeAccountType\022\030.EBankGRPC.StringReque" +
-      "st\032\031.EBankGRPC.StringResponse\"\000\022J\n\021chang" +
-      "eAccountName\022\030.EBankGRPC.StringRequest\032\031" +
-      ".EBankGRPC.StringResponse\"\000B-\n\030org.DS.pr" +
-      "oject.EBankGRPCB\017UserServiceImplP\001b\006prot" +
-      "o3"
+      "ngth\030\003 \001(\005\";\n\010userResp\022\r\n\005sname\030\004 \001(\t\022\016\n" +
+      "\006status\030\005 \001(\t\022\020\n\010activity\030\006 \001(\0052\220\002\n\013User" +
+      "Service\0228\n\rinitialSystem\022\020.EBankGRPC.Emp" +
+      "ty\032\023.EBankGRPC.userResp\"\000\022C\n\016changeActiv" +
+      "ity\022\025.EBankGRPC.ValRequest\032\026.EBankGRPC.V" +
+      "alResponse\"\0000\001\0227\n\005onOff\022\025.EBankGRPC.Bool" +
+      "eanReq\032\025.EBankGRPC.BooleanRes\"\000\022I\n\020chang" +
+      "eSystemName\022\030.EBankGRPC.StringRequest\032\031." +
+      "EBankGRPC.StringResponse\"\000B-\n\030org.DS.pro" +
+      "ject.EBankGRPCB\017UserServiceImplP\001b\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -141,7 +139,7 @@ public final class UserServiceImpl {
     internal_static_EBankGRPC_userResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_EBankGRPC_userResp_descriptor,
-        new java.lang.String[] { "Aname", "Atype", "Abalance", });
+        new java.lang.String[] { "Sname", "Status", "Activity", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -14,7 +14,7 @@ public class Registering {
 
 	}
 
-	public void jmndsRegister(int userPort, int ddPort, int statementPort) throws InterruptedException {
+	public void jmndsRegister(int userPort, int ddPort, int statementPort, int phonePort) throws InterruptedException {
 
 		User myUser = new User();
 		DD myDD = new DD();
@@ -22,26 +22,24 @@ public class Registering {
 
 		try {
 
-			// Create a JmDNS instance
-			// JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
+			//Create a JmDNS instance
+			//JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 			jmdns = JmDNS.create(InetAddress.getLocalHost());
-			// Registering all services
+			//Registering all services
 			System.out.println("Registering...");
-			ServiceInfo serviceUser = ServiceInfo.create("_http._tcp.local.", myUser.getUserName(), userPort,
-					"path=index.html");
-			ServiceInfo serviceDD = ServiceInfo.create("_http._tcp.local.", myDD.getName(), ddPort, "path=index.html");
-			ServiceInfo serviceStatement = ServiceInfo.create("_http._tcp.local.", myStatement.getName(), statementPort,
-					"path=index.html");
+			ServiceInfo serviceUser = ServiceInfo.create("_http._tcp.local.", myUser.getSystem(), userPort,"path=index.html");
+			ServiceInfo serviceDD = ServiceInfo.create("_http._tcp.local.", myDD.getSystem(), ddPort, "path=index.html");
+			ServiceInfo serviceStatement = ServiceInfo.create("_http._tcp.local.", myStatement.getSystem(), statementPort,"path=index.html");
 
 			jmdns.registerService(serviceUser);
 			jmdns.registerService(serviceDD);
 			jmdns.registerService(serviceStatement);
 
-			// Wait a bit
-			// Thread.sleep(25000);
+			 //Wait a bit
+			 //Thread.sleep(25000);
 
-			// Unregister all services
-			// jmdns.unregisterAllServices();
+			 //Unregister all services
+			 //jmdns.unregisterAllServices();
 
 		} catch (IOException e) {
 			System.out.println(e.getMessage());

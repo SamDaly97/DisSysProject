@@ -17,9 +17,9 @@ private static final long serialVersionUID = 0L;
   }
   private statementResp() {
     sname_ = "";
-    status_ = false;
-    stype_ = "";
-    sendOptOut_ = false;
+    status_ = "";
+    helpful_ = 0;
+    stop_ = false;
   }
 
   @java.lang.Override
@@ -52,20 +52,20 @@ private static final long serialVersionUID = 0L;
             sname_ = s;
             break;
           }
-          case 40: {
-
-            status_ = input.readBool();
-            break;
-          }
-          case 50: {
+          case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            stype_ = s;
+            status_ = s;
+            break;
+          }
+          case 48: {
+
+            helpful_ = input.readInt32();
             break;
           }
           case 56: {
 
-            sendOptOut_ = input.readBool();
+            stop_ = input.readBool();
             break;
           }
           default: {
@@ -135,55 +135,55 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 5;
-  private boolean status_;
+  private volatile java.lang.Object status_;
   /**
-   * <code>bool status = 5;</code>
+   * <code>string status = 5;</code>
    */
-  public boolean getStatus() {
-    return status_;
-  }
-
-  public static final int STYPE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object stype_;
-  /**
-   * <code>string stype = 6;</code>
-   */
-  public java.lang.String getStype() {
-    java.lang.Object ref = stype_;
+  public java.lang.String getStatus() {
+    java.lang.Object ref = status_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      stype_ = s;
+      status_ = s;
       return s;
     }
   }
   /**
-   * <code>string stype = 6;</code>
+   * <code>string status = 5;</code>
    */
   public com.google.protobuf.ByteString
-      getStypeBytes() {
-    java.lang.Object ref = stype_;
+      getStatusBytes() {
+    java.lang.Object ref = status_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      stype_ = b;
+      status_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int SENDOPTOUT_FIELD_NUMBER = 7;
-  private boolean sendOptOut_;
+  public static final int HELPFUL_FIELD_NUMBER = 6;
+  private int helpful_;
   /**
-   * <code>bool sendOptOut = 7;</code>
+   * <code>int32 helpful = 6;</code>
    */
-  public boolean getSendOptOut() {
-    return sendOptOut_;
+  public int getHelpful() {
+    return helpful_;
+  }
+
+  public static final int STOP_FIELD_NUMBER = 7;
+  private boolean stop_;
+  /**
+   * <code>bool stop = 7;</code>
+   */
+  public boolean getStop() {
+    return stop_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -203,14 +203,14 @@ private static final long serialVersionUID = 0L;
     if (!getSnameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, sname_);
     }
-    if (status_ != false) {
-      output.writeBool(5, status_);
+    if (!getStatusBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, status_);
     }
-    if (!getStypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, stype_);
+    if (helpful_ != 0) {
+      output.writeInt32(6, helpful_);
     }
-    if (sendOptOut_ != false) {
-      output.writeBool(7, sendOptOut_);
+    if (stop_ != false) {
+      output.writeBool(7, stop_);
     }
     unknownFields.writeTo(output);
   }
@@ -224,16 +224,16 @@ private static final long serialVersionUID = 0L;
     if (!getSnameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, sname_);
     }
-    if (status_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(5, status_);
+    if (!getStatusBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, status_);
     }
-    if (!getStypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, stype_);
-    }
-    if (sendOptOut_ != false) {
+    if (helpful_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(7, sendOptOut_);
+        .computeInt32Size(6, helpful_);
+    }
+    if (stop_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, stop_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -253,12 +253,12 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getSname()
         .equals(other.getSname());
-    result = result && (getStatus()
-        == other.getStatus());
-    result = result && getStype()
-        .equals(other.getStype());
-    result = result && (getSendOptOut()
-        == other.getSendOptOut());
+    result = result && getStatus()
+        .equals(other.getStatus());
+    result = result && (getHelpful()
+        == other.getHelpful());
+    result = result && (getStop()
+        == other.getStop());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -273,13 +273,12 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SNAME_FIELD_NUMBER;
     hash = (53 * hash) + getSname().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + getStatus().hashCode();
+    hash = (37 * hash) + HELPFUL_FIELD_NUMBER;
+    hash = (53 * hash) + getHelpful();
+    hash = (37 * hash) + STOP_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getStatus());
-    hash = (37 * hash) + STYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getStype().hashCode();
-    hash = (37 * hash) + SENDOPTOUT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getSendOptOut());
+        getStop());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -415,11 +414,11 @@ private static final long serialVersionUID = 0L;
       super.clear();
       sname_ = "";
 
-      status_ = false;
+      status_ = "";
 
-      stype_ = "";
+      helpful_ = 0;
 
-      sendOptOut_ = false;
+      stop_ = false;
 
       return this;
     }
@@ -449,8 +448,8 @@ private static final long serialVersionUID = 0L;
       org.DS.project.EBankGRPC.statementResp result = new org.DS.project.EBankGRPC.statementResp(this);
       result.sname_ = sname_;
       result.status_ = status_;
-      result.stype_ = stype_;
-      result.sendOptOut_ = sendOptOut_;
+      result.helpful_ = helpful_;
+      result.stop_ = stop_;
       onBuilt();
       return result;
     }
@@ -503,15 +502,15 @@ private static final long serialVersionUID = 0L;
         sname_ = other.sname_;
         onChanged();
       }
-      if (other.getStatus() != false) {
-        setStatus(other.getStatus());
-      }
-      if (!other.getStype().isEmpty()) {
-        stype_ = other.stype_;
+      if (!other.getStatus().isEmpty()) {
+        status_ = other.status_;
         onChanged();
       }
-      if (other.getSendOptOut() != false) {
-        setSendOptOut(other.getSendOptOut());
+      if (other.getHelpful() != 0) {
+        setHelpful(other.getHelpful());
+      }
+      if (other.getStop() != false) {
+        setStop(other.getStop());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -611,123 +610,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean status_ ;
+    private java.lang.Object status_ = "";
     /**
-     * <code>bool status = 5;</code>
+     * <code>string status = 5;</code>
      */
-    public boolean getStatus() {
-      return status_;
-    }
-    /**
-     * <code>bool status = 5;</code>
-     */
-    public Builder setStatus(boolean value) {
-      
-      status_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool status = 5;</code>
-     */
-    public Builder clearStatus() {
-      
-      status_ = false;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object stype_ = "";
-    /**
-     * <code>string stype = 6;</code>
-     */
-    public java.lang.String getStype() {
-      java.lang.Object ref = stype_;
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        stype_ = s;
+        status_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string stype = 6;</code>
+     * <code>string status = 5;</code>
      */
     public com.google.protobuf.ByteString
-        getStypeBytes() {
-      java.lang.Object ref = stype_;
+        getStatusBytes() {
+      java.lang.Object ref = status_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        stype_ = b;
+        status_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string stype = 6;</code>
+     * <code>string status = 5;</code>
      */
-    public Builder setStype(
+    public Builder setStatus(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      stype_ = value;
+      status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string stype = 6;</code>
+     * <code>string status = 5;</code>
      */
-    public Builder clearStype() {
+    public Builder clearStatus() {
       
-      stype_ = getDefaultInstance().getStype();
+      status_ = getDefaultInstance().getStatus();
       onChanged();
       return this;
     }
     /**
-     * <code>string stype = 6;</code>
+     * <code>string status = 5;</code>
      */
-    public Builder setStypeBytes(
+    public Builder setStatusBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      stype_ = value;
+      status_ = value;
       onChanged();
       return this;
     }
 
-    private boolean sendOptOut_ ;
+    private int helpful_ ;
     /**
-     * <code>bool sendOptOut = 7;</code>
+     * <code>int32 helpful = 6;</code>
      */
-    public boolean getSendOptOut() {
-      return sendOptOut_;
+    public int getHelpful() {
+      return helpful_;
     }
     /**
-     * <code>bool sendOptOut = 7;</code>
+     * <code>int32 helpful = 6;</code>
      */
-    public Builder setSendOptOut(boolean value) {
+    public Builder setHelpful(int value) {
       
-      sendOptOut_ = value;
+      helpful_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool sendOptOut = 7;</code>
+     * <code>int32 helpful = 6;</code>
      */
-    public Builder clearSendOptOut() {
+    public Builder clearHelpful() {
       
-      sendOptOut_ = false;
+      helpful_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean stop_ ;
+    /**
+     * <code>bool stop = 7;</code>
+     */
+    public boolean getStop() {
+      return stop_;
+    }
+    /**
+     * <code>bool stop = 7;</code>
+     */
+    public Builder setStop(boolean value) {
+      
+      stop_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool stop = 7;</code>
+     */
+    public Builder clearStop() {
+      
+      stop_ = false;
       onChanged();
       return this;
     }

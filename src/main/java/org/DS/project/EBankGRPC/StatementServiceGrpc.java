@@ -28,67 +28,67 @@ public final class StatementServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty,
-      org.DS.project.EBankGRPC.statementResp> getInitialStatementMethod;
+      org.DS.project.EBankGRPC.statementResp> getInitialSystemMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "initialStatement",
+      fullMethodName = SERVICE_NAME + '/' + "initialSystem",
       requestType = org.DS.project.EBankGRPC.Empty.class,
       responseType = org.DS.project.EBankGRPC.statementResp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty,
-      org.DS.project.EBankGRPC.statementResp> getInitialStatementMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.statementResp> getInitialStatementMethod;
-    if ((getInitialStatementMethod = StatementServiceGrpc.getInitialStatementMethod) == null) {
+      org.DS.project.EBankGRPC.statementResp> getInitialSystemMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.statementResp> getInitialSystemMethod;
+    if ((getInitialSystemMethod = StatementServiceGrpc.getInitialSystemMethod) == null) {
       synchronized (StatementServiceGrpc.class) {
-        if ((getInitialStatementMethod = StatementServiceGrpc.getInitialStatementMethod) == null) {
-          StatementServiceGrpc.getInitialStatementMethod = getInitialStatementMethod = 
+        if ((getInitialSystemMethod = StatementServiceGrpc.getInitialSystemMethod) == null) {
+          StatementServiceGrpc.getInitialSystemMethod = getInitialSystemMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.statementResp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.StatementService", "initialStatement"))
+                  "EBankGRPC.StatementService", "initialSystem"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.statementResp.getDefaultInstance()))
-                  .setSchemaDescriptor(new StatementServiceMethodDescriptorSupplier("initialStatement"))
+                  .setSchemaDescriptor(new StatementServiceMethodDescriptorSupplier("initialSystem"))
                   .build();
           }
         }
      }
-     return getInitialStatementMethod;
+     return getInitialSystemMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
-      org.DS.project.EBankGRPC.BooleanRes> getOptOutMethod;
+  private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest,
+      org.DS.project.EBankGRPC.ValResponse> getChangeHelpfulMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "optOut",
-      requestType = org.DS.project.EBankGRPC.BooleanReq.class,
-      responseType = org.DS.project.EBankGRPC.BooleanRes.class,
+      fullMethodName = SERVICE_NAME + '/' + "changeHelpful",
+      requestType = org.DS.project.EBankGRPC.ValRequest.class,
+      responseType = org.DS.project.EBankGRPC.ValResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
-      org.DS.project.EBankGRPC.BooleanRes> getOptOutMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes> getOptOutMethod;
-    if ((getOptOutMethod = StatementServiceGrpc.getOptOutMethod) == null) {
+  public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest,
+      org.DS.project.EBankGRPC.ValResponse> getChangeHelpfulMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest, org.DS.project.EBankGRPC.ValResponse> getChangeHelpfulMethod;
+    if ((getChangeHelpfulMethod = StatementServiceGrpc.getChangeHelpfulMethod) == null) {
       synchronized (StatementServiceGrpc.class) {
-        if ((getOptOutMethod = StatementServiceGrpc.getOptOutMethod) == null) {
-          StatementServiceGrpc.getOptOutMethod = getOptOutMethod = 
-              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes>newBuilder()
+        if ((getChangeHelpfulMethod = StatementServiceGrpc.getChangeHelpfulMethod) == null) {
+          StatementServiceGrpc.getChangeHelpfulMethod = getChangeHelpfulMethod = 
+              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.ValRequest, org.DS.project.EBankGRPC.ValResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.StatementService", "optOut"))
+                  "EBankGRPC.StatementService", "changeHelpful"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.BooleanReq.getDefaultInstance()))
+                  org.DS.project.EBankGRPC.ValRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.BooleanRes.getDefaultInstance()))
-                  .setSchemaDescriptor(new StatementServiceMethodDescriptorSupplier("optOut"))
+                  org.DS.project.EBankGRPC.ValResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new StatementServiceMethodDescriptorSupplier("changeHelpful"))
                   .build();
           }
         }
      }
-     return getOptOutMethod;
+     return getChangeHelpfulMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
@@ -123,68 +123,68 @@ public final class StatementServiceGrpc {
      return getOnOffMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
-      org.DS.project.EBankGRPC.StringResponse> getChangeStatementTypeMethod;
+  private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
+      org.DS.project.EBankGRPC.BooleanRes> getStopMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "changeStatementType",
-      requestType = org.DS.project.EBankGRPC.StringRequest.class,
-      responseType = org.DS.project.EBankGRPC.StringResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "stop",
+      requestType = org.DS.project.EBankGRPC.BooleanReq.class,
+      responseType = org.DS.project.EBankGRPC.BooleanRes.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
-      org.DS.project.EBankGRPC.StringResponse> getChangeStatementTypeMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse> getChangeStatementTypeMethod;
-    if ((getChangeStatementTypeMethod = StatementServiceGrpc.getChangeStatementTypeMethod) == null) {
+  public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
+      org.DS.project.EBankGRPC.BooleanRes> getStopMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes> getStopMethod;
+    if ((getStopMethod = StatementServiceGrpc.getStopMethod) == null) {
       synchronized (StatementServiceGrpc.class) {
-        if ((getChangeStatementTypeMethod = StatementServiceGrpc.getChangeStatementTypeMethod) == null) {
-          StatementServiceGrpc.getChangeStatementTypeMethod = getChangeStatementTypeMethod = 
-              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse>newBuilder()
+        if ((getStopMethod = StatementServiceGrpc.getStopMethod) == null) {
+          StatementServiceGrpc.getStopMethod = getStopMethod = 
+              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.BooleanReq, org.DS.project.EBankGRPC.BooleanRes>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.StatementService", "changeStatementType"))
+                  "EBankGRPC.StatementService", "stop"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.StringRequest.getDefaultInstance()))
+                  org.DS.project.EBankGRPC.BooleanReq.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.DS.project.EBankGRPC.StringResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new StatementServiceMethodDescriptorSupplier("changeStatementType"))
+                  org.DS.project.EBankGRPC.BooleanRes.getDefaultInstance()))
+                  .setSchemaDescriptor(new StatementServiceMethodDescriptorSupplier("stop"))
                   .build();
           }
         }
      }
-     return getChangeStatementTypeMethod;
+     return getStopMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
-      org.DS.project.EBankGRPC.StringResponse> getChangeStatementNameMethod;
+      org.DS.project.EBankGRPC.StringResponse> getChangeSystemNameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "changeStatementName",
+      fullMethodName = SERVICE_NAME + '/' + "changeSystemName",
       requestType = org.DS.project.EBankGRPC.StringRequest.class,
       responseType = org.DS.project.EBankGRPC.StringResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
-      org.DS.project.EBankGRPC.StringResponse> getChangeStatementNameMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse> getChangeStatementNameMethod;
-    if ((getChangeStatementNameMethod = StatementServiceGrpc.getChangeStatementNameMethod) == null) {
+      org.DS.project.EBankGRPC.StringResponse> getChangeSystemNameMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse> getChangeSystemNameMethod;
+    if ((getChangeSystemNameMethod = StatementServiceGrpc.getChangeSystemNameMethod) == null) {
       synchronized (StatementServiceGrpc.class) {
-        if ((getChangeStatementNameMethod = StatementServiceGrpc.getChangeStatementNameMethod) == null) {
-          StatementServiceGrpc.getChangeStatementNameMethod = getChangeStatementNameMethod = 
+        if ((getChangeSystemNameMethod = StatementServiceGrpc.getChangeSystemNameMethod) == null) {
+          StatementServiceGrpc.getChangeSystemNameMethod = getChangeSystemNameMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.StatementService", "changeStatementName"))
+                  "EBankGRPC.StatementService", "changeSystemName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.StringRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.StringResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new StatementServiceMethodDescriptorSupplier("changeStatementName"))
+                  .setSchemaDescriptor(new StatementServiceMethodDescriptorSupplier("changeSystemName"))
                   .build();
           }
         }
      }
-     return getChangeStatementNameMethod;
+     return getChangeSystemNameMethod;
   }
 
   /**
@@ -216,16 +216,16 @@ public final class StatementServiceGrpc {
 
     /**
      */
-    public void initialStatement(org.DS.project.EBankGRPC.Empty request,
+    public void initialSystem(org.DS.project.EBankGRPC.Empty request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.statementResp> responseObserver) {
-      asyncUnimplementedUnaryCall(getInitialStatementMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getInitialSystemMethod(), responseObserver);
     }
 
     /**
      */
-    public void optOut(org.DS.project.EBankGRPC.BooleanReq request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes> responseObserver) {
-      asyncUnimplementedUnaryCall(getOptOutMethod(), responseObserver);
+    public void changeHelpful(org.DS.project.EBankGRPC.ValRequest request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getChangeHelpfulMethod(), responseObserver);
     }
 
     /**
@@ -237,34 +237,34 @@ public final class StatementServiceGrpc {
 
     /**
      */
-    public void changeStatementType(org.DS.project.EBankGRPC.StringRequest request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getChangeStatementTypeMethod(), responseObserver);
+    public void stop(org.DS.project.EBankGRPC.BooleanReq request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes> responseObserver) {
+      asyncUnimplementedUnaryCall(getStopMethod(), responseObserver);
     }
 
     /**
      */
-    public void changeStatementName(org.DS.project.EBankGRPC.StringRequest request,
+    public void changeSystemName(org.DS.project.EBankGRPC.StringRequest request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getChangeStatementNameMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getChangeSystemNameMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getInitialStatementMethod(),
+            getInitialSystemMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.DS.project.EBankGRPC.Empty,
                 org.DS.project.EBankGRPC.statementResp>(
-                  this, METHODID_INITIAL_STATEMENT)))
+                  this, METHODID_INITIAL_SYSTEM)))
           .addMethod(
-            getOptOutMethod(),
+            getChangeHelpfulMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                org.DS.project.EBankGRPC.BooleanReq,
-                org.DS.project.EBankGRPC.BooleanRes>(
-                  this, METHODID_OPT_OUT)))
+                org.DS.project.EBankGRPC.ValRequest,
+                org.DS.project.EBankGRPC.ValResponse>(
+                  this, METHODID_CHANGE_HELPFUL)))
           .addMethod(
             getOnOffMethod(),
             asyncUnaryCall(
@@ -273,19 +273,19 @@ public final class StatementServiceGrpc {
                 org.DS.project.EBankGRPC.BooleanRes>(
                   this, METHODID_ON_OFF)))
           .addMethod(
-            getChangeStatementTypeMethod(),
+            getStopMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                org.DS.project.EBankGRPC.StringRequest,
-                org.DS.project.EBankGRPC.StringResponse>(
-                  this, METHODID_CHANGE_STATEMENT_TYPE)))
+                org.DS.project.EBankGRPC.BooleanReq,
+                org.DS.project.EBankGRPC.BooleanRes>(
+                  this, METHODID_STOP)))
           .addMethod(
-            getChangeStatementNameMethod(),
+            getChangeSystemNameMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.DS.project.EBankGRPC.StringRequest,
                 org.DS.project.EBankGRPC.StringResponse>(
-                  this, METHODID_CHANGE_STATEMENT_NAME)))
+                  this, METHODID_CHANGE_SYSTEM_NAME)))
           .build();
     }
   }
@@ -310,18 +310,18 @@ public final class StatementServiceGrpc {
 
     /**
      */
-    public void initialStatement(org.DS.project.EBankGRPC.Empty request,
+    public void initialSystem(org.DS.project.EBankGRPC.Empty request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.statementResp> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getInitialStatementMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getInitialSystemMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void optOut(org.DS.project.EBankGRPC.BooleanReq request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes> responseObserver) {
+    public void changeHelpful(org.DS.project.EBankGRPC.ValRequest request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse> responseObserver) {
       asyncServerStreamingCall(
-          getChannel().newCall(getOptOutMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getChangeHelpfulMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -334,18 +334,18 @@ public final class StatementServiceGrpc {
 
     /**
      */
-    public void changeStatementType(org.DS.project.EBankGRPC.StringRequest request,
-        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
+    public void stop(org.DS.project.EBankGRPC.BooleanReq request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getChangeStatementTypeMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getStopMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void changeStatementName(org.DS.project.EBankGRPC.StringRequest request,
+    public void changeSystemName(org.DS.project.EBankGRPC.StringRequest request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getChangeStatementNameMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getChangeSystemNameMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -369,17 +369,17 @@ public final class StatementServiceGrpc {
 
     /**
      */
-    public org.DS.project.EBankGRPC.statementResp initialStatement(org.DS.project.EBankGRPC.Empty request) {
+    public org.DS.project.EBankGRPC.statementResp initialSystem(org.DS.project.EBankGRPC.Empty request) {
       return blockingUnaryCall(
-          getChannel(), getInitialStatementMethod(), getCallOptions(), request);
+          getChannel(), getInitialSystemMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public java.util.Iterator<org.DS.project.EBankGRPC.BooleanRes> optOut(
-        org.DS.project.EBankGRPC.BooleanReq request) {
+    public java.util.Iterator<org.DS.project.EBankGRPC.ValResponse> changeHelpful(
+        org.DS.project.EBankGRPC.ValRequest request) {
       return blockingServerStreamingCall(
-          getChannel(), getOptOutMethod(), getCallOptions(), request);
+          getChannel(), getChangeHelpfulMethod(), getCallOptions(), request);
     }
 
     /**
@@ -391,16 +391,16 @@ public final class StatementServiceGrpc {
 
     /**
      */
-    public org.DS.project.EBankGRPC.StringResponse changeStatementType(org.DS.project.EBankGRPC.StringRequest request) {
+    public org.DS.project.EBankGRPC.BooleanRes stop(org.DS.project.EBankGRPC.BooleanReq request) {
       return blockingUnaryCall(
-          getChannel(), getChangeStatementTypeMethod(), getCallOptions(), request);
+          getChannel(), getStopMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.DS.project.EBankGRPC.StringResponse changeStatementName(org.DS.project.EBankGRPC.StringRequest request) {
+    public org.DS.project.EBankGRPC.StringResponse changeSystemName(org.DS.project.EBankGRPC.StringRequest request) {
       return blockingUnaryCall(
-          getChannel(), getChangeStatementNameMethod(), getCallOptions(), request);
+          getChannel(), getChangeSystemNameMethod(), getCallOptions(), request);
     }
   }
 
@@ -424,10 +424,10 @@ public final class StatementServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.statementResp> initialStatement(
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.statementResp> initialSystem(
         org.DS.project.EBankGRPC.Empty request) {
       return futureUnaryCall(
-          getChannel().newCall(getInitialStatementMethod(), getCallOptions()), request);
+          getChannel().newCall(getInitialSystemMethod(), getCallOptions()), request);
     }
 
     /**
@@ -440,26 +440,26 @@ public final class StatementServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.StringResponse> changeStatementType(
-        org.DS.project.EBankGRPC.StringRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.BooleanRes> stop(
+        org.DS.project.EBankGRPC.BooleanReq request) {
       return futureUnaryCall(
-          getChannel().newCall(getChangeStatementTypeMethod(), getCallOptions()), request);
+          getChannel().newCall(getStopMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.StringResponse> changeStatementName(
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.StringResponse> changeSystemName(
         org.DS.project.EBankGRPC.StringRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getChangeStatementNameMethod(), getCallOptions()), request);
+          getChannel().newCall(getChangeSystemNameMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_INITIAL_STATEMENT = 0;
-  private static final int METHODID_OPT_OUT = 1;
+  private static final int METHODID_INITIAL_SYSTEM = 0;
+  private static final int METHODID_CHANGE_HELPFUL = 1;
   private static final int METHODID_ON_OFF = 2;
-  private static final int METHODID_CHANGE_STATEMENT_TYPE = 3;
-  private static final int METHODID_CHANGE_STATEMENT_NAME = 4;
+  private static final int METHODID_STOP = 3;
+  private static final int METHODID_CHANGE_SYSTEM_NAME = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -478,24 +478,24 @@ public final class StatementServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_INITIAL_STATEMENT:
-          serviceImpl.initialStatement((org.DS.project.EBankGRPC.Empty) request,
+        case METHODID_INITIAL_SYSTEM:
+          serviceImpl.initialSystem((org.DS.project.EBankGRPC.Empty) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.statementResp>) responseObserver);
           break;
-        case METHODID_OPT_OUT:
-          serviceImpl.optOut((org.DS.project.EBankGRPC.BooleanReq) request,
-              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes>) responseObserver);
+        case METHODID_CHANGE_HELPFUL:
+          serviceImpl.changeHelpful((org.DS.project.EBankGRPC.ValRequest) request,
+              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse>) responseObserver);
           break;
         case METHODID_ON_OFF:
           serviceImpl.onOff((org.DS.project.EBankGRPC.BooleanReq) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes>) responseObserver);
           break;
-        case METHODID_CHANGE_STATEMENT_TYPE:
-          serviceImpl.changeStatementType((org.DS.project.EBankGRPC.StringRequest) request,
-              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse>) responseObserver);
+        case METHODID_STOP:
+          serviceImpl.stop((org.DS.project.EBankGRPC.BooleanReq) request,
+              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes>) responseObserver);
           break;
-        case METHODID_CHANGE_STATEMENT_NAME:
-          serviceImpl.changeStatementName((org.DS.project.EBankGRPC.StringRequest) request,
+        case METHODID_CHANGE_SYSTEM_NAME:
+          serviceImpl.changeSystemName((org.DS.project.EBankGRPC.StringRequest) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse>) responseObserver);
           break;
         default:
@@ -559,11 +559,11 @@ public final class StatementServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new StatementServiceFileDescriptorSupplier())
-              .addMethod(getInitialStatementMethod())
-              .addMethod(getOptOutMethod())
+              .addMethod(getInitialSystemMethod())
+              .addMethod(getChangeHelpfulMethod())
               .addMethod(getOnOffMethod())
-              .addMethod(getChangeStatementTypeMethod())
-              .addMethod(getChangeStatementNameMethod())
+              .addMethod(getStopMethod())
+              .addMethod(getChangeSystemNameMethod())
               .build();
         }
       }

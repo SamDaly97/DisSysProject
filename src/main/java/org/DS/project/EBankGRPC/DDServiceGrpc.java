@@ -28,67 +28,99 @@ public final class DDServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty,
-      org.DS.project.EBankGRPC.ddResp> getInitialDDMethod;
+      org.DS.project.EBankGRPC.ddResp> getInitialSystemMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "initialDD",
+      fullMethodName = SERVICE_NAME + '/' + "initialSystem",
       requestType = org.DS.project.EBankGRPC.Empty.class,
       responseType = org.DS.project.EBankGRPC.ddResp.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty,
-      org.DS.project.EBankGRPC.ddResp> getInitialDDMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.ddResp> getInitialDDMethod;
-    if ((getInitialDDMethod = DDServiceGrpc.getInitialDDMethod) == null) {
+      org.DS.project.EBankGRPC.ddResp> getInitialSystemMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.ddResp> getInitialSystemMethod;
+    if ((getInitialSystemMethod = DDServiceGrpc.getInitialSystemMethod) == null) {
       synchronized (DDServiceGrpc.class) {
-        if ((getInitialDDMethod = DDServiceGrpc.getInitialDDMethod) == null) {
-          DDServiceGrpc.getInitialDDMethod = getInitialDDMethod = 
+        if ((getInitialSystemMethod = DDServiceGrpc.getInitialSystemMethod) == null) {
+          DDServiceGrpc.getInitialSystemMethod = getInitialSystemMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.Empty, org.DS.project.EBankGRPC.ddResp>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.DDService", "initialDD"))
+                  "EBankGRPC.DDService", "initialSystem"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.ddResp.getDefaultInstance()))
-                  .setSchemaDescriptor(new DDServiceMethodDescriptorSupplier("initialDD"))
+                  .setSchemaDescriptor(new DDServiceMethodDescriptorSupplier("initialSystem"))
                   .build();
           }
         }
      }
-     return getInitialDDMethod;
+     return getInitialSystemMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest,
-      org.DS.project.EBankGRPC.ValResponse> getChangeAmountMethod;
+      org.DS.project.EBankGRPC.ValResponse> getChangeHelpfulMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "changeAmount",
+      fullMethodName = SERVICE_NAME + '/' + "changeHelpful",
       requestType = org.DS.project.EBankGRPC.ValRequest.class,
       responseType = org.DS.project.EBankGRPC.ValResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest,
-      org.DS.project.EBankGRPC.ValResponse> getChangeAmountMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest, org.DS.project.EBankGRPC.ValResponse> getChangeAmountMethod;
-    if ((getChangeAmountMethod = DDServiceGrpc.getChangeAmountMethod) == null) {
+      org.DS.project.EBankGRPC.ValResponse> getChangeHelpfulMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest, org.DS.project.EBankGRPC.ValResponse> getChangeHelpfulMethod;
+    if ((getChangeHelpfulMethod = DDServiceGrpc.getChangeHelpfulMethod) == null) {
       synchronized (DDServiceGrpc.class) {
-        if ((getChangeAmountMethod = DDServiceGrpc.getChangeAmountMethod) == null) {
-          DDServiceGrpc.getChangeAmountMethod = getChangeAmountMethod = 
+        if ((getChangeHelpfulMethod = DDServiceGrpc.getChangeHelpfulMethod) == null) {
+          DDServiceGrpc.getChangeHelpfulMethod = getChangeHelpfulMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.ValRequest, org.DS.project.EBankGRPC.ValResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.DDService", "changeAmount"))
+                  "EBankGRPC.DDService", "changeHelpful"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.ValRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.ValResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new DDServiceMethodDescriptorSupplier("changeAmount"))
+                  .setSchemaDescriptor(new DDServiceMethodDescriptorSupplier("changeHelpful"))
                   .build();
           }
         }
      }
-     return getChangeAmountMethod;
+     return getChangeHelpfulMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest,
+      org.DS.project.EBankGRPC.ValResponse> getChangeFrequencyMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "changeFrequency",
+      requestType = org.DS.project.EBankGRPC.ValRequest.class,
+      responseType = org.DS.project.EBankGRPC.ValResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest,
+      org.DS.project.EBankGRPC.ValResponse> getChangeFrequencyMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.ValRequest, org.DS.project.EBankGRPC.ValResponse> getChangeFrequencyMethod;
+    if ((getChangeFrequencyMethod = DDServiceGrpc.getChangeFrequencyMethod) == null) {
+      synchronized (DDServiceGrpc.class) {
+        if ((getChangeFrequencyMethod = DDServiceGrpc.getChangeFrequencyMethod) == null) {
+          DDServiceGrpc.getChangeFrequencyMethod = getChangeFrequencyMethod = 
+              io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.ValRequest, org.DS.project.EBankGRPC.ValResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "EBankGRPC.DDService", "changeFrequency"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.DS.project.EBankGRPC.ValRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.DS.project.EBankGRPC.ValResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new DDServiceMethodDescriptorSupplier("changeFrequency"))
+                  .build();
+          }
+        }
+     }
+     return getChangeFrequencyMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.BooleanReq,
@@ -124,35 +156,35 @@ public final class DDServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
-      org.DS.project.EBankGRPC.StringResponse> getChangeDirectDebitNameMethod;
+      org.DS.project.EBankGRPC.StringResponse> getChangeSystemNameMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "changeDirectDebitName",
+      fullMethodName = SERVICE_NAME + '/' + "changeSystemName",
       requestType = org.DS.project.EBankGRPC.StringRequest.class,
       responseType = org.DS.project.EBankGRPC.StringResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest,
-      org.DS.project.EBankGRPC.StringResponse> getChangeDirectDebitNameMethod() {
-    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse> getChangeDirectDebitNameMethod;
-    if ((getChangeDirectDebitNameMethod = DDServiceGrpc.getChangeDirectDebitNameMethod) == null) {
+      org.DS.project.EBankGRPC.StringResponse> getChangeSystemNameMethod() {
+    io.grpc.MethodDescriptor<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse> getChangeSystemNameMethod;
+    if ((getChangeSystemNameMethod = DDServiceGrpc.getChangeSystemNameMethod) == null) {
       synchronized (DDServiceGrpc.class) {
-        if ((getChangeDirectDebitNameMethod = DDServiceGrpc.getChangeDirectDebitNameMethod) == null) {
-          DDServiceGrpc.getChangeDirectDebitNameMethod = getChangeDirectDebitNameMethod = 
+        if ((getChangeSystemNameMethod = DDServiceGrpc.getChangeSystemNameMethod) == null) {
+          DDServiceGrpc.getChangeSystemNameMethod = getChangeSystemNameMethod = 
               io.grpc.MethodDescriptor.<org.DS.project.EBankGRPC.StringRequest, org.DS.project.EBankGRPC.StringResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EBankGRPC.DDService", "changeDirectDebitName"))
+                  "EBankGRPC.DDService", "changeSystemName"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.StringRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.DS.project.EBankGRPC.StringResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new DDServiceMethodDescriptorSupplier("changeDirectDebitName"))
+                  .setSchemaDescriptor(new DDServiceMethodDescriptorSupplier("changeSystemName"))
                   .build();
           }
         }
      }
-     return getChangeDirectDebitNameMethod;
+     return getChangeSystemNameMethod;
   }
 
   /**
@@ -184,16 +216,23 @@ public final class DDServiceGrpc {
 
     /**
      */
-    public void initialDD(org.DS.project.EBankGRPC.Empty request,
+    public void initialSystem(org.DS.project.EBankGRPC.Empty request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ddResp> responseObserver) {
-      asyncUnimplementedUnaryCall(getInitialDDMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getInitialSystemMethod(), responseObserver);
     }
 
     /**
      */
-    public void changeAmount(org.DS.project.EBankGRPC.ValRequest request,
+    public void changeHelpful(org.DS.project.EBankGRPC.ValRequest request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getChangeAmountMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getChangeHelpfulMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void changeFrequency(org.DS.project.EBankGRPC.ValRequest request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getChangeFrequencyMethod(), responseObserver);
     }
 
     /**
@@ -205,27 +244,34 @@ public final class DDServiceGrpc {
 
     /**
      */
-    public void changeDirectDebitName(org.DS.project.EBankGRPC.StringRequest request,
+    public void changeSystemName(org.DS.project.EBankGRPC.StringRequest request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getChangeDirectDebitNameMethod(), responseObserver);
+      asyncUnimplementedUnaryCall(getChangeSystemNameMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getInitialDDMethod(),
+            getInitialSystemMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.DS.project.EBankGRPC.Empty,
                 org.DS.project.EBankGRPC.ddResp>(
-                  this, METHODID_INITIAL_DD)))
+                  this, METHODID_INITIAL_SYSTEM)))
           .addMethod(
-            getChangeAmountMethod(),
+            getChangeHelpfulMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.DS.project.EBankGRPC.ValRequest,
                 org.DS.project.EBankGRPC.ValResponse>(
-                  this, METHODID_CHANGE_AMOUNT)))
+                  this, METHODID_CHANGE_HELPFUL)))
+          .addMethod(
+            getChangeFrequencyMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.DS.project.EBankGRPC.ValRequest,
+                org.DS.project.EBankGRPC.ValResponse>(
+                  this, METHODID_CHANGE_FREQUENCY)))
           .addMethod(
             getOnOffMethod(),
             asyncUnaryCall(
@@ -234,12 +280,12 @@ public final class DDServiceGrpc {
                 org.DS.project.EBankGRPC.BooleanRes>(
                   this, METHODID_ON_OFF)))
           .addMethod(
-            getChangeDirectDebitNameMethod(),
+            getChangeSystemNameMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 org.DS.project.EBankGRPC.StringRequest,
                 org.DS.project.EBankGRPC.StringResponse>(
-                  this, METHODID_CHANGE_DIRECT_DEBIT_NAME)))
+                  this, METHODID_CHANGE_SYSTEM_NAME)))
           .build();
     }
   }
@@ -264,18 +310,26 @@ public final class DDServiceGrpc {
 
     /**
      */
-    public void initialDD(org.DS.project.EBankGRPC.Empty request,
+    public void initialSystem(org.DS.project.EBankGRPC.Empty request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ddResp> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getInitialDDMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getInitialSystemMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void changeAmount(org.DS.project.EBankGRPC.ValRequest request,
+    public void changeHelpful(org.DS.project.EBankGRPC.ValRequest request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getChangeAmountMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getChangeHelpfulMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void changeFrequency(org.DS.project.EBankGRPC.ValRequest request,
+        io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getChangeFrequencyMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -288,10 +342,10 @@ public final class DDServiceGrpc {
 
     /**
      */
-    public void changeDirectDebitName(org.DS.project.EBankGRPC.StringRequest request,
+    public void changeSystemName(org.DS.project.EBankGRPC.StringRequest request,
         io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getChangeDirectDebitNameMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getChangeSystemNameMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -315,16 +369,23 @@ public final class DDServiceGrpc {
 
     /**
      */
-    public org.DS.project.EBankGRPC.ddResp initialDD(org.DS.project.EBankGRPC.Empty request) {
+    public org.DS.project.EBankGRPC.ddResp initialSystem(org.DS.project.EBankGRPC.Empty request) {
       return blockingUnaryCall(
-          getChannel(), getInitialDDMethod(), getCallOptions(), request);
+          getChannel(), getInitialSystemMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public org.DS.project.EBankGRPC.ValResponse changeAmount(org.DS.project.EBankGRPC.ValRequest request) {
+    public org.DS.project.EBankGRPC.ValResponse changeHelpful(org.DS.project.EBankGRPC.ValRequest request) {
       return blockingUnaryCall(
-          getChannel(), getChangeAmountMethod(), getCallOptions(), request);
+          getChannel(), getChangeHelpfulMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.DS.project.EBankGRPC.ValResponse changeFrequency(org.DS.project.EBankGRPC.ValRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getChangeFrequencyMethod(), getCallOptions(), request);
     }
 
     /**
@@ -336,9 +397,9 @@ public final class DDServiceGrpc {
 
     /**
      */
-    public org.DS.project.EBankGRPC.StringResponse changeDirectDebitName(org.DS.project.EBankGRPC.StringRequest request) {
+    public org.DS.project.EBankGRPC.StringResponse changeSystemName(org.DS.project.EBankGRPC.StringRequest request) {
       return blockingUnaryCall(
-          getChannel(), getChangeDirectDebitNameMethod(), getCallOptions(), request);
+          getChannel(), getChangeSystemNameMethod(), getCallOptions(), request);
     }
   }
 
@@ -362,18 +423,26 @@ public final class DDServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.ddResp> initialDD(
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.ddResp> initialSystem(
         org.DS.project.EBankGRPC.Empty request) {
       return futureUnaryCall(
-          getChannel().newCall(getInitialDDMethod(), getCallOptions()), request);
+          getChannel().newCall(getInitialSystemMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.ValResponse> changeAmount(
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.ValResponse> changeHelpful(
         org.DS.project.EBankGRPC.ValRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getChangeAmountMethod(), getCallOptions()), request);
+          getChannel().newCall(getChangeHelpfulMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.ValResponse> changeFrequency(
+        org.DS.project.EBankGRPC.ValRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getChangeFrequencyMethod(), getCallOptions()), request);
     }
 
     /**
@@ -386,17 +455,18 @@ public final class DDServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.StringResponse> changeDirectDebitName(
+    public com.google.common.util.concurrent.ListenableFuture<org.DS.project.EBankGRPC.StringResponse> changeSystemName(
         org.DS.project.EBankGRPC.StringRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getChangeDirectDebitNameMethod(), getCallOptions()), request);
+          getChannel().newCall(getChangeSystemNameMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_INITIAL_DD = 0;
-  private static final int METHODID_CHANGE_AMOUNT = 1;
-  private static final int METHODID_ON_OFF = 2;
-  private static final int METHODID_CHANGE_DIRECT_DEBIT_NAME = 3;
+  private static final int METHODID_INITIAL_SYSTEM = 0;
+  private static final int METHODID_CHANGE_HELPFUL = 1;
+  private static final int METHODID_CHANGE_FREQUENCY = 2;
+  private static final int METHODID_ON_OFF = 3;
+  private static final int METHODID_CHANGE_SYSTEM_NAME = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -415,20 +485,24 @@ public final class DDServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_INITIAL_DD:
-          serviceImpl.initialDD((org.DS.project.EBankGRPC.Empty) request,
+        case METHODID_INITIAL_SYSTEM:
+          serviceImpl.initialSystem((org.DS.project.EBankGRPC.Empty) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ddResp>) responseObserver);
           break;
-        case METHODID_CHANGE_AMOUNT:
-          serviceImpl.changeAmount((org.DS.project.EBankGRPC.ValRequest) request,
+        case METHODID_CHANGE_HELPFUL:
+          serviceImpl.changeHelpful((org.DS.project.EBankGRPC.ValRequest) request,
+              (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse>) responseObserver);
+          break;
+        case METHODID_CHANGE_FREQUENCY:
+          serviceImpl.changeFrequency((org.DS.project.EBankGRPC.ValRequest) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.ValResponse>) responseObserver);
           break;
         case METHODID_ON_OFF:
           serviceImpl.onOff((org.DS.project.EBankGRPC.BooleanReq) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.BooleanRes>) responseObserver);
           break;
-        case METHODID_CHANGE_DIRECT_DEBIT_NAME:
-          serviceImpl.changeDirectDebitName((org.DS.project.EBankGRPC.StringRequest) request,
+        case METHODID_CHANGE_SYSTEM_NAME:
+          serviceImpl.changeSystemName((org.DS.project.EBankGRPC.StringRequest) request,
               (io.grpc.stub.StreamObserver<org.DS.project.EBankGRPC.StringResponse>) responseObserver);
           break;
         default:
@@ -492,10 +566,11 @@ public final class DDServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new DDServiceFileDescriptorSupplier())
-              .addMethod(getInitialDDMethod())
-              .addMethod(getChangeAmountMethod())
+              .addMethod(getInitialSystemMethod())
+              .addMethod(getChangeHelpfulMethod())
+              .addMethod(getChangeFrequencyMethod())
               .addMethod(getOnOffMethod())
-              .addMethod(getChangeDirectDebitNameMethod())
+              .addMethod(getChangeSystemNameMethod())
               .build();
         }
       }

@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.DS.project.EBankGRPC";
+option java_outer_classname = "PhoneServiceImpl";
+
+package EBankGRPC;
+// Interface exported by the server.
+
+
+
+service PhoneService {
+  rpc initialPhone(Empty) returns (phoneResp) {}
+  
+  rpc changeApplication(StringRequest) returns (StringResponse) {}
+
+  rpc changeBattery(ValRequest) returns (ValResponse) {}
+
+  rpc onOff(BooleanReq) returns (BooleanRes) {}
+  
+  rpc changePhoneName(StringRequest) returns (StringResponse) {}
+
+}
+
+message Empty {
+
+}
+
+
+message StringRequest {
+	string text = 1;
+}
+
+message StringResponse {
+	string text = 1;
+}
+
+message BooleanReq {
+	bool msg = 2;
+}
+
+message BooleanRes {
+	bool msg = 2;
+}
+
+message ValRequest {
+  	int32 length = 3;
+}
+message ValResponse {
+  	int32 length = 3;
+}
+message phoneResp{
+	string pname = 4;
+	string status = 5;
+ 	string app = 6;	
+  	int32 battery = 7;	
+
+}

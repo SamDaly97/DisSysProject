@@ -2,7 +2,7 @@ package GRPC;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.rmi.UnknownHostException;
+import java.net.UnknownHostException;
 import java.util.logging.Logger;
 
 import javax.jmdns.JmDNS;
@@ -19,14 +19,11 @@ import org.DS.project.EBankGRPC.ValRequest;
 import org.DS.project.EBankGRPC.ValResponse;
 import org.DS.project.EBankGRPC.userResp;
 
-import io.grpc.stub.StreamObserver;
-
+import Models.User;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-import Models.User;
 
-@SuppressWarnings("unused")
 public class UserServer extends UserServiceImplBase {
 	private static final Logger logger = Logger.getLogger(UserServer.class.getName());
 	public User myUser = new User();
@@ -49,7 +46,7 @@ public class UserServer extends UserServiceImplBase {
 
 			// Start GRPC server with discovered device
 			if (event.getName().equals("User")) {
-				System.out.println("Found user port: " + event.getInfo().getPort());
+				System.out.println("Found User port: " + event.getInfo().getPort());
 				try {
 					userPort = event.getInfo().getPort();
 					startGRPC(event.getInfo().getPort());
@@ -90,6 +87,14 @@ public class UserServer extends UserServiceImplBase {
 		}
 	}
 
+	public int getUserPort() {
+		return userPort;
+	}
+
+	public void setUserPort(int userPort) {
+		UserServer.userPort = userPort;
+	}
+
 	public static void startGRPC(int portNumber) throws IOException, InterruptedException {
 
 		UserServer userServer = new UserServer();
@@ -101,89 +106,64 @@ public class UserServer extends UserServiceImplBase {
 		server.awaitTermination();
 	}
 
-	public int getUserPort() {
-		return userPort;
-	}
-
-	public void setUserPort(int userPort) {
-		UserServer.userPort = userPort;
-	}
-
 	@Override
-	public void initialUser(Empty request, StreamObserver<userResp> responseObserver) {
-		System.out.println("receiving initialDevice request for User ");
-		String atype;
+	public void initialSystem(Empty request, StreamObserver<userResp> responseObserver) {
+		System.out.println("receiving initialSystem request for User ");
+		String status;
 
-		if (myUser.isActiveAccount()) {
-			atype = "Debit";
+		if (myUser.isOn()) {
+			status = "On";
 		} else {
-			atype = "Credit";
+			status = "Off";
 
 		}
-		String aName = myUser.getUserName();
-		String aatype = atype;
-		Integer aBalance = myUser.getBalance();
+		String sName = myUser.getSystemName();
+		String sStatus = status;
+		Integer sActivity = myUser.getActivity();
 
-		userResp response = userResp.newBuilder().setAname(aName).setAtype(aatype).setAbalance(aBalance).build();
+		userResp response = userResp.newBuilder().setSname(sName).setStatus(sStatus).setActivity(sActivity).build();
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
 
 	@Override
-	public void changeBalance(ValRequest request, StreamObserver<ValResponse> responseObserver) {
-		int currentBalance = myUser.getBalance();
-		int changeBalance = request.getLength();
-
-		System.out.println("receiving balance for user");
-		int newBalance = currentBalance + changeBalance;
-
-		if (newBalance <= 0) {
-			System.out.println("Cannot add value less than 0");
-			System.out.println("Returning current balance:" + myUser.getBalance());
-			ValResponse response = ValResponse.newBuilder().setLength(myUser.getBalance()).build();
+	public void changeActivity(ValRequest request, StreamObserver<ValResponse> responseObserver) {
+		int currentActivity = myUser.getActivity();
+		int changeActivity = request.getLength();
+		System.out.println("receiving activity for user");
+		int newActivity = currentActivity + changeActivity;
+		if (newActivity > 10 || newActivity < 0) {
+			System.out.println("Brigtness request is over 100 or less than 0:" + newActivity);
+			System.out.println("Returning current Activity:" + myUser.getActivity());
+			ValResponse response = ValResponse.newBuilder().setLength(myUser.getActivity()).build();
 			responseObserver.onNext(response);
 			responseObserver.onCompleted();
 		} else {
-			System.out.println("New balance is :" + newBalance);
-			myUser.setBalance(newBalance);
-			ValResponse response = ValResponse.newBuilder().setLength(newBalance).build();
+			System.out.println("New Activity is set :" + newActivity);
+			myUser.setActivity(newActivity);
+			ValResponse response = ValResponse.newBuilder().setLength(newActivity).build();
 			responseObserver.onNext(response);
 			responseObserver.onCompleted();
 		}
-
 	}
 
 	@Override
-	public void activeAccount(BooleanReq request, StreamObserver<BooleanRes> responseObserver) {
-		System.out.println("receiving activeAccount for User ");
-		Boolean activeAccount = request.getMsg();
-		myUser.setActiveAccount(activeAccount);
+	public void onOff(BooleanReq request, StreamObserver<BooleanRes> responseObserver) {
+		System.out.println("receiving onOFF for User ");
+		Boolean onOff = request.getMsg();
+		myUser.setOn(onOff);
 
-		BooleanRes response = BooleanRes.newBuilder().setMsg(activeAccount).build();
+		BooleanRes response = BooleanRes.newBuilder().setMsg(onOff).build();
 		responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
 
 	@Override
-	public void changeAccountType(StringRequest request, StreamObserver<StringResponse> responseObserver) {
-		System.out.println("Type whether your account is a Debit or Credit account.");
-		String accountType = request.getText();
-		System.out.println("Changing account type to " + accountType);
-
-		myUser.setAccountType(accountType);
-
-		StringResponse response = StringResponse.newBuilder().setText(accountType).build();
-		System.out.println("Response " + response.getText());
-		responseObserver.onNext(response);
-		responseObserver.onCompleted();
-	}
-
-	@Override
-	public void changeAccountName(StringRequest request, StreamObserver<StringResponse> responseObserver) {
+	public void changeSystemName(StringRequest request, StreamObserver<StringResponse> responseObserver) {
 		String name = request.getText();
-		System.out.println("Changing User name to " + name);
+		System.out.println("Changing user name to " + name);
 
-		myUser.setUserName(name);
+		myUser.setSystemName(name);
 
 		StringResponse response = StringResponse.newBuilder().setText(name).build();
 		System.out.println("Response " + response.getText());

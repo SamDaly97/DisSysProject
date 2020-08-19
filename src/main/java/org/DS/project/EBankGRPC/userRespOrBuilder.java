@@ -8,27 +8,27 @@ public interface userRespOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string aname = 4;</code>
+   * <code>string sname = 4;</code>
    */
-  java.lang.String getAname();
+  java.lang.String getSname();
   /**
-   * <code>string aname = 4;</code>
+   * <code>string sname = 4;</code>
    */
   com.google.protobuf.ByteString
-      getAnameBytes();
+      getSnameBytes();
 
   /**
-   * <code>string atype = 5;</code>
+   * <code>string status = 5;</code>
    */
-  java.lang.String getAtype();
+  java.lang.String getStatus();
   /**
-   * <code>string atype = 5;</code>
+   * <code>string status = 5;</code>
    */
   com.google.protobuf.ByteString
-      getAtypeBytes();
+      getStatusBytes();
 
   /**
-   * <code>int32 abalance = 6;</code>
+   * <code>int32 activity = 6;</code>
    */
-  int getAbalance();
+  int getActivity();
 }

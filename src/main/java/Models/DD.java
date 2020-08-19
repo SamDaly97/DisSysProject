@@ -1,42 +1,57 @@
 package Models;
 
 public class DD {
-	private String name;
-	private boolean on;
-	private int amount;
+	private String system, systemName;
+	private boolean On;
+	private int helpful, frequency;
 	
 	public DD() {
-		
-		this.name = "Sam";
-		this.on = false;
-		this.amount = 50;
-		
+		this.system = "Direct Debit";
+		this.On = true;
+		this.systemName = "Custom DD";
+		this.helpful = 8;
+		this.frequency = 2;
 	}
 
-	public String getName() {
-		return name;
+	public String getSystem() {
+		return system;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSystem(String system) {
+		this.system = system;
+	}
+
+	public String getSystemName() {
+		return systemName;
+	}
+
+	public void setSystemName(String systemName) {
+		this.systemName = systemName;
 	}
 
 	public boolean isOn() {
-		return on;
+		return On;
 	}
 
 	public void setOn(boolean on) {
-		this.on = on;
+		On = on;
 	}
 
-	public int getAmount() {
-		return amount;
+	public int getHelpful() {
+		return helpful;
 	}
 
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setHelpful(int helpful) {
+		this.helpful = helpful;
 	}
-	
+
+	public int getFrequency() {
+		return frequency;
+	}
+
+	public void setFrequency(int frequency) {
+		this.frequency = frequency;
+	}
 	
 	
 }
