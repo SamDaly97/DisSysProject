@@ -14,8 +14,6 @@ import org.DS.project.EBankGRPC.BooleanRes;
 import org.DS.project.EBankGRPC.Empty;
 import org.DS.project.EBankGRPC.StatementServiceGrpc.StatementServiceImplBase;
 
-import GRPC.DDServer.SampleListener;
-
 import org.DS.project.EBankGRPC.StringRequest;
 import org.DS.project.EBankGRPC.StringResponse;
 import org.DS.project.EBankGRPC.statementResp;
@@ -46,8 +44,8 @@ public class StatementServer extends StatementServiceImplBase {
 			System.out.println("Get Name: " + event.getName() + " PORT: " + event.getInfo().getPort());
 
 			// Start GRPC server with discovered device
-			if (event.getName().equals("Statement")) {
-				System.out.println("Found Statement port: " + event.getInfo().getPort());
+			if (event.getName().equals("Lamp")) {
+				System.out.println("Found statemnent port: " + event.getInfo().getPort());
 				try {
 					statementPort = event.getInfo().getPort();
 					startGRPC(event.getInfo().getPort());
@@ -63,12 +61,11 @@ public class StatementServer extends StatementServiceImplBase {
 			}
 
 		}
+	}
 
-		public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 
-			startDiscovery();
-
-		}
+		startDiscovery();
 
 	}
 
