@@ -3,8 +3,6 @@ package jmDNS;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.HashMap;
-
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 import Models.*;
@@ -31,8 +29,7 @@ public class Registering {
 			System.out.println("Registering...");
 			ServiceInfo serviceUser = ServiceInfo.create("_http._tcp.local.", myUser.getUserName(), userPort,
 					"path=index.html");
-			ServiceInfo serviceDD = ServiceInfo.create("_http._tcp.local.", myDD.getName(), ddPort,
-					"path=index.html");
+			ServiceInfo serviceDD = ServiceInfo.create("_http._tcp.local.", myDD.getName(), ddPort, "path=index.html");
 			ServiceInfo serviceStatement = ServiceInfo.create("_http._tcp.local.", myStatement.getName(), statementPort,
 					"path=index.html");
 
