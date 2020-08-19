@@ -1,1 +1,53 @@
 syntax = "proto3";
+package EBankGRPC;
+// Interface exported by the server.
+
+
+
+service PhoneService {
+  rpc initialPhone(Empty) returns (phoneResp) {}
+  
+  rpc changeApplication(StringRequest) returns (StringResponse) {}
+
+  rpc changeBattery(valRequest) returns (valResponse) {}
+
+  rpc onOff(BooleanReq) returns (BooleanRes) {}
+  
+  rpc changePhoneName(StringRequest) returns (StringRequest) {}
+
+}
+
+message Empty {
+
+}
+
+
+message StringRequest {
+	string text = 1;
+}
+
+message StringResponse {
+	string text = 1;
+}
+
+message BooleanReq {
+	bool msg = 2;
+}
+
+message BooleanRes {
+	bool msg = 2;
+}
+
+message valRequest {
+  	int32 length = 3;
+}
+message valResponse {
+  	int32 length = 3;
+}
+message phoneResp{
+	string pname = 4;
+	string status = 5;
+ 	string app = 6;	
+  	int32 battery = 7;	
+
+}
