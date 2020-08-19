@@ -26,6 +26,7 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import Models.User;
 
+@SuppressWarnings("unused")
 public class UserServer extends UserServiceImplBase {
 	private static final Logger logger = Logger.getLogger(UserServer.class.getName());
 	public User myUser = new User();
