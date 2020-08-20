@@ -21,11 +21,8 @@ public class Registering {
 		Statement myStatement = new Statement();
 
 		try {
-
-			//Create a JmDNS instance
-			//JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 			jmdns = JmDNS.create(InetAddress.getLocalHost());
-			//Registering all services
+
 			System.out.println("Registering...");
 			ServiceInfo serviceUser = ServiceInfo.create("_http._tcp.local.", myUser.getSystem(), userPort,"path=index.html");
 			ServiceInfo serviceDD = ServiceInfo.create("_http._tcp.local.", myDD.getSystem(), ddPort, "path=index.html");
@@ -34,14 +31,8 @@ public class Registering {
 			jmdns.registerService(serviceUser);
 			jmdns.registerService(serviceDD);
 			jmdns.registerService(serviceStatement);
-
-			 //Wait a bit
-			 //Thread.sleep(25000);
-
-			 //Unregister all services
-			 //jmdns.unregisterAllServices();
-
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 	}

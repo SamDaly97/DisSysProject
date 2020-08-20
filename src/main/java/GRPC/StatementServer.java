@@ -23,7 +23,13 @@ import Models.Statement;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-
+/*
+ * Statement server class
+ * this sets up discovering and registering for JMDNS
+ * starts server once index is run
+ * connects via GUI
+ * auto generated override/implement methods added for functionality 
+ */
 public class StatementServer extends StatementServiceImplBase {
 
 	private static class SampleListener implements ServiceListener {
@@ -41,16 +47,18 @@ public class StatementServer extends StatementServiceImplBase {
 			System.out.println("Service resolved: " + event.getInfo());
 			System.out.println("Get Name: " + event.getName() + " PORT: " + event.getInfo().getPort());
 
-			// Start GRPC server with discovered device
+
 			if (event.getName().equals("Statement")) {
 				System.out.println("Found Statement port: " + event.getInfo().getPort());
 				try {
 					System.out.println("STARTING Statement GRPC SERVER");
 					startGRPC(event.getInfo().getPort());
-				} catch (IOException e) {
+				} 
+				catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} catch (InterruptedException e) {
+				} 
+				catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -69,17 +77,19 @@ public class StatementServer extends StatementServiceImplBase {
 
 	public static void startDiscovery() throws IOException, InterruptedException {
 		try {
-			// Create a JmDNS instance
+
 			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
-			// Add a service listener
+
 			jmdns.addServiceListener("_http._tcp.local.", new SampleListener());
 			System.out.println("Listening");
-			// Wait a bit
-			Thread.sleep(30000);
-		} catch (UnknownHostException e) {
+
+			Thread.sleep(25000);
+		} 
+		catch (UnknownHostException e) {
 			System.out.println(e.getMessage());
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -95,12 +105,13 @@ public class StatementServer extends StatementServiceImplBase {
 
 	@Override
 	public void initialSystem(Empty request, StreamObserver<statementResp> responseObserver) {
-		System.out.println("receiving initialDevice request for S ");
+		System.out.println("receiving initialSystem request for statement ");
 		String status;
 
 		if (myStatement.isOn()) {
 			status = "On";
-		} else {
+		} 
+		else {
 			status = "Off";
 
 		}
@@ -122,12 +133,13 @@ public class StatementServer extends StatementServiceImplBase {
 		System.out.println("receiving Helpful for Statement");
 		int newHelpful = currentHelpful + changeHelpful;
 		if (newHelpful > 10 || newHelpful < 0) {
-			System.out.println("Helpful request is over 10 or less than 0:" + newHelpful);
+			System.out.println("Helpful must be between 0-10:" + newHelpful);
 			System.out.println("Returning current Helpful:" + myStatement.getHelpful());
 			ValResponse response = ValResponse.newBuilder().setLength(myStatement.getHelpful()).build();
 			responseObserver.onNext(response);
 			responseObserver.onCompleted();
-		} else {
+		} 
+		else {
 			System.out.println("New Helpful is set :" + newHelpful);
 			myStatement.setHelpful(newHelpful);
 			ValResponse response = ValResponse.newBuilder().setLength(newHelpful).build();

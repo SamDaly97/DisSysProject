@@ -1,5 +1,14 @@
 package Models;
 
+//model for direct debit class
+/*
+ * deals with direct debit name
+ * deals with on or off
+ * deals with custom name
+ * deals with helpfulness
+ * deals with frequency in which they are sent
+ * 
+ */
 public class DD {
 	private String system, systemName;
 	private boolean On;

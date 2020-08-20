@@ -24,6 +24,14 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
+/*
+ * Direct Debit server class
+ * this sets up discovering and registering for JMDNS
+ * starts server once index is run
+ * connects via GUI
+ * auto generated override/implement methods added for functionality 
+ */
+
 public class DDServer extends DDServiceImplBase {
 
 	private static class SampleListener implements ServiceListener {
@@ -41,16 +49,18 @@ public class DDServer extends DDServiceImplBase {
 			System.out.println("Service resolved: " + event.getInfo());
 			System.out.println("Get Name: " + event.getName() + " PORT: " + event.getInfo().getPort());
 
-			// Start GRPC server with discovered device
+
 			if (event.getName().equals("DD")) {
 				System.out.println("Found DD port: " + event.getInfo().getPort());
 				try {
 					System.out.println("STARTING DD GRPC SERVER");
 					startGRPC(event.getInfo().getPort());
-				} catch (IOException e) {
+				} 
+				catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} catch (InterruptedException e) {
+				} 
+				catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -69,17 +79,18 @@ public class DDServer extends DDServiceImplBase {
 
 	public static void startDiscovery() throws IOException, InterruptedException {
 		try {
-			// Create a JmDNS instance
+
 			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
-			// Add a service listener
 			jmdns.addServiceListener("_http._tcp.local.", new SampleListener());
 			System.out.println("Listening");
-			// Wait a bit
-			Thread.sleep(30000);
-		} catch (UnknownHostException e) {
+
+			Thread.sleep(25000);
+		} 
+		catch (UnknownHostException e) {
 			System.out.println(e.getMessage());
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -100,7 +111,8 @@ public class DDServer extends DDServiceImplBase {
 
 		 if(myDD.isOn()) {
 			  status ="On";
-		 }else {
+		 }
+		 else {
 			  status ="Off";
 
 		 }
@@ -124,12 +136,13 @@ public class DDServer extends DDServiceImplBase {
 		 System.out.println("receiving Helpful for DD");
 		 int newHelpful = currentHelpful+changeHelpful;
 		 if(newHelpful>10 || newHelpful<0) {
-			 System.out.println("Helpful request is over 10 or less than 0:" +newHelpful);
+			 System.out.println("Helpful must be between 0-10:" +newHelpful);
 			 System.out.println("Returning current Helpful:" +myDD.getHelpful());
 			 ValResponse response = ValResponse.newBuilder().setLength(myDD.getHelpful()).build();
 				responseObserver.onNext(response);
 				responseObserver.onCompleted();
-		 }else {
+		 }
+		 else {
 			 System.out.println("New Helpful is set :" +newHelpful);
 			 myDD.setHelpful(newHelpful);
 			 ValResponse response = ValResponse.newBuilder().setLength(newHelpful).build();
@@ -145,12 +158,13 @@ public class DDServer extends DDServiceImplBase {
 		 System.out.println("receiving Frequency for DD");
 		 int newFrequency = currentFrequency+changeFrequency;
 		 if(newFrequency>10 || newFrequency<0) {
-			 System.out.println("Frequency request is over 10 or less than 0:" +newFrequency);
+			 System.out.println("Frequency must be between 0-10:" +newFrequency);
 			 System.out.println("Returning current Frequency:" +myDD.getFrequency());
 			 ValResponse response = ValResponse.newBuilder().setLength(myDD.getFrequency()).build();
 				responseObserver.onNext(response);
 				responseObserver.onCompleted();
-		 }else {
+		 }
+		 else {
 			 System.out.println("New Frequency is set :" +newFrequency);
 			 myDD.setFrequency(newFrequency);
 			 ValResponse response = ValResponse.newBuilder().setLength(newFrequency).build();
@@ -173,14 +187,14 @@ public class DDServer extends DDServiceImplBase {
 
 	@Override
 	public void changeSystemName(StringRequest request, StreamObserver<StringResponse> responseObserver) {
-		 String name = request.getText();
-		 System.out.println("Changing DD name to "+name);
+		String name = request.getText();
+		System.out.println("Changing DD name to " + name);
 
-			 myDD.setSystemName(name);
-		 
-		 StringResponse response = StringResponse.newBuilder().setText(name).build();
-		 System.out.println("Response "+response.getText());
-		 responseObserver.onNext(response);
+		myDD.setSystemName(name);
+
+		StringResponse response = StringResponse.newBuilder().setText(name).build();
+		System.out.println("Response " + response.getText());
+		responseObserver.onNext(response);
 		responseObserver.onCompleted();
 	}
 

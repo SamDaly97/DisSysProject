@@ -47,18 +47,18 @@ public class Discovering {
 
     public static void main(String[] args) throws InterruptedException {
         try {
-            // Create a JmDNS instance
             JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
            
 
-            // Add a service listener
             jmdns.addServiceListener("_http._tcp.local.", new SampleListener());
             System.out.println("Listening");
-            // Wait a bit
-            Thread.sleep(3000);
-        } catch (UnknownHostException e) {
+
+            Thread.sleep(25000);
+        } 
+        catch (UnknownHostException e) {
             System.out.println(e.getMessage());
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }

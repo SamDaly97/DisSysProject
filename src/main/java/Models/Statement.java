@@ -1,5 +1,14 @@
 package Models;
-
+/*
+ * model for statement class
+ * deals with statement name
+ * on or off
+ * custom statement name
+ * helpfulness
+ * stopping statement
+ * 
+ * 
+ */
 public class Statement {
 	private String system, systemName;
 	private boolean On, stop;

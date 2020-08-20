@@ -1,5 +1,12 @@
 package Models;
-
+/*
+ * model for user class
+ * deals with user name
+ * on or off which translates to if they are active or not
+ * custom name for user
+ * activity level
+ * 
+ */
 public class User {
 	private String system, systemName;
 	private boolean on;

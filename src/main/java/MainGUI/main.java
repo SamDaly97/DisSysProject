@@ -41,10 +41,8 @@ public class main {
 	private JFrame frame;
 	private JTextField system_name_text;
 	private JTextField system_onOff_text;
-	private JTextField system_extra_op_text;
-	private JTextField system_extra_op2_text;
 
-	// All Stubs and channels
+	// stubs and channels for services
 	private static UserServiceGrpc.UserServiceBlockingStub user_blockingStub;
 	private static UserServiceGrpc.UserServiceStub user_asyncStub;
 	private static UserServiceGrpc.UserServiceFutureStub user_futureStub;
@@ -91,32 +89,29 @@ public class main {
 	int statementPort = 1236;
 	int phonePort = 1237;
 
-	/**
-	 * Launch the application.
-	 */
+	// Launching the application.
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					main window = new main();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+				} 
+				catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
 
-	/**
-	 * Create the application.
-	 * 
-	 * @throws InterruptedException
-	 * @throws IOException
-	 */
+	// Creating the application.
+
 	public main() throws InterruptedException, IOException {
 		initialize();
 		Registering r = new Registering();
-		// Start Device Registry, GRPC servers and channels then unregister
+		// Starting register, servers, channel and stubs, unregistering and loading
+		// initial systems
 		r.jmndsRegister(userPort, ddPort, statementPort, phonePort);
 		startGRPCServers();
 		channels();
@@ -124,13 +119,7 @@ public class main {
 		loadInitialDevices();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 * 
-	 * @throws InterruptedException
-	 * @throws IOException
-	 *
-	 */
+	// starting the servers 1234,1235,1236,1237
 	public void startGRPCServers() throws IOException, InterruptedException {
 		UserServer.startDiscovery();
 		DDServer.startDiscovery();
@@ -138,6 +127,7 @@ public class main {
 
 	}
 
+	// initialising system
 	public void loadInitialDevices() throws IOException, InterruptedException {
 		initialUser();
 		initialDD();
@@ -145,6 +135,7 @@ public class main {
 		initialPhone();
 	}
 
+	// starting channels
 	public void channels() {
 
 		System.out.println("CHANNELS STARTING");
@@ -170,6 +161,8 @@ public class main {
 
 	}
 
+	// initializing the GUI
+	// setting backgrounds and labels
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.cyan);
@@ -177,7 +170,6 @@ public class main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		/* Heading Label */
 		JLabel headLabel = new JLabel("EBank");
 		headLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 		headLabel.setBounds(101, 11, 245, 14);
@@ -220,7 +212,7 @@ public class main {
 		device_name3_lbl.setBounds(56, 180, 83, 14);
 		frame.getContentPane().add(device_name3_lbl);
 
-		JLabel status_3_lbl = new JLabel("Status");
+		JLabel status_3_lbl = new JLabel("Battery");
 		status_3_lbl.setBounds(270, 180, 48, 14);
 		frame.getContentPane().add(status_3_lbl);
 
@@ -228,7 +220,7 @@ public class main {
 		lblApplication.setBounds(355, 180, 63, 14);
 		frame.getContentPane().add(lblApplication);
 
-		JLabel battery_lbl = new JLabel("Battery");
+		JLabel battery_lbl = new JLabel("Status");
 		battery_lbl.setBounds(170, 180, 83, 14);
 		frame.getContentPane().add(battery_lbl);
 
@@ -244,15 +236,13 @@ public class main {
 		lblActivity.setBounds(254, 225, 72, 14);
 		frame.getContentPane().add(lblActivity);
 
-		// DD Helpful Buttons
-		//////////////////////
-		JButton dd_helpfulUp_btn = new JButton("+");
+		JButton dd_helpfulUp_btn = new JButton("↑");
 		dd_helpfulUp_btn.setFont(new Font("Tahoma", Font.BOLD, 5));
 		dd_helpfulUp_btn.setBounds(290, 104, 38, 20);
 		frame.getContentPane().add(dd_helpfulUp_btn);
+		
 		dd_helpfulUp_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
 				System.out.println(+1);
 				changeHelpful(1, "DD");
 			}
@@ -262,34 +252,32 @@ public class main {
 		dd_helpfulDown_btn.setFont(new Font("Tahoma", Font.BOLD, 5));
 		dd_helpfulDown_btn.setBounds(254, 104, 38, 20);
 		frame.getContentPane().add(dd_helpfulDown_btn);
+		
 		dd_helpfulDown_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
 				System.out.println(-1);
 				changeHelpful(-1, "DD");
 			}
 		});
 
-		//////////////////////
-		// Statement Helpful Buttons
-		//////////////////////
 		JButton statement_helpfulDown_btn = new JButton("-");
 		statement_helpfulDown_btn.setFont(new Font("Tahoma", Font.BOLD, 5));
 		statement_helpfulDown_btn.setBounds(254, 149, 38, 20);
 		frame.getContentPane().add(statement_helpfulDown_btn);
+		
 		statement_helpfulDown_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
 				System.out.println(-1);
 				changeHelpful(-1, "Statement");
 			}
 		});
 
-		JButton sstatement_helpfulUp_btn = new JButton("+");
+		JButton sstatement_helpfulUp_btn = new JButton("↑");
 
 		sstatement_helpfulUp_btn.setFont(new Font("Tahoma", Font.BOLD, 5));
 		sstatement_helpfulUp_btn.setBounds(290, 149, 38, 20);
 		frame.getContentPane().add(sstatement_helpfulUp_btn);
+		
 		sstatement_helpfulUp_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(+1);
@@ -297,13 +285,11 @@ public class main {
 			}
 		});
 
-		/////////////
-		// Text Fields
-		/////////////
 		ddName_tf = new JTextField();
 		ddName_tf.setBounds(56, 105, 86, 20);
 		frame.getContentPane().add(ddName_tf);
 		ddName_tf.setColumns(10);
+		
 		ddName_tf.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 				System.out.println("changedUpdate " + ddName_tf.getText());
@@ -327,7 +313,6 @@ public class main {
 		frame.getContentPane().add(statementName_tf);
 		statementName_tf.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
-
 			}
 
 			public void removeUpdate(DocumentEvent e) {
@@ -345,11 +330,10 @@ public class main {
 		phoneName_tf.setColumns(10);
 		phoneName_tf.setBounds(56, 194, 86, 20);
 		frame.getContentPane().add(phoneName_tf);
+		
 		phoneName_tf.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
-
 			}
-
 			public void removeUpdate(DocumentEvent e) {
 				changeSystemName(phoneName_tf.getText(), "Phone");
 			}
@@ -365,30 +349,25 @@ public class main {
 		userName_tf.setColumns(10);
 		userName_tf.setBounds(56, 238, 86, 20);
 		frame.getContentPane().add(userName_tf);
+		
 		userName_tf.getDocument().addDocumentListener(new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
-
 			}
-
 			public void removeUpdate(DocumentEvent e) {
 				changeSystemName(userName_tf.getText(), "User");
 			}
-
 			public void insertUpdate(DocumentEvent e) {
 				changeSystemName(userName_tf.getText(), "User");
 			}
 
 		});
 
-/////////////////////////
-//User Activity Buttons
-/////////////////////////
 		JButton user_activityDown_btn = new JButton("-");
 		user_activityDown_btn.setFont(new Font("Tahoma", Font.BOLD, 5));
 		user_activityDown_btn.setBounds(254, 240, 38, 20);
 		frame.getContentPane().add(user_activityDown_btn);
+		
 		user_activityDown_btn.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(-1);
@@ -396,12 +375,12 @@ public class main {
 			}
 		});
 
-		JButton user_activityUp_btn = new JButton("+");
+		JButton user_activityUp_btn = new JButton("↑");
 		user_activityUp_btn.setFont(new Font("Tahoma", Font.BOLD, 5));
 		user_activityUp_btn.setBounds(290, 240, 38, 20);
 		frame.getContentPane().add(user_activityUp_btn);
+		
 		user_activityUp_btn.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(1);
@@ -465,29 +444,28 @@ public class main {
 				if (ddOnOff_tgl.isSelected()) {
 					ddOnOff_tgl.setText("On");
 					onOff(true, "DD");
-				} else {
+				} 
+				else {
 					ddOnOff_tgl.setText("Off");
 					onOff(false, "DD");
-
 				}
-
 			}
-
 		});
 
 		final JToggleButton statementOnOff_tgl = new JToggleButton("On");
 		statementOnOff_tgl.setSelected(true);
 		statementOnOff_tgl.setBounds(160, 149, 86, 20);
 		frame.getContentPane().add(statementOnOff_tgl);
+		
 		statementOnOff_tgl.addChangeListener(new ChangeListener() {
-
 			@Override
 			public void stateChanged(ChangeEvent event) {
 				if (statementOnOff_tgl.isSelected()) {
 					statementOnOff_tgl.setText("On");
 					onOff(true, "Statement");
 
-				} else {
+				} 
+				else {
 					statementOnOff_tgl.setText("Off");
 					onOff(false, "Statement");
 				}
@@ -499,15 +477,16 @@ public class main {
 		phoneOnOff_tgl.setSelected(true);
 		phoneOnOff_tgl.setBounds(160, 194, 86, 20);
 		frame.getContentPane().add(phoneOnOff_tgl);
+		
 		phoneOnOff_tgl.addChangeListener(new ChangeListener() {
-
 			@Override
 			public void stateChanged(ChangeEvent event) {
 				if (phoneOnOff_tgl.isSelected()) {
 					phoneOnOff_tgl.setText("On");
 					onOff(true, "Phone");
 
-				} else {
+				} 
+				else {
 					phoneOnOff_tgl.setText("Off");
 					onOff(false, "Phone");
 
@@ -520,14 +499,15 @@ public class main {
 		userOnOff_tgl.setSelected(true);
 		userOnOff_tgl.setBounds(160, 240, 86, 20);
 		frame.getContentPane().add(userOnOff_tgl);
+		
 		userOnOff_tgl.addChangeListener(new ChangeListener() {
-
 			@Override
 			public void stateChanged(ChangeEvent event) {
 				if (userOnOff_tgl.isSelected()) {
 					userOnOff_tgl.setText("On");
 					onOff(true, "User");
-				} else {
+				}
+				else {
 					userOnOff_tgl.setText("Off");
 					onOff(false, "User");
 				}
@@ -538,8 +518,8 @@ public class main {
 		final JToggleButton statementStop_tgl = new JToggleButton("Stop");
 		statementStop_tgl.setBounds(345, 149, 86, 20);
 		frame.getContentPane().add(statementStop_tgl);
+	
 		statementStop_tgl.addChangeListener(new ChangeListener() {
-
 			@Override
 			public void stateChanged(ChangeEvent event) {
 				if (statementStop_tgl.isSelected()) {
@@ -547,7 +527,8 @@ public class main {
 					stop(true);
 					statementInfo_stop.setText("Stopped");
 
-				} else {
+				} 
+				else {
 					statementStop_tgl.setText("Stop");
 					stop(false);
 					statementInfo_stop.setText("Stop");
@@ -557,10 +538,11 @@ public class main {
 			}
 		});
 
-		JButton ddFrequencyDown_btn = new JButton("-");
+		JButton ddFrequencyDown_btn = new JButton("↓");
 		ddFrequencyDown_btn.setFont(new Font("Tahoma", Font.BOLD, 5));
 		ddFrequencyDown_btn.setBounds(355, 104, 38, 20);
 		frame.getContentPane().add(ddFrequencyDown_btn);
+		
 		ddFrequencyDown_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(1);
@@ -568,10 +550,11 @@ public class main {
 			}
 		});
 
-		JButton ddFrequencyUp_btn = new JButton("+");
+		JButton ddFrequencyUp_btn = new JButton("↑");
 		ddFrequencyUp_btn.setFont(new Font("Tahoma", Font.BOLD, 5));
 		ddFrequencyUp_btn.setBounds(391, 104, 38, 20);
 		frame.getContentPane().add(ddFrequencyUp_btn);
+		
 		ddFrequencyUp_btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(+1);
@@ -584,8 +567,8 @@ public class main {
 		appList.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		appList.setBounds(345, 194, 86, 20);
 		frame.getContentPane().add(appList);
+		
 		appList.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 				JComboBox cb = (JComboBox) e.getSource();
 				String appName = (String) cb.getSelectedItem();
@@ -593,7 +576,7 @@ public class main {
 			}
 		});
 
-		JLabel lblDeviceStatus_1 = new JLabel("Device Status");
+		JLabel lblDeviceStatus_1 = new JLabel("Status");
 		lblDeviceStatus_1.setBounds(170, 90, 83, 14);
 		frame.getContentPane().add(lblDeviceStatus_1);
 
@@ -667,6 +650,7 @@ public class main {
 
 	}
 
+	// changing system name
 	public void changeSystemName(String newName, String system) {
 
 		System.out.println("New Name " + newName);
@@ -675,7 +659,7 @@ public class main {
 		StringRequest req = StringRequest.newBuilder().setText(newName).build();
 		System.out.println("Changing system Name");
 
-		// Handle device
+		// Handle system
 		if (system.equals("DD")) {
 			System.out.println("system is a DD");
 			StringRequest request = StringRequest.newBuilder().setText(newName).build();
@@ -701,26 +685,31 @@ public class main {
 				}
 
 			};
+			
 			dd_asyncStub.changeSystemName(request, responseObserver);
 			try {
 				Thread.sleep(200);
-			} catch (InterruptedException e) {
+			} 
+			catch (InterruptedException e) {
 				System.out.println("Connection Interrupted");
 
 			}
-		} else if (system.equals("Statement")) {
+		} 
+		else if (system.equals("Statement")) {
 			System.out.println("system is a Statement");
 			StringResponse response = statement_blockingStub.changeSystemName(req);
 			System.out.println("Statement Response " + response.getText());
 			statementInfo_name.setText("Name: " + response.getText());
 
-		} else if (system.equals("User")) {
+		} 
+		else if (system.equals("User")) {
 			System.out.println("system is a User");
 			StringResponse response = user_blockingStub.changeSystemName(req);
 			System.out.println("User Response " + response.getText());
 			userInfo_name.setText("Name: " + response.getText());
 
-		} else if (system.equals("Phone")) {
+		} 
+		else if (system.equals("Phone")) {
 			StringResponse response = phone_blockingStub.changePhoneName(req);
 			System.out.println("Phone Response " + response.getText());
 			phoneInfo_name.setText("Name: " + response.getText());
@@ -728,19 +717,18 @@ public class main {
 
 	}
 
+	// changing helpful
 	public void changeHelpful(int helpful, String system) {
 		ValRequest req = ValRequest.newBuilder().setLength(helpful).build();
-		System.out.println("Changing volume");
+		System.out.println("Changing Helpful");
 
 		if (system.equals("DD")) {
 			StreamObserver<ValResponse> response = new StreamObserver<ValResponse>() {
-
 				@Override
 				public void onNext(ValResponse value) {
 					System.out.println("Receiving " + value);
 					String help = String.valueOf(value.getLength());
 					ddInfo_helpful.setText("Helpful" + help);
-
 				}
 
 				@Override
@@ -756,14 +744,14 @@ public class main {
 				}
 
 			};
-			// Handle device to work with
+
 
 			dd_asyncStub.changeHelpful(req, response);
 			System.out.println("DD response " + req.getLength());
 
-		} else if (system.equals("Statement")) {
+		} 
+		else if (system.equals("Statement")) {
 			StreamObserver<ValResponse> response = new StreamObserver<ValResponse>() {
-
 				@Override
 				public void onNext(ValResponse value) {
 					System.out.println("Receiving " + value);
@@ -780,27 +768,27 @@ public class main {
 				@Override
 				public void onCompleted() {
 					// TODO Auto-generated method stub
-					System.out.println("Completed changing volume");
+					System.out.println("Completed changing helpful");
 				}
 
 			};
-
 			statement_asyncStub.changeHelpful(req, response);
 			System.out.println("Statement Response" + req.getLength());
 		}
 
 	}
 
+	// changing user activity
 	public void changeActivity(int value) {
 		ValRequest request = ValRequest.newBuilder().setLength(value).build();
-		System.out.println("Changing Brightness");
+		System.out.println("Changing activity");
+		
 		StreamObserver<ValResponse> response = new StreamObserver<ValResponse>() {
-
 			@Override
 			public void onNext(ValResponse value) {
 				System.out.println("Receiving " + value);
-				String brightness = String.valueOf(value.getLength());
-				userInfo_activity.setText("Activity: " + brightness);
+				String activity = String.valueOf(value.getLength());
+				userInfo_activity.setText("Activity: " + activity);
 			}
 
 			@Override
@@ -812,250 +800,256 @@ public class main {
 			@Override
 			public void onCompleted() {
 				// TODO Auto-generated method stub
-				System.out.println("Completed changing brightness");
+				System.out.println("Completed changing activity");
 			}
 
 		};
 		user_asyncStub.changeActivity(request, response);
 
 	}
-	
-	
+
+	// changing frequency
 	public void changeFrequency(int value) {
 		ValRequest req = ValRequest.newBuilder().setLength(value).build();
 		System.out.println("Changing Frequency");
-		
-		ValResponse response;
-		//Error Handling
-		try {
-			 response =dd_blockingStub.changeFrequency(req);
 
-		}catch(StatusRuntimeException e) {
-			System.out.println("RPC failed: {0}"+ e.getStatus());
+		ValResponse response;
+		// Error Handling
+		try {
+			response = dd_blockingStub.changeFrequency(req);
+
+		} 
+		catch (StatusRuntimeException e) {
+			System.out.println("failed: " + e.getStatus());
 			return;
 		}
-		
-		System.out.println("DD Frequency response"+response.getLength());
-		String frequency = String.valueOf(response.getLength());
-        ddInfo_frequency.setText("frequency No: "+frequency);
 
-		
+		System.out.println("DD Frequency response" + response.getLength());
+		String frequency = String.valueOf(response.getLength());
+		ddInfo_frequency.setText("frequency No: " + frequency);
 
 	}
-	
-	
+
+	// changing phone app
 	public void changeApplication(String appName) {
 		StringRequest req = StringRequest.newBuilder().setText(appName).build();
-		System.out.println("Changing application to "+ req.getText());
+		System.out.println("Changing application to " + req.getText());
 		StringResponse response;
-		
-		
-		//Error Handling
-		try {
-			 response = phone_blockingStub.changeApplication(req);
 
-		}catch(StatusRuntimeException e) {
-			System.out.println("RPC failed: {0}"+ e.getStatus());
+		// Error Handling
+		try {
+			response = phone_blockingStub.changeApplication(req);
+
+		} 
+		catch (StatusRuntimeException e) {
+			System.out.println("failed: " + e.getStatus());
 			return;
 		}
-		
-		
-		
-		System.out.println("Phone app response"+response.getText());
-		String app = String.valueOf(response.getText());
-        phoneInfo_app.setText("App: "+app);
 
-		
+		System.out.println("Phone app response" + response.getText());
+		String app = String.valueOf(response.getText());
+		phoneInfo_app.setText("App: " + app);
 
 	}
-	
+
+	// stopping statements
 	public void stop(boolean value) {
 		BooleanReq req = BooleanReq.newBuilder().setMsg(value).build();
 		System.out.println("Stop");
 		BooleanRes response;
-		//Error Handling
+		// Error Handling
 		try {
-			 response =statement_blockingStub.stop(req);
+			response = statement_blockingStub.stop(req);
 
-		}catch(StatusRuntimeException e) {
-			System.out.println("RPC failed: {0}"+ e.getStatus());
+		} 
+		catch (StatusRuntimeException e) {
+			System.out.println("failed: " + e.getStatus());
 			return;
 		}
 	}
 
-	
-	
+	// on and off
 	public void onOff(boolean onOff, String system) {
 		BooleanReq req = BooleanReq.newBuilder().setMsg(onOff).build();
 		System.out.println("On Off");
 
 
-	//Handle device to work with
-		if(system.equals("DD")) {
+		if (system.equals("DD")) {
 			BooleanRes response;
-			//Error Handling
+			// Error Handling
 			try {
-				 response  = dd_blockingStub.onOff(req);
+				response = dd_blockingStub.onOff(req);
 
-			}catch(StatusRuntimeException e) {
-				System.out.println("RPC failed: {0}"+ e.getStatus());
+			} 
+			catch (StatusRuntimeException e) {
+				System.out.println("failed: " + e.getStatus());
 				return;
 			}
 
-			
-			
-			
-				System.out.println("DD response"+response.getMsg());
-			Boolean status=	response.getMsg();
-			if(status) {
+			System.out.println("DD response" + response.getMsg());
+			Boolean status = response.getMsg();
+			if (status) {
 				ddInfo_status.setText("Status: On");
-			}else {
+			} 
+			else {
 				ddInfo_status.setText("Status: Off");
 			}
-		}else if(system.equals("Statement")) {
+		} 
+		else if (system.equals("Statement")) {
 			BooleanRes response;
-			//Error Handling
+			// Error Handling
 			try {
-				 response = statement_blockingStub.onOff(req);
+				response = statement_blockingStub.onOff(req);
 
-			}catch(StatusRuntimeException e) {
-				System.out.println("RPC failed: {0}"+ e.getStatus());
+			} 
+			catch (StatusRuntimeException e) {
+				System.out.println("failed: " + e.getStatus());
 				return;
 			}
-				System.out.println("Statement Response"+response.getMsg());
-				Boolean status=	response.getMsg();
-				if(status) {
-					statementInfo_status.setText("Status: On");
-				}else {
-					statementInfo_status.setText("Status: Off");
-				}
-		}else if(system.equals("Phone")) {
+			System.out.println("Statement Response" + response.getMsg());
+			Boolean status = response.getMsg();
+			if (status) {
+				statementInfo_status.setText("Status: On");
+			} 
+			else {
+				statementInfo_status.setText("Status: Off");
+			}
+		} 
+		else if (system.equals("Phone")) {
 			System.out.println("Phone Response ");
 
 			BooleanRes response;
-			//Error Handling
+			// Error Handling
 			try {
-				 response = phone_blockingStub.onOff(req);
+				response = phone_blockingStub.onOff(req);
 
-			}catch(StatusRuntimeException e) {
-				System.out.println("RPC failed: {0}"+ e.getStatus());
+			} 
+			catch (StatusRuntimeException e) {
+				System.out.println("RPC failed: " + e.getStatus());
 				return;
 			}
-			
-			System.out.println("phone Response"+response.getMsg());
-			Boolean status=	response.getMsg();
-			if(status) {
+
+			System.out.println("phone Response" + response.getMsg());
+			Boolean status = response.getMsg();
+			if (status) {
 				phoneInfo_status.setText("Status: On");
-			}else {
+			} 
+			else {
 				phoneInfo_status.setText("Status: Off");
 			}
-		}else if(system.equals("User")) {
-			BooleanRes response ;
-			
-			//Error Handling
-			try {
-				 response = user_blockingStub.onOff(req);
+		} 
+		else if (system.equals("User")) {
+			BooleanRes response;
 
-			}catch(StatusRuntimeException e) {
-				System.out.println("RPC failed: {0}"+ e.getStatus());
+			// Error Handling
+			try {
+				response = user_blockingStub.onOff(req);
+
+			} 
+			catch (StatusRuntimeException e) {
+				System.out.println("failed: " + e.getStatus());
 				return;
 			}
-			
-			
-			
-			System.out.println("User Response"+response.getMsg());
-			Boolean status=	response.getMsg();
-			if(status) {
+
+			System.out.println("User Response" + response.getMsg());
+			Boolean status = response.getMsg();
+			if (status) {
 				userInfo_status.setText("Status: On");
-			}else {
+			} 
+			else {
 				userInfo_status.setText("Status: Off");
 			}
 		}
 	}
-	
+
+	// initialize statement
 	public void initialStatement() {
 		Empty req = Empty.newBuilder().build();
 		System.out.println("Initial Statement");
 		statementResp response;
-		//Error Handling
+		// Error Handling
 		try {
-			 response = statement_blockingStub.initialSystem(req);
+			response = statement_blockingStub.initialSystem(req);
 
-		}catch(StatusRuntimeException e) {
-			System.out.println("RPC failed: {0}"+ e.getStatus());
+		} 
+		catch (StatusRuntimeException e) {
+			System.out.println("failed: " + e.getStatus());
 			return;
-		}		
-		statementInfo_name.setText("Name: "+response.getSname());
-		statementInfo_status.setText("Status: "+response.getStatus());
+		}
+		statementInfo_name.setText("Name: " + response.getSname());
+		statementInfo_status.setText("Status: " + response.getStatus());
 		String helpful = String.valueOf(response.getHelpful());
-		statementInfo_helpful.setText("Helpful: "+helpful);
+		statementInfo_helpful.setText("Helpful: " + helpful);
 
 	}
-	
-	
+
+	// initialize direct debit
 	public void initialDD() {
 		Empty req = Empty.newBuilder().build();
 		System.out.println("Initial DD");
 		ddResp response;
-		
-		//Error Handling
+
+		// Error Handling
 		try {
-			 response = dd_blockingStub.initialSystem(req);
+			response = dd_blockingStub.initialSystem(req);
 
-		}catch(StatusRuntimeException e) {
-			System.out.println("RPC failed: {0}"+ e.getStatus());
+		} 
+		catch (StatusRuntimeException e) {
+			System.out.println("failed: " + e.getStatus());
 			return;
-		}		
-		ddInfo_name.setText("Name: "+response.getSname());
-		ddInfo_status.setText("Status: "+response.getStatus());
+		}
+		ddInfo_name.setText("Name: " + response.getSname());
+		ddInfo_status.setText("Status: " + response.getStatus());
 		String helpful = String.valueOf(response.getHelpful());
-		ddInfo_helpful.setText("Helpful: "+helpful);
+		ddInfo_helpful.setText("Helpful: " + helpful);
 		String frequency = String.valueOf(response.getFrequency());
-		ddInfo_frequency.setText("Channel: "+frequency);
-
+		ddInfo_frequency.setText("Frequency: " + frequency);
 
 	}
-	
-	
+
+	// initialize user
 	public void initialUser() {
 		Empty req = Empty.newBuilder().build();
 		System.out.println("Initial User");
 		userResp response;
-		//Error Handling
+		// Error Handling
 		try {
-			 response = user_blockingStub.initialSystem(req);
+			response = user_blockingStub.initialSystem(req);
 
-		}catch(StatusRuntimeException e) {
-			System.out.println("RPC failed: {0}"+ e.getStatus());
+		} 
+		catch (StatusRuntimeException e) {
+			System.out.println("failed: " + e.getStatus());
 			return;
-		}		
-		
-		userInfo_name.setText("Name: "+response.getSname());
-		userInfo_status.setText("Status: "+response.getStatus());
+		}
+
+		userInfo_name.setText("Name: " + response.getSname());
+		userInfo_status.setText("Status: " + response.getStatus());
 		String activity = String.valueOf(response.getActivity());
-		userInfo_activity.setText("Activity: "+ activity);
+		userInfo_activity.setText("Activity: " + activity);
 
 	}
+
+	// initialize phone
 	public void initialPhone() {
 		Empty req = Empty.newBuilder().build();
 		System.out.println("Initial Phone");
 		org.DS.project.EBankGRPC.phoneResp response;
-		
-		//Error Handling
-		try {
-			 response = phone_blockingStub.initialPhone(req);
 
-		}catch(StatusRuntimeException e) {
-			System.out.println("RPC failed: {0}"+ e.getStatus());
+		// Error Handling
+		try {
+			response = phone_blockingStub.initialPhone(req);
+
+		} 
+		catch (StatusRuntimeException e) {
+			System.out.println("failed: " + e.getStatus());
 			return;
-		}		
-		
-		phoneInfo_name.setText("Name: "+response.getPname());
-		phoneInfo_status.setText("Status: "+response.getStatus());
+		}
+
+		phoneInfo_name.setText("Name: " + response.getPname());
+		phoneInfo_status.setText("Status: " + response.getStatus());
 		String battery = String.valueOf(response.getBattery());
-		phoneInfo_app.setText("App: "+ response.getApp());
-		phoneInfo_battery.setText("Battery:"+battery);
+		phoneInfo_app.setText("App: " + response.getApp());
+		phoneInfo_battery.setText("Battery:" + battery);
 	}
-	
-	
+
 }

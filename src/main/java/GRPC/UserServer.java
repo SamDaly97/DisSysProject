@@ -23,7 +23,14 @@ import Models.User;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-
+/*
+ * User server class
+ * this sets up discovering and registering for JMDNS
+ * starts server once index is run
+ * connects via GUI
+ * auto generated override/implement methods added for functionality 
+ * 
+ */
 public class UserServer extends UserServiceImplBase {
 	private static final Logger logger = Logger.getLogger(UserServer.class.getName());
 	public User myUser = new User();
@@ -44,18 +51,20 @@ public class UserServer extends UserServiceImplBase {
 			System.out.println("Service resolved: " + event.getInfo());
 			System.out.println("Get Name: " + event.getName() + " PORT: " + event.getInfo().getPort());
 
-			// Start GRPC server with discovered device
+
 			if (event.getName().equals("User")) {
 				System.out.println("Found User port: " + event.getInfo().getPort());
 				try {
 					userPort = event.getInfo().getPort();
 					startGRPC(event.getInfo().getPort());
 
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
+				} 
+				catch (IOException e) {
+
 					e.printStackTrace();
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
+				} 
+				catch (InterruptedException e) {
+
 					e.printStackTrace();
 				}
 
@@ -72,17 +81,19 @@ public class UserServer extends UserServiceImplBase {
 
 	public static void startDiscovery() throws IOException, InterruptedException {
 		try {
-			// Create a JmDNS instance
+
 			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
-			// Add a service listener
+
 			jmdns.addServiceListener("_http._tcp.local.", new SampleListener());
 			System.out.println("Listening");
-			// Wait a bit
-			Thread.sleep(30000);
-		} catch (UnknownHostException e) {
+
+			Thread.sleep(25000);
+		} 
+		catch (UnknownHostException e) {
 			System.out.println(e.getMessage());
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -113,7 +124,8 @@ public class UserServer extends UserServiceImplBase {
 
 		if (myUser.isOn()) {
 			status = "On";
-		} else {
+		} 
+		else {
 			status = "Off";
 
 		}
@@ -133,12 +145,13 @@ public class UserServer extends UserServiceImplBase {
 		System.out.println("receiving activity for user");
 		int newActivity = currentActivity + changeActivity;
 		if (newActivity > 10 || newActivity < 0) {
-			System.out.println("Brigtness request is over 100 or less than 0:" + newActivity);
+			System.out.println("Activity must be between 0-10: " + newActivity);
 			System.out.println("Returning current Activity:" + myUser.getActivity());
 			ValResponse response = ValResponse.newBuilder().setLength(myUser.getActivity()).build();
 			responseObserver.onNext(response);
 			responseObserver.onCompleted();
-		} else {
+		} 
+		else {
 			System.out.println("New Activity is set :" + newActivity);
 			myUser.setActivity(newActivity);
 			ValResponse response = ValResponse.newBuilder().setLength(newActivity).build();
